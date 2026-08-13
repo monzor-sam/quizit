@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuizIT — HUMCOM+</title>
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- ============================= -->
+    <!-- START SCREEN -->
+    <!-- ============================= -->
+
+    <section id="startScreen">
+
+        <div class="hero">
+
+            <div class="kicker">
+                HUMCOM+ • REVIEWER
+            </div>
+
+            <h1 class="title display">
+                QuizIT <span>HUMCOM+</span>
+            </h1>
+
+            <p class="subtitle">
+                Human Computer Interaction
+            </p>
+
+            <div class="start-card">
+
+                <div class="start-icon">
+                    🧑‍💻
+                </div>
+
+                <h2>
+                    Ready to Review?
+                </h2>
+
+                <p>
+                    Test your knowledge of human information processing, vision, hearing, touch and movement, and memory.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    id="startBtn">
+                    Start Reviewer →
+                </button>
+
+                <a
+                    href="../index.html"
+                    class="btn btn-ghost">
+                    ← Back to Subjects
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- QUIZ SCREEN -->
+    <!-- ============================= -->
+
+    <section
+        id="quizScreen"
+        style="display:none;">
+
+        <div class="quiz-container">
+
+            <!-- TOP BAR -->
+
+            <div class="quiz-top">
+
+                <a
+                    href="../index.html"
+                    class="back-link">
+                    ← Subjects
+                </a>
+
+                <div class="subject-label">
+                    HUMCOM+
+                </div>
+
+                <div
+                    class="timer"
+                    id="timer">
+                    15
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION INFO -->
+
+            <div class="question-info">
+
+                <span id="questionNumber">
+                    Question 1
+                </span>
+
+                <span id="scoreDisplay">
+                    Score: 0
+                </span>
+
+                <span id="streakDisplay">
+                    🔥 0
+                </span>
+
+            </div>
+
+
+            <!-- TOPIC -->
+
+            <div
+                class="pill"
+                id="topicLabel">
+                Topic
+            </div>
+
+
+            <!-- QUESTION -->
+
+            <h2
+                id="questionText"
+                class="question">
+            </h2>
+
+
+            <!-- ANSWERS -->
+
+            <div
+                id="answers"
+                class="answers">
+
+            </div>
+
+
+            <!-- FEEDBACK -->
+
+            <div
+                id="feedback"
+                class="feedback-banner"
+                style="display:none;">
+
+                <div id="feedbackText"></div>
+
+                <div id="explanation"></div>
+
+            </div>
+
+
+            <!-- NEXT BUTTON -->
+
+            <button
+                id="nextBtn"
+                class="btn btn-primary"
+                style="display:none;">
+
+                Next Question →
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- RESULTS SCREEN -->
+    <!-- ============================= -->
+
+    <section
+        id="resultScreen"
+        style="display:none;">
+
+        <div class="hero">
+
+            <div class="kicker">
+                SUBJECT CODE • COMPLETE
+            </div>
+
+            <h1 class="title display">
+                Reviewer <span>Complete!</span>
+            </h1>
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    🏆
+                </div>
+
+                <h2 id="finalMessage">
+                    Great job!
+                </h2>
+
+
+                <!-- FINAL SCORE -->
+
+                <div class="final-score">
+
+                    <span id="finalScore">
+                        0
+                    </span>
+
+                    <small>
+                        points
+                    </small>
+
+                </div>
+
+
+                <!-- RESULT STATS -->
+
+                <div class="result-stats">
+
+                    <div>
+
+                        <strong id="correctCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Correct
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <strong id="totalCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Questions
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <strong id="bestStreak">
+                            0
+                        </strong>
+
+                        <span>
+                            Best Streak
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION REVIEW -->
+
+                <div
+                    id="reviewWrap"
+                    style="display:none;">
+
+                    <h3>
+                        Question Review
+                    </h3>
+
+                    <div id="reviewList"></div>
+
+                </div>
+
+
+                <!-- TRY AGAIN -->
+
+                <button
+                    class="btn btn-primary"
+                    onclick="location.reload()">
+
+                    Try Again 🔄
+
+                </button>
+
+
+                <!-- BACK TO SUBJECTS -->
+
+                <a
+                    href="../index.html"
+                    class="btn btn-ghost">
+
+                    Choose Another Subject
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================================= -->
+<!-- SUBJECT CONFIGURATION -->
+<!-- ================================= -->
+
+<script>
+
+    const SUBJECT = "HUMCOM+";
+
+    const QUESTIONS = [
+
+        // =================================================
+        // PART I — THE HUMAN AND INFORMATION PROCESSING
+        // =================================================
+
+        {
+            topic: "The Human and Information Processing",
+
+            q: "Which of the following best describes the human as presented in the lecture?",
+
+            options: [
+                "A system that only stores information",
+                "A system that receives, stores, processes, and applies information",
+                "A system that only responds to visual information",
+                "A system that operates independently of emotion"
+            ],
+
+            correct: 1,
+
+            explain:
+                "The presentation describes the human as a system that receives information, stores it in memory, processes it, and applies it."
+        },
+
+
+        {
+            topic: "The Human and Information Processing",
+
+            q: "Which of the following is identified as a type of information input?",
+
+            options: [
+                "Visual",
+                "Financial",
+                "Numerical",
+                "Linguistic only"
+            ],
+
+            correct: 0,
+
+            explain:
+                "Visual information is explicitly identified as one of the information input methods."
+        },
+
+
+        {
+            topic: "The Human and Information Processing",
+
+            q: "Which of the following is NOT one of the information input methods listed in the presentation?",
+
+            options: [
+                "Auditory",
+                "Haptic",
+                "Chemical",
+                "Visual"
+            ],
+
+            correct: 2,
+
+            explain:
+                "The presentation lists visual, auditory, and haptic information among its input methods, but does not list chemical information."
+        },
+
+
+        {
+            topic: "The Human and Information Processing",
+
+            q: "Information received by humans can be stored in which three forms of memory?",
+
+            options: [
+                "Visual, auditory, and tactile",
+                "Conscious, unconscious, and subconscious",
+                "Immediate, permanent, and emotional",
+                "Sensory, short-term, and long-term"
+            ],
+
+            correct: 3,
+
+            explain:
+                "The three forms of memory identified in the presentation are sensory, short-term, and long-term memory."
+        },
+
+
+        {
+            topic: "The Human and Information Processing",
+
+            q: "Which of the following is an example of information being processed and applied?",
+
+            options: [
+                "Reasoning",
+                "Sleeping",
+                "Hearing",
+                "Seeing"
+            ],
+
+            correct: 0,
+
+            explain:
+                "Reasoning is explicitly listed as an example of information being processed and applied."
+        },
+
+
+        {
+            topic: "The Human and Information Processing",
+
+            q: "Which factor is identified as influencing human capabilities?",
+
+            options: [
+                "Clothing",
+                "Temperature only",
+                "Emotion",
+                "Height"
+            ],
+
+            correct: 2,
+
+            explain:
+                "The presentation specifically identifies emotion as a factor that influences human capabilities."
+        },
+
+
+        {
+            topic: "The Human and Information Processing",
+
+            q: "According to the presentation, why should designers consider individual users?",
+
+            options: [
+                "Everyone has identical abilities",
+                "Each person is different",
+                "All users process information at exactly the same speed",
+                "Humans have the same sensory capabilities"
+            ],
+
+            correct: 1,
+
+            explain:
+                "The presentation emphasizes that each person is different, so designers should consider individual differences when designing interactions."
+        },
+
+
+        // =================================================
+        // PART II — VISION
+        // =================================================
+
+        {
+            topic: "Vision",
+
+            q: "According to the presentation, vision involves how many main stages?",
+
+            options: [
+                "Three",
+                "Four",
+                "One",
+                "Two"
+            ],
+
+            correct: 3,
+
+            explain:
+                "The presentation describes vision as involving two main stages: physical reception of the stimulus and processing or interpretation of the stimulus."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "What is the first stage of vision?",
+
+            options: [
+                "Memory retrieval",
+                "Physical reception of the stimulus",
+                "Interpretation of the stimulus",
+                "Language processing"
+            ],
+
+            correct: 1,
+
+            explain:
+                "Physical reception of the stimulus is identified as the first stage of vision."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "What happens during physical reception in the eye?",
+
+            options: [
+                "Memory is stored permanently",
+                "Language is decoded",
+                "Light is received and transformed into electrical energy",
+                "Sound is transformed into movement"
+            ],
+
+            correct: 2,
+
+            explain:
+                "During physical reception, the eye receives light and transforms it into electrical energy."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "Where are images focused in the eye?",
+
+            options: [
+                "Retina",
+                "Cornea",
+                "Auditory nerve",
+                "Lens"
+            ],
+
+            correct: 0,
+
+            explain:
+                "The presentation states that images are focused on the retina."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "How are images focused on the retina?",
+
+            options: [
+                "Sideways",
+                "Horizontally only",
+                "Right-side up",
+                "Upside down"
+            ],
+
+            correct: 3,
+
+            explain:
+                "The presentation states that images focused on the retina are upside down."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "Which cells in the retina are responsible for low-light vision?",
+
+            options: [
+                "Ganglion cells",
+                "Rods",
+                "Nociceptors",
+                "Cones"
+            ],
+
+            correct: 1,
+
+            explain:
+                "Rods are the retinal cells associated with vision in low-light conditions."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "Which cells are associated with colour vision?",
+
+            options: [
+                "Cones",
+                "Rods",
+                "Mechanoreceptors",
+                "Thermoreceptors"
+            ],
+
+            correct: 0,
+
+            explain:
+                "Cones are the retinal cells associated with colour vision."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "What do ganglion cells help detect?",
+
+            options: [
+                "Pain",
+                "Temperature and pressure",
+                "Sound frequency",
+                "Pattern and movement"
+            ],
+
+            correct: 3,
+
+            explain:
+                "The presentation identifies ganglion cells as helping detect pattern and movement."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "What does visual acuity refer to?",
+
+            options: [
+                "Ability to identify sound quality",
+                "Ability to perceive detail",
+                "Ability to hear high frequencies",
+                "Ability to detect pain"
+            ],
+
+            correct: 1,
+
+            explain:
+                "Visual acuity refers to the ability to perceive visual detail."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "What does saturation refer to in colour?",
+
+            options: [
+                "The size of an object",
+                "The brightness of light",
+                "The purity of colour",
+                "The distance of an object"
+            ],
+
+            correct: 2,
+
+            explain:
+                "Saturation refers to the purity of a colour."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "What does hue refer to?",
+
+            options: [
+                "What people generally think of when they say \"colour\"",
+                "The purity of a colour",
+                "The size of a visual object",
+                "The amount of light present"
+            ],
+
+            correct: 0,
+
+            explain:
+                "The presentation describes hue as what people generally think of when they say colour."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "What does value refer to in colour?",
+
+            options: [
+                "The physical size of an object",
+                "The distance between objects",
+                "Colour purity",
+                "The intensity, brightness, or lightness of a colour"
+            ],
+
+            correct: 3,
+
+            explain:
+                "Value refers to the intensity, brightness, or lightness of a colour."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "Which colour has the lowest acuity according to the presentation?",
+
+            options: [
+                "Yellow",
+                "Blue",
+                "Red",
+                "Green"
+            ],
+
+            correct: 1,
+
+            explain:
+                "The presentation specifically identifies blue as having the lowest acuity."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "Which of the following helps perception of size and depth?",
+
+            options: [
+                "Timbre",
+                "Loudness",
+                "Overlapping",
+                "Pitch"
+            ],
+
+            correct: 2,
+
+            explain:
+                "Overlapping is identified as a visual cue that helps with the perception of size and depth."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "What does visual angle indicate?",
+
+            options: [
+                "The frequency of light",
+                "How much of the field of view an object occupies",
+                "The purity of its colour",
+                "The brightness of an object"
+            ],
+
+            correct: 1,
+
+            explain:
+                "Visual angle indicates how much of the field of view an object occupies."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "During reading, when does perception occur?",
+
+            options: [
+                "During fixations",
+                "During blinking only",
+                "During saccades",
+                "After reading is finished"
+            ],
+
+            correct: 0,
+
+            explain:
+                "During reading, perception occurs during fixations, while the eyes move between them through saccades."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "Which of the following is involved in interpreting written language?",
+
+            options: [
+                "Rods, cones, and ganglion cells",
+                "Heat, pressure, and pain",
+                "Pitch, loudness, and timbre",
+                "Syntax, semantics, and pragmatics"
+            ],
+
+            correct: 3,
+
+            explain:
+                "The presentation identifies syntax, semantics, and pragmatics as involved in interpreting written language."
+        },
+
+
+        {
+            topic: "Vision",
+
+            q: "According to the presentation, which improves reading from a computer screen?",
+
+            options: [
+                "No contrast",
+                "Pure blue background",
+                "Negative contrast",
+                "Positive contrast"
+            ],
+
+            correct: 2,
+
+            explain:
+                "The presentation specifically states that negative contrast improves reading from a computer screen."
+        },
+
+
+        // =================================================
+        // PART III — HEARING, TOUCH, AND MOVEMENT
+        // =================================================
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "What type of information can hearing provide about the environment?",
+
+            options: [
+                "Distances and directions",
+                "Colour and saturation",
+                "Visual angle",
+                "Body temperature only"
+            ],
+
+            correct: 0,
+
+            explain:
+                "Hearing can provide environmental information such as distances and directions."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "What is the main role of the outer ear?",
+
+            options: [
+                "Processes language",
+                "Stores sound permanently",
+                "Protects the inner ear and amplifies sound",
+                "Releases chemical transmitters"
+            ],
+
+            correct: 2,
+
+            explain:
+                "The presentation identifies protecting the inner ear and amplifying sound as functions of the outer ear."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "What does the middle ear do?",
+
+            options: [
+                "Controls movement",
+                "Transmits sound waves as vibrations to the inner ear",
+                "Detects pain",
+                "Detects colour"
+            ],
+
+            correct: 1,
+
+            explain:
+                "The middle ear transmits sound waves as vibrations to the inner ear."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "What happens in the inner ear according to the presentation?",
+
+            options: [
+                "Light is converted to electrical energy",
+                "Chemical transmitters are released and cause impulses in the auditory nerve",
+                "Images are focused on the retina",
+                "Memory is stored"
+            ],
+
+            correct: 1,
+
+            explain:
+                "The presentation describes the inner ear as releasing chemical transmitters that cause impulses in the auditory nerve."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "What does pitch refer to?",
+
+            options: [
+                "Sound frequency",
+                "Sound duration",
+                "Sound quality",
+                "Sound amplitude"
+            ],
+
+            correct: 0,
+
+            explain:
+                "Pitch refers to the frequency of a sound."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "What does loudness refer to?",
+
+            options: [
+                "Timbre",
+                "Amplitude",
+                "Wavelength",
+                "Frequency"
+            ],
+
+            correct: 1,
+
+            explain:
+                "Loudness is associated with the amplitude of a sound."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "What does timbre refer to?",
+
+            options: [
+                "Amplitude of sound",
+                "Direction of sound",
+                "Type or quality of sound",
+                "Frequency of sound"
+            ],
+
+            correct: 2,
+
+            explain:
+                "Timbre refers to the type or quality of a sound."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "According to the presentation, humans can hear frequencies approximately from:",
+
+            options: [
+                "100 Hz to 100 kHz",
+                "20 Hz to 15 kHz",
+                "1 kHz to 20 kHz",
+                "2 Hz to 2 kHz"
+            ],
+
+            correct: 1,
+
+            explain:
+                "The presentation gives the approximate human hearing range as 20 Hz to 15 kHz."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "Which sense provides important feedback about the environment and may be especially important for someone who is visually impaired?",
+
+            options: [
+                "Vision",
+                "Smell",
+                "Hearing",
+                "Touch"
+            ],
+
+            correct: 3,
+
+            explain:
+                "The presentation identifies touch as providing important environmental feedback and notes its importance for someone who is visually impaired."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "Which receptors detect heat and cold?",
+
+            options: [
+                "Thermoreceptors",
+                "Mechanoreceptors",
+                "Nociceptors",
+                "Ganglion cells"
+            ],
+
+            correct: 0,
+
+            explain:
+                "Thermoreceptors detect temperature sensations such as heat and cold."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "Which receptors detect pain?",
+
+            options: [
+                "Cones",
+                "Nociceptors",
+                "Mechanoreceptors",
+                "Thermoreceptors"
+            ],
+
+            correct: 1,
+
+            explain:
+                "Nociceptors are the receptors identified with the detection of pain."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "Which receptors detect pressure?",
+
+            options: [
+                "Rods",
+                "Nociceptors",
+                "Thermoreceptors",
+                "Mechanoreceptors"
+            ],
+
+            correct: 3,
+
+            explain:
+                "Mechanoreceptors detect mechanical sensations such as pressure."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "What is kinethesis?",
+
+            options: [
+                "Ability to distinguish sound quality",
+                "Awareness of body position",
+                "Awareness of colour",
+                "Ability to recognize written words"
+            ],
+
+            correct: 1,
+
+            explain:
+                "The presentation defines kinethesis as awareness of body position."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "What is the approximate reaction time for a visual stimulus presented in the lecture?",
+
+            options: [
+                "700 ms",
+                "50 ms",
+                "200 ms",
+                "100 ms"
+            ],
+
+            correct: 2,
+
+            explain:
+                "The presentation gives approximately 200 milliseconds as the reaction time for a visual stimulus."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "Which stimulus has the fastest reaction time among the three listed?",
+
+            options: [
+                "Auditory",
+                "Pain",
+                "Visual",
+                "All are identical"
+            ],
+
+            correct: 0,
+
+            explain:
+                "The presentation gives approximately 150 ms for auditory stimuli, compared with approximately 200 ms for visual stimuli and 700 ms for pain."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "According to the presentation, response time consists of:",
+
+            options: [
+                "Visual time + auditory time",
+                "Reaction time + movement time",
+                "Movement time + memory time",
+                "Reaction time − movement time"
+            ],
+
+            correct: 1,
+
+            explain:
+                "The presentation defines response time as reaction time plus movement time."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "What does Fitts' Law describe?",
+
+            options: [
+                "The duration of sensory memory",
+                "The speed of hearing a sound",
+                "The time taken to hit a screen target",
+                "The time needed to memorize a word"
+            ],
+
+            correct: 2,
+
+            explain:
+                "Fitts' Law describes the time taken to hit a screen target."
+        },
+
+
+        {
+            topic: "Hearing, Touch, and Movement",
+
+            q: "According to Fitts' Law, which design makes a target easier to hit?",
+
+            options: [
+                "Larger target and smaller distance",
+                "Smaller target and smaller distance",
+                "Larger target and greater distance",
+                "Smaller target and greater distance"
+            ],
+
+            correct: 0,
+
+            explain:
+                "The presentation concludes that targets are easier to hit when they are larger and closer to the user."
+        },
+
+
+        // =================================================
+        // PART IV — MEMORY
+        // =================================================
+
+        {
+            topic: "Memory",
+
+            q: "What are the three basic processes of memory?",
+
+            options: [
+                "Recognition, reaction, and movement",
+                "Thinking, reasoning, and solving",
+                "Seeing, hearing, and touching",
+                "Encoding, storage, and retrieval"
+            ],
+
+            correct: 3,
+
+            explain:
+                "The three basic memory processes identified in the presentation are encoding, storage, and retrieval."
+        },
+
+
+        {
+            topic: "Memory",
+
+            q: "Which process involves getting information into memory?",
+
+            options: [
+                "Encoding",
+                "Recognition",
+                "Retrieval",
+                "Storage"
+            ],
+
+            correct: 0,
+
+            explain:
+                "Encoding is the process of getting information into memory."
+        },
+
+
+        {
+            topic: "Memory",
+
+            q: "Which of the following is one of the three main types of retention presented?",
+
+            options: [
+                "Processing",
+                "Recall",
+                "Interpretation",
+                "Reasoning"
+            ],
+
+            correct: 1,
+
+            explain:
+                "Recall is one of the three main types of retention presented, along with recognition and relearning."
+        },
+
+
+        {
+            topic: "Memory",
+
+            q: "Which type of retention involves identifying information when it is presented?",
+
+            options: [
+                "Encoding",
+                "Relearning",
+                "Recognition",
+                "Recall"
+            ],
+
+            correct: 2,
+
+            explain:
+                "Recognition involves identifying information when it is presented."
+        },
+
+
+        {
+            topic: "Memory",
+
+            q: "Which type of long-term memory contains facts and general knowledge?",
+
+            options: [
+                "Procedural memory",
+                "Priming",
+                "Episodic memory",
+                "Semantic memory"
+            ],
+
+            correct: 3,
+
+            explain:
+                "Semantic memory is the type of long-term memory associated with facts and general knowledge."
+        },
+
+
+        {
+            topic: "Memory",
+
+            q: "Which type of reasoning derives a logically necessary conclusion from given premises?",
+
+            options: [
+                "Abductive reasoning",
+                "Deductive reasoning",
+                "Inductive reasoning",
+                "Associative reasoning"
+            ],
+
+            correct: 1,
+
+            explain:
+                "Deductive reasoning derives a logically necessary conclusion from given premises."
+        },
+
+
+        {
+            topic: "Memory",
+
+            q: "Which type of reasoning involves reasoning from an event to a possible cause?",
+
+            options: [
+                "Procedural reasoning",
+                "Inductive reasoning",
+                "Abductive reasoning",
+                "Deductive reasoning"
+            ],
+
+            correct: 2,
+
+            explain:
+                "Abductive reasoning involves reasoning from an event to a possible cause and can be used to generate hypotheses."
+        }
+
+    ];
+
+</script>
+
+
+<!-- ================================= -->
+<!-- SHARED QUIZ ENGINE -->
+<!-- ================================= -->
+
+<script src="../js/quiz.js"></script>
+
+</body>
+</html>

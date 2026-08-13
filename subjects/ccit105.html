@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuizIT — CCIT105</title>
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- ============================= -->
+    <!-- START SCREEN -->
+    <!-- ============================= -->
+
+    <section id="startScreen">
+
+        <div class="hero">
+
+            <div class="kicker">
+                CCIT105 • REVIEWER
+            </div>
+
+            <h1 class="title display">
+                QuizIT <span>CCIT105</span>
+            </h1>
+
+            <p class="subtitle">
+                Networking 2
+            </p>
+
+            <div class="start-card">
+
+                <div class="start-icon">
+                    🛜
+                </div>
+
+                <h2>
+                    Ready to Review?
+                </h2>
+
+                <p>
+                    Test your knowledge and see how much you know about Networking Fundamentals, Static Routing, RIPv2, and OSPF.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    id="startBtn">
+                    Start Reviewer →
+                </button>
+
+                <a
+                    href="../index.html"
+                    class="btn btn-ghost">
+                    ← Back to Subjects
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- QUIZ SCREEN -->
+    <!-- ============================= -->
+
+    <section
+        id="quizScreen"
+        style="display:none;">
+
+        <div class="quiz-container">
+
+            <!-- TOP BAR -->
+
+            <div class="quiz-top">
+
+                <a
+                    href="../index.html"
+                    class="back-link">
+                    ← Subjects
+                </a>
+
+                <div class="subject-label">
+                    CCIT105
+                </div>
+
+                <div
+                    class="timer"
+                    id="timer">
+                    15
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION INFO -->
+
+            <div class="question-info">
+
+                <span id="questionNumber">
+                    Question 1
+                </span>
+
+                <span id="scoreDisplay">
+                    Score: 0
+                </span>
+
+                <span id="streakDisplay">
+                    🔥 0
+                </span>
+
+            </div>
+
+
+            <!-- TOPIC -->
+
+            <div
+                class="pill"
+                id="topicLabel">
+                Topic
+            </div>
+
+
+            <!-- QUESTION -->
+
+            <h2
+                id="questionText"
+                class="question">
+            </h2>
+
+
+            <!-- ANSWERS -->
+
+            <div
+                id="answers"
+                class="answers">
+
+            </div>
+
+
+            <!-- FEEDBACK -->
+
+            <div
+                id="feedback"
+                class="feedback-banner"
+                style="display:none;">
+
+                <div id="feedbackText"></div>
+
+                <div id="explanation"></div>
+
+            </div>
+
+
+            <!-- NEXT BUTTON -->
+
+            <button
+                id="nextBtn"
+                class="btn btn-primary"
+                style="display:none;">
+
+                Next Question →
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- RESULTS SCREEN -->
+    <!-- ============================= -->
+
+    <section
+        id="resultScreen"
+        style="display:none;">
+
+        <div class="hero">
+
+            <div class="kicker">
+                CCIT105 • COMPLETE
+            </div>
+
+            <h1 class="title display">
+                Reviewer <span>Complete!</span>
+            </h1>
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    🏆
+                </div>
+
+                <h2 id="finalMessage">
+                    Great job!
+                </h2>
+
+
+                <!-- FINAL SCORE -->
+
+                <div class="final-score">
+
+                    <span id="finalScore">
+                        0
+                    </span>
+
+                    <small>
+                        points
+                    </small>
+
+                </div>
+
+
+                <!-- RESULT STATS -->
+
+                <div class="result-stats">
+
+                    <div>
+
+                        <strong id="correctCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Correct
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <strong id="totalCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Questions
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <strong id="bestStreak">
+                            0
+                        </strong>
+
+                        <span>
+                            Best Streak
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION REVIEW -->
+
+                <div
+                    id="reviewWrap"
+                    style="display:none;">
+
+                    <h3>
+                        Question Review
+                    </h3>
+
+                    <div id="reviewList"></div>
+
+                </div>
+
+
+                <!-- TRY AGAIN -->
+
+                <button
+                    class="btn btn-primary"
+                    onclick="location.reload()">
+
+                    Try Again 🔄
+
+                </button>
+
+
+                <!-- BACK TO SUBJECTS -->
+
+                <a
+                    href="../index.html"
+                    class="btn btn-ghost">
+
+                    Choose Another Subject
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script>
+
+    const SUBJECT = "CCIT105";
+
+    /*
+     * ==========================================
+     * QUESTION BANK
+     * ==========================================
+     *
+     * Replace the questions below with the
+     * question bank for this subject.
+     *
+     * correct = zero-based index:
+     *
+     * 0 = first option
+     * 1 = second option
+     * 2 = third option
+     * 3 = fourth option
+     *
+     * The shared quiz.js will shuffle the
+     * answer choices automatically.
+     */
+
+    const QUESTIONS = [
+
+        // =================================================
+        // NETWORK ENGINEERING FUNDAMENTALS
+        // =================================================
+
+        {
+            topic: "Network Engineering Fundamentals",
+            q: "What is the primary purpose of a network?",
+            options: [
+                "To connect devices and enable communication and resource sharing",
+                "To replace all computer hardware",
+                "To store operating systems",
+                "To prevent devices from communicating"
+            ],
+            correct: 0,
+            explain: "The presentation explains that networks allow devices to communicate and share resources such as hardware, data, and internet access."
+        },
+
+        {
+            topic: "Network Engineering Fundamentals",
+            q: "Which network type covers a small personal area, typically around 1–10 meters?",
+            options: [
+                "PAN",
+                "WAN",
+                "MAN",
+                "LAN"
+            ],
+            correct: 0,
+            explain: "A Personal Area Network (PAN) covers a very small area, approximately 1–10 meters."
+        },
+
+        {
+            topic: "Network Engineering Fundamentals",
+            q: "Which network type is designed for a local area such as a school or office?",
+            options: [
+                "MAN",
+                "PAN",
+                "LAN",
+                "WAN"
+            ],
+            correct: 2,
+            explain: "A Local Area Network (LAN) covers a local area such as a school, laboratory, or office."
+        },
+
+        {
+            topic: "Network Engineering Fundamentals",
+            q: "Which device forwards packets between different networks?",
+            options: [
+                "Hub",
+                "Router",
+                "Access point",
+                "Switch"
+            ],
+            correct: 1,
+            explain: "A router forwards packets between different networks. This distinguishes it from a switch, which primarily connects devices within the same network."
+        },
+
+        {
+            topic: "Network Engineering Fundamentals",
+            q: "What is the primary function of a switch?",
+            options: [
+                "Route packets between different networks",
+                "Connect devices within the same network and forward frames to the correct destination",
+                "Assign public IP addresses",
+                "Encrypt all network traffic"
+            ],
+            correct: 1,
+            explain: "The presentation describes a switch as a device that connects devices within the same LAN and forwards frames to the appropriate destination."
+        },
+
+        {
+            topic: "Network Engineering Fundamentals",
+            q: "According to the presentation, which topology is identified as the primary blueprint for modern LANs and is easy to troubleshoot and expand?",
+            options: [
+                "Bus",
+                "Ring",
+                "Mesh",
+                "Star"
+            ],
+            correct: 3,
+            explain: "The presentation identifies the star topology as the primary blueprint for modern LANs because it is easy to troubleshoot and expand."
+        },
+
+        {
+            topic: "Network Engineering Fundamentals",
+            q: "In the OSI model, which layer is associated with logical addressing?",
+            options: [
+                "Data Link",
+                "Physical",
+                "Network",
+                "Transport"
+            ],
+            correct: 2,
+            explain: "Logical addressing is associated with the Network Layer (Layer 3) of the OSI model."
+        },
+
+        {
+            topic: "Network Engineering Fundamentals",
+            q: "Which OSI layer is associated with MAC addressing?",
+            options: [
+                "Data Link",
+                "Physical",
+                "Session",
+                "Network"
+            ],
+            correct: 0,
+            explain: "MAC addressing is associated with the Data Link Layer (Layer 2)."
+        },
+
+        {
+            topic: "Network Engineering Fundamentals",
+            q: "In the TCP/IP model, which layer corresponds to the OSI Network layer?",
+            options: [
+                "Transport",
+                "Network Access",
+                "Application",
+                "Internet"
+            ],
+            correct: 3,
+            explain: "The TCP/IP Internet layer corresponds to the OSI Network layer."
+        },
+
+        {
+            topic: "Network Engineering Fundamentals",
+            q: "In the IPv4 address 192.168.1.10/24, what does /24 represent?",
+            options: [
+                "Prefix length/subnet mask",
+                "Host address",
+                "Broadcast address",
+                "Default gateway"
+            ],
+            correct: 0,
+            explain: "The /24 indicates the network prefix length. In the presentation, /24 corresponds to the subnet mask 255.255.255.0."
+        },
+
+        {
+            topic: "Network Engineering Fundamentals",
+            q: "What is the broadcast address for the 192.168.20.0/24 network?",
+            options: [
+                "192.168.20.254",
+                "192.168.20.255",
+                "192.168.20.1",
+                "192.168.0.255"
+            ],
+            correct: 1,
+            explain: "For the 192.168.20.0/24 network, .255 is the broadcast address."
+        },
+
+        {
+            topic: "Network Engineering Fundamentals",
+            q: "Which command saves the running configuration so it persists after a reboot?",
+            options: [
+                "show ip interface brief",
+                "traceroute",
+                "copy running-config startup-config",
+                "show ip route"
+            ],
+            correct: 2,
+            explain: "This command saves the current running configuration to the startup configuration so it can be retained after a reboot."
+        },
+
+
+        // =================================================
+        // STATIC ROUTING
+        // =================================================
+
+        {
+            topic: "Static Routing",
+            q: "What is routing?",
+            options: [
+                "The process of encrypting packets",
+                "The process of assigning MAC addresses",
+                "The process of creating user accounts",
+                "The process of forwarding packets from one network to another"
+            ],
+            correct: 3,
+            explain: "The static-routing presentation defines routing as the process of forwarding packets from one network to another."
+        },
+
+        {
+            topic: "Static Routing",
+            q: "What does a router need in order to determine where to forward a packet?",
+            options: [
+                "A DNS server",
+                "A routing table",
+                "A switch configuration",
+                "A password database"
+            ],
+            correct: 1,
+            explain: "The router examines its routing table to determine where packets should be forwarded."
+        },
+
+        {
+            topic: "Static Routing",
+            q: "Which of the following is directly connected to a router and automatically known by the router?",
+            options: [
+                "A directly connected network",
+                "A remote network",
+                "A neighboring organization's network",
+                "An unknown network"
+            ],
+            correct: 0,
+            explain: "A router automatically knows about a directly connected network when the relevant interface is active."
+        },
+
+        {
+            topic: "Static Routing",
+            q: "How can a router learn about a remote network?",
+            options: [
+                "Only through DHCP",
+                "Only through a hub",
+                "Through manually configured static routes or dynamic routing protocols",
+                "Only through a switch"
+            ],
+            correct: 2,
+            explain: "Remote networks can be learned through manually configured static routes or dynamic routing protocols."
+        },
+
+        {
+            topic: "Static Routing",
+            q: "Which routing method requires manual configuration of routes?",
+            options: [
+                "RIP only",
+                "Static routing",
+                "Dynamic routing",
+                "OSPF only"
+            ],
+            correct: 1,
+            explain: "Static routes are manually configured by the network administrator."
+        },
+
+        {
+            topic: "Static Routing",
+            q: "Which is an advantage of static routing?",
+            options: [
+                "It automatically scales to very large networks",
+                "It requires no configuration",
+                "It automatically discovers topology changes",
+                "It is simple to implement and highly predictable"
+            ],
+            correct: 3,
+            explain: "The presentation lists simplicity and predictability as advantages of static routing."
+        },
+
+        {
+            topic: "Static Routing",
+            q: "Which is a disadvantage of static routing?",
+            options: [
+                "It requires manual configuration and can become difficult to maintain in large networks",
+                "It automatically changes routes too frequently",
+                "It cannot route packets",
+                "It always consumes large amounts of bandwidth"
+            ],
+            correct: 0,
+            explain: "Static routing requires manual updates. As a network grows, maintaining many routes becomes more difficult."
+        },
+
+        {
+            topic: "Static Routing",
+            q: "In the command ip route 192.168.2.0 255.255.255.0 10.10.10.2, what does 192.168.2.0 represent?",
+            options: [
+                "Source network",
+                "Next-hop router",
+                "Destination network",
+                "Subnet mask"
+            ],
+            correct: 2,
+            explain: "In the static route command, 192.168.2.0 is the destination network the router wants to reach."
+        },
+
+        {
+            topic: "Static Routing",
+            q: "In the command ip route 192.168.2.0 255.255.255.0 10.10.10.2, what does 255.255.255.0 represent?",
+            options: [
+                "Default gateway",
+                "Destination network",
+                "Subnet mask",
+                "Next-hop router"
+            ],
+            correct: 2,
+            explain: "255.255.255.0 identifies the size of the destination network."
+        },
+
+        {
+            topic: "Static Routing",
+            q: "In the command ip route 192.168.2.0 255.255.255.0 10.10.10.2, what does 10.10.10.2 represent?",
+            options: [
+                "Next-hop router",
+                "Destination network",
+                "Broadcast address",
+                "Subnet mask"
+            ],
+            correct: 0,
+            explain: "10.10.10.2 identifies the next-hop router through which traffic should be forwarded."
+        },
+
+        {
+            topic: "Static Routing",
+            q: "Which command verifies that the routing table contains the manually configured route?",
+            options: [
+                "ping",
+                "show running-config",
+                "no shutdown",
+                "show ip route"
+            ],
+            correct: 3,
+            explain: "The presentation specifically uses show ip route to verify the routing table and confirm that the static route is present."
+        },
+
+        {
+            topic: "Static Routing",
+            q: "Which command is used to verify interface status and IP assignments?",
+            options: [
+                "show ip interface brief",
+                "traceroute",
+                "copy running-config startup-config",
+                "show ip route"
+            ],
+            correct: 0,
+            explain: "This command verifies interface status and IP address assignments."
+        },
+
+        {
+            topic: "Static Routing",
+            q: "If a router interface is down, which command is used in interface configuration mode to activate it?",
+            options: [
+                "show ip route",
+                "ip route",
+                "no shutdown",
+                "enable"
+            ],
+            correct: 2,
+            explain: "The presentation identifies no shutdown as the command used to activate an interface that is administratively down."
+        },
+
+
+        // =================================================
+        // RIPv2 FUNDAMENTALS
+        // =================================================
+
+        {
+            topic: "RIPv2 Fundamentals",
+            q: "What type of routing protocol is RIP?",
+            options: [
+                "Distance vector",
+                "Link-state",
+                "Hybrid switching protocol",
+                "Path vector"
+            ],
+            correct: 0,
+            explain: "RIP is presented as a distance-vector routing protocol."
+        },
+
+        {
+            topic: "RIPv2 Fundamentals",
+            q: "What metric does RIP primarily use to determine the best path?",
+            options: [
+                "Delay",
+                "Hop count",
+                "Cost",
+                "Bandwidth"
+            ],
+            correct: 1,
+            explain: "RIP determines the route metric using hop count."
+        },
+
+        {
+            topic: "RIPv2 Fundamentals",
+            q: "What is the maximum hop count supported by RIP?",
+            options: [
+                "30 hops",
+                "Unlimited hops",
+                "15 hops",
+                "16 hops"
+            ],
+            correct: 2,
+            explain: "RIP has a maximum usable hop count of 15. A route requiring 16 hops is considered unreachable."
+        },
+
+        {
+            topic: "RIPv2 Fundamentals",
+            q: "How often does RIP send routing updates according to the presentation?",
+            options: [
+                "Every 30 seconds",
+                "Every 5 seconds",
+                "Every 60 seconds",
+                "Every 10 seconds"
+            ],
+            correct: 0,
+            explain: "The presentation states that RIP sends routing updates every 30 seconds."
+        },
+
+        {
+            topic: "RIPv2 Fundamentals",
+            q: "What is one major limitation of RIP?",
+            options: [
+                "It cannot exchange routing information",
+                "It has a 15-hop maximum, limiting scalability",
+                "It cannot use IP addressing",
+                "It only works with directly connected networks"
+            ],
+            correct: 1,
+            explain: "The 15-hop limit is one of RIP's major scalability limitations."
+        },
+
+        {
+            topic: "RIPv2 Fundamentals",
+            q: "What does RIPv2 add compared with RIPv1?",
+            options: [
+                "Removal of authentication",
+                "VLSM support",
+                "Elimination of multicast",
+                "Removal of routing updates"
+            ],
+            correct: 1,
+            explain: "The presentation's RIPv1 vs. RIPv2 comparison identifies VLSM support as a feature of RIPv2 that RIPv1 lacks."
+        },
+
+        {
+            topic: "RIPv2 Fundamentals",
+            q: "What multicast address is used by RIPv2 for routing updates?",
+            options: [
+                "224.0.0.5",
+                "255.255.255.255",
+                "224.0.0.9",
+                "224.0.0.1"
+            ],
+            correct: 2,
+            explain: "RIPv2 uses the multicast address 224.0.0.9 for routing updates."
+        },
+
+        {
+            topic: "RIPv2 Fundamentals",
+            q: "Which command starts the RIP routing process?",
+            options: [
+                "show ip rip database",
+                "ip route",
+                "router ospf 1",
+                "router rip"
+            ],
+            correct: 3,
+            explain: "router rip starts the RIP routing process in the configuration shown."
+        },
+
+        {
+            topic: "RIPv2 Fundamentals",
+            q: "What does the command version 2 accomplish under the RIP configuration?",
+            options: [
+                "Enables RIPv2",
+                "Disables RIP",
+                "Changes the router hostname",
+                "Deletes routing information"
+            ],
+            correct: 0,
+            explain: "The version 2 command tells the router to use RIPv2."
+        },
+
+        {
+            topic: "RIPv2 Fundamentals",
+            q: "What does no auto-summary accomplish in the RIPv2 configuration shown?",
+            options: [
+                "Removes all connected networks",
+                "Disables the routing process",
+                "Disables automatic route summarization",
+                "Enables automatic summarization"
+            ],
+            correct: 2,
+            explain: "no auto-summary disables automatic summarization, which is important for the addressing behavior demonstrated in the presentation."
+        },
+
+        {
+            topic: "RIPv2 Fundamentals",
+            q: "What does the RIP network command do?",
+            options: [
+                "Shuts down the interface",
+                "Advertises the connected network through RIP",
+                "Changes the router's hostname",
+                "Deletes the network from the routing table"
+            ],
+            correct: 1,
+            explain: "The network command identifies the connected network that RIP should advertise."
+        },
+
+        {
+            topic: "RIPv2 Fundamentals",
+            q: "Which command displays the raw RIP routing database?",
+            options: [
+                "show ip route",
+                "ping",
+                "show ip protocols",
+                "show ip rip database"
+            ],
+            correct: 3,
+            explain: "The presentation uses this command to display the raw RIP routing database."
+        },
+
+        {
+            topic: "RIPv2 Fundamentals",
+            q: "In the routing table entry R 192.168.2.0/24 [120/1] via 10.10.10.2, what does R indicate?",
+            options: [
+                "Routing error",
+                "RIP route",
+                "Router ID",
+                "Remote interface"
+            ],
+            correct: 1,
+            explain: "The R code in the routing table indicates that the route was learned through RIP."
+        },
+
+
+        // =================================================
+        // OSPF
+        // =================================================
+
+        {
+            topic: "OSPF",
+            q: "What type of routing protocol is OSPF?",
+            options: [
+                "Static routing",
+                "Broadcast-only routing",
+                "Link-state",
+                "Distance vector"
+            ],
+            correct: 2,
+            explain: "OSPF is a link-state routing protocol."
+        },
+
+        {
+            topic: "OSPF",
+            q: "What metric does OSPF use to determine the best path?",
+            options: [
+                "Cost based on bandwidth",
+                "Hop count",
+                "Update interval",
+                "Number of interfaces"
+            ],
+            correct: 0,
+            explain: "The OSPF presentation describes its metric as cost, which is based on bandwidth."
+        },
+
+        {
+            topic: "OSPF",
+            q: "Compared with RIP, what is a major scalability advantage of OSPF shown in the presentation?",
+            options: [
+                "OSPF requires manual route updates",
+                "OSPF has a maximum of 15 hops",
+                "OSPF does not use a routing table",
+                "OSPF has an unlimited design-limit hop count"
+            ],
+            correct: 3,
+            explain: "The comparison slide shows RIP with a 15-hop maximum while OSPF has an unlimited design-limit hop count."
+        },
+
+        {
+            topic: "OSPF",
+            q: "How does OSPF differ from RIP in terms of routing updates?",
+            options: [
+                "OSPF updates every 30 seconds",
+                "OSPF never sends routing information",
+                "OSPF updates only when the topology changes",
+                "OSPF requires manual updates"
+            ],
+            correct: 2,
+            explain: "Unlike RIP's periodic 30-second updates, OSPF sends updates based on topology changes."
+        },
+
+        {
+            topic: "OSPF",
+            q: "What is an OSPF area?",
+            options: [
+                "A type of subnet mask",
+                "A grouping of routers used to localize updates",
+                "A routing table code",
+                "A physical cable type"
+            ],
+            correct: 1,
+            explain: "An OSPF area groups routers together to help localize link-state information and updates."
+        },
+
+        {
+            topic: "OSPF",
+            q: "What is the backbone area in OSPF?",
+            options: [
+                "Area 0",
+                "Area 100",
+                "Area 1",
+                "Area 10"
+            ],
+            correct: 0,
+            explain: "Area 0 is the OSPF backbone area shown in the presentation."
+        },
+
+        {
+            topic: "OSPF",
+            q: "Which condition is required before OSPF routers can form a neighbor relationship according to the presentation?",
+            options: [
+                "They must use static routes",
+                "They must have identical hostnames",
+                "They must meet the required neighbor conditions, including matching area and IP connectivity",
+                "They must be on the same physical interface type only"
+            ],
+            correct: 2,
+            explain: "The presentation's Neighbor Gatekeeper shows that conditions such as interface status, area matching, IP connectivity, and timer synchronization must be satisfied before routers can form an adjacency."
+        },
+
+        {
+            topic: "OSPF",
+            q: "What does the FULL state indicate in the OSPF neighbor output?",
+            options: [
+                "The neighbor adjacency has been fully established",
+                "The routing table is empty",
+                "The interface is administratively down",
+                "The router is using RIP"
+            ],
+            correct: 0,
+            explain: "The FULL state indicates that the OSPF neighbor adjacency has been successfully established."
+        },
+
+        {
+            topic: "OSPF",
+            q: "Which command is used to verify OSPF neighbors?",
+            options: [
+                "show ip ospf neighbor",
+                "copy running-config startup-config",
+                "show ip interface brief",
+                "show ip rip database"
+            ],
+            correct: 0,
+            explain: "The presentation uses this command to verify OSPF neighbors and their adjacency state."
+        },
+
+        {
+            topic: "OSPF",
+            q: "In the OSPF routing table entry O 192.168.2.0/24 [110/65] via 10.10.10.2, what does O indicate?",
+            options: [
+                "Original route",
+                "OSPF route",
+                "Offline route",
+                "Outgoing interface"
+            ],
+            correct: 1,
+            explain: "The O routing-table code represents an OSPF-learned route."
+        },
+
+        {
+            topic: "OSPF",
+            q: "What is the correct wildcard mask for a /24 network?",
+            options: [
+                "0.0.0.255",
+                "255.255.255.0",
+                "0.255.255.255",
+                "255.255.0.0"
+            ],
+            correct: 0,
+            explain: "For a /24 network, the wildcard mask is 0.0.0.255, which is the inverse of 255.255.255.0."
+        },
+
+        {
+            topic: "OSPF",
+            q: "Which statement best describes the OSPF lifecycle presented?",
+            options: [
+                "DHCP → NAT → DNS → HTTP",
+                "Ping → Traceroute → Shutdown → Reboot",
+                "Initialization → Neighbor/adjacency formation → Link-state information exchange/mapping → SPF calculation",
+                "Initialization → Static route configuration → RIP update → Shutdown"
+            ],
+            correct: 2,
+            explain: "The OSPF lifecycle shown in the presentation progresses through initialization, neighbor formation, link-state mapping, and SPF calculation to determine the best paths."
+        }
+
+    ];
+
+</script>
+
+
+<!-- ================================= -->
+<!-- SHARED QUIZ ENGINE -->
+<!-- ================================= -->
+
+<script src="../js/quiz.js"></script>
+
+</body>
+</html>
