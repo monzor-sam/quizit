@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuizIT — CCIT102</title>
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- ============================= -->
+    <!-- START SCREEN -->
+    <!-- ============================= -->
+
+    <section id="startScreen">
+
+        <div class="hero">
+
+            <div class="kicker">
+                CCIT102 • REVIEWER
+            </div>
+
+            <h1 class="title display">
+                QuizIT <span>CCIT102</span>
+            </h1>
+
+            <p class="subtitle">
+                Integrative Programming & Technologies
+            </p>
+
+            <div class="start-card">
+
+                <div class="start-icon">
+                    💻
+                </div>
+
+                <h2>
+                    Ready to Review?
+                </h2>
+
+                <p>
+                    Test your knowledge in IPT, OOP, and Visual Studio.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    id="startBtn">
+                    Start Reviewer →
+                </button>
+
+                <a
+                    href="../index.html"
+                    class="btn btn-ghost">
+                    ← Back to Subjects
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- QUIZ SCREEN -->
+    <!-- ============================= -->
+
+    <section
+        id="quizScreen"
+        style="display:none;">
+
+        <div class="quiz-container">
+
+            <!-- TOP BAR -->
+
+            <div class="quiz-top">
+
+                <a
+                    href="../index.html"
+                    class="back-link">
+                    ← Subjects
+                </a>
+
+                <div class="subject-label">
+                    CCIT102
+                </div>
+
+                <div
+                    class="timer"
+                    id="timer">
+                    15
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION INFO -->
+
+            <div class="question-info">
+
+                <span id="questionNumber">
+                    Question 1
+                </span>
+
+                <span id="scoreDisplay">
+                    Score: 0
+                </span>
+
+                <span id="streakDisplay">
+                    🔥 0
+                </span>
+
+            </div>
+
+
+            <!-- TOPIC -->
+
+            <div
+                class="pill"
+                id="topicLabel">
+                IPT
+            </div>
+
+
+            <!-- QUESTION -->
+
+            <h2
+                id="questionText"
+                class="question">
+            </h2>
+
+
+            <!-- ANSWERS -->
+
+            <div
+                id="answers"
+                class="answers">
+
+            </div>
+
+
+            <!-- FEEDBACK -->
+
+            <div
+                id="feedback"
+                class="feedback-banner"
+                style="display:none;">
+
+                <div id="feedbackText"></div>
+
+                <div id="explanation"></div>
+
+            </div>
+
+
+            <!-- NEXT BUTTON -->
+
+            <button
+                id="nextBtn"
+                class="btn btn-primary"
+                style="display:none;">
+
+                Next Question →
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- RESULTS SCREEN -->
+    <!-- ============================= -->
+
+    <section
+        id="resultScreen"
+        style="display:none;">
+
+        <div class="hero">
+
+            <div class="kicker">
+                CCIT102 • COMPLETE
+            </div>
+
+            <h1 class="title display">
+                Reviewer <span>Complete!</span>
+            </h1>
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    🏆
+                </div>
+
+                <h2 id="finalMessage">
+                    Great job!
+                </h2>
+
+                <div class="final-score">
+
+                    <span id="finalScore">
+                        0
+                    </span>
+
+                    <small>
+                        points
+                    </small>
+
+                </div>
+
+                <div class="result-stats">
+
+                    <div>
+                        <strong id="correctCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Correct
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong id="totalCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Questions
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong id="bestStreak">
+                            0
+                        </strong>
+
+                        <span>
+                            Best Streak
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="btn btn-primary"
+                    onclick="location.reload()">
+
+                    Try Again 🔄
+
+                </button>
+
+
+                <a
+                    href="../index.html"
+                    class="btn btn-ghost">
+
+                    Choose Another Subject
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================================= -->
+<!-- CCIT102 QUESTION BANK -->
+<!-- ================================= -->
+
+<script>
+
+const SUBJECT = "CCIT102";
+
+
+const QUESTIONS = [
+  // ---- IPT ----
+  {topic:"IPT", q:"What does IPT stand for and mean?", options:[
+    "Integrative Programming and Technologies — combining software, languages, databases, APIs, and hardware into one functional system",
+    "Internal Processing Tools — a set of debugging utilities",
+    "Interactive Programming Terminal — a type of command-line IDE",
+    "Integrated Product Testing — a QA framework"
+  ], correct:0, explain:"IPT is defined as the process of combining different software applications, programming languages, databases, APIs, and hardware technologies to create a complete, functional information system."},
+
+  {topic:"IPT", q:"The word \"integrate\" comes from the Latin word...", options:[
+    "integer, meaning \"whole,\" \"complete,\" or \"untouched\"",
+    "integra, meaning \"to build\"",
+    "intergo, meaning \"between systems\"",
+    "integris, meaning \"technology\""
+  ], correct:0, explain:"Integration's origin is the Latin word integer (\"whole/complete/untouched\"), later from in.te'gra.re meaning \"to make whole,\" \"to restore,\" or \"to renew.\""},
+
+  {topic:"IPT", q:"What is the main goal of integration in IPT?", options:[
+    "To make different systems communicate, share data, and work together efficiently",
+    "To replace all old programming languages with one universal language",
+    "To reduce the number of developers needed on a project",
+    "To make software run without any database"
+  ], correct:0, explain:"Integration's goal is to enable different systems to communicate, share data, and work together efficiently."},
+
+  {topic:"IPT", q:"Which of these is NOT listed as a consequence of the ABSENCE of integration?", options:[
+    "Automatic data sharing",
+    "Data is stored in different systems",
+    "Users manually transfer information",
+    "More errors occur"
+  ], correct:0, explain:"\"Automatic data sharing\" is a benefit WITH integration. Without integration, data is siloed, transfers are manual, processes are slower, and more errors occur."},
+
+  {topic:"IPT", q:"Which benefit is listed under \"With Integration\"?", options:[
+    "Improved productivity",
+    "Slower transactions",
+    "Duplicated work",
+    "Manual data transfer"
+  ], correct:0, explain:"With integration: automatic data sharing, faster transactions, better decision-making, improved productivity, and reduced duplication of work."},
+
+  {topic:"IPT", q:"Which of these is listed as a Database used in IPT?", options:[
+    "MongoDB",
+    "React",
+    "GraphQL",
+    "PHP"
+  ], correct:0, explain:"Databases listed: MySQL, PostgreSQL, SQL Server, MongoDB."},
+
+  {topic:"IPT", q:"Which of these is listed as an API in the components of IPT?", options:[
+    "REST API",
+    "Node.js",
+    "MySQL",
+    "Java"
+  ], correct:0, explain:"APIs listed: REST API, GraphQL, Payment APIs, Google Maps API."},
+
+  {topic:"IPT", q:"Which of these is listed under Web Technologies?", options:[
+    "React",
+    "PostgreSQL",
+    "PHP",
+    "GraphQL"
+  ], correct:0, explain:"Web Technologies listed: HTML, CSS, JavaScript, React, Node.js."},
+
+  {topic:"IPT", q:"What is System Integration?", options:[
+    "The process of connecting multiple software applications so they can exchange information and perform tasks together",
+    "The act of writing a single program without any external libraries",
+    "The process of testing a system for bugs before release",
+    "Installing an operating system on multiple computers"
+  ], correct:0, explain:"System Integration connects multiple software applications so they can exchange information and perform tasks together — like a school enrollment system linking to payment, LMS, and email systems."},
+
+  {topic:"IPT", q:"In the school enrollment system example, which system is NOT mentioned as being integrated?", options:[
+    "Social Media Marketing System",
+    "Payment System",
+    "Learning Management System",
+    "Email Notification System"
+  ], correct:0, explain:"The enrollment system integrates with the Student Information System, Payment System, Learning Management System, and Email Notification System — not a marketing system."},
+
+  {topic:"IPT", q:"Database Integration is best described as...", options:[
+    "Different applications sharing the same database (e.g., Enrollment System + Accounting System)",
+    "Applications communicating only through REST and SOAP",
+    "Connecting apps hosted on Google Drive or Azure",
+    "Two programming languages compiled together"
+  ], correct:0, explain:"Database Integration = different applications share the same database, e.g., an Enrollment System and Accounting System."},
+
+  {topic:"IPT", q:"Which pair of examples belongs to API Integration?", options:[
+    "Facebook Login and Google Maps",
+    "Google Drive and Dropbox",
+    "MySQL and MongoDB",
+    "REST and SOAP"
+  ], correct:0, explain:"API Integration examples given: Facebook Login, Google Maps, Weather API."},
+
+  {topic:"IPT", q:"REST and SOAP are given as examples of which type of integration?", options:[
+    "Web Service Integration",
+    "Database Integration",
+    "Cloud Integration",
+    "API Integration"
+  ], correct:0, explain:"Web Service Integration — applications exchange data over the internet — uses REST and SOAP as examples."},
+
+  {topic:"IPT", q:"Google Drive, Dropbox, and Microsoft Azure are examples of...", options:[
+    "Cloud Integration",
+    "Database Integration",
+    "Web Service Integration",
+    "API Integration"
+  ], correct:0, explain:"Cloud Integration connects cloud-based applications; examples given are Google Drive, Dropbox, and Microsoft Azure."},
+
+  // ---- OOP ----
+  {topic:"OOP", q:"Object-Oriented Programming (OOP) organizes software design around...", options:[
+    "objects, rather than only functions and procedures",
+    "databases only",
+    "a single main() function",
+    "network protocols"
+  ], correct:0, explain:"OOP is a programming approach that organizes software design around objects rather than only functions and procedures."},
+
+  {topic:"OOP", q:"Objects represent real-world entities that contain which two things?", options:[
+    "Data (Attributes/Properties) and Behavior (Methods/Functions)",
+    "Variables and Loops",
+    "Classes and Databases",
+    "Inputs and Outputs only"
+  ], correct:0, explain:"Objects contain Data (Attributes/Properties) and Behavior (Methods/Functions)."},
+
+  {topic:"OOP", q:"In the Student object example, which of these is a METHOD (not an attribute)?", options:[
+    "ViewGrades()",
+    "Student ID",
+    "Name",
+    "Course"
+  ], correct:0, explain:"The Student object's attributes are Student ID, Name, Course; its methods are Register(), ViewGrades(), UpdateProfile()."},
+
+  {topic:"OOP", q:"For a Bank Account object, which is listed as a Behavior?", options:[
+    "Withdraw / Deposit",
+    "Account number",
+    "Owner",
+    "Balance"
+  ], correct:0, explain:"Bank Account attributes: account number, owner, balance. Behaviors: withdraw, deposit."},
+
+  {topic:"OOP", q:"In the Car object example, which of these is a PROPERTY, not a behavior?", options:[
+    "Fuel level",
+    "Accelerating",
+    "Braking",
+    "Starting the engine"
+  ], correct:0, explain:"Car States (Properties): color, current speed, fuel level. Car Behaviors (Methods): starting the engine, accelerating, braking."},
+
+  {topic:"OOP", q:"What are the four main principles (pillars) of OOP?", options:[
+    "Encapsulation, Inheritance, Polymorphism, Abstraction",
+    "Variables, Loops, Functions, Classes",
+    "Compile, Debug, Run, Deploy",
+    "Input, Process, Output, Store"
+  ], correct:0, explain:"The four main principles of OOP are Encapsulation, Inheritance, Polymorphism, and Abstraction."},
+
+  {topic:"OOP", q:"Encapsulation means...", options:[
+    "combining data and methods inside one class and controlling access to the data",
+    "one class acquiring properties from another class",
+    "the same method name performing different actions",
+    "hiding complex details and showing only important information"
+  ], correct:0, explain:"Encapsulation combines data and methods inside one class and controls access to that data — protecting it from unauthorized changes."},
+
+  {topic:"OOP", q:"In the Bank Account Class example of Encapsulation, which methods control the Balance attribute?", options:[
+    "Deposit() and Withdraw()",
+    "Register() and Login()",
+    "Save() and Load()",
+    "Open() and Close()"
+  ], correct:0, explain:"The Bank Account Class uses Deposit() and Withdraw() methods to control how the balance changes, rather than letting anyone edit it directly."},
+
+  {topic:"OOP", q:"Inheritance allows a class to...", options:[
+    "acquire properties and behaviors from another class",
+    "hide its internal details completely",
+    "run multiple methods with the same name",
+    "store data in a database automatically"
+  ], correct:0, explain:"Inheritance allows one class (child) to acquire the properties and behaviors of another class (parent)."},
+
+  {topic:"OOP", q:"In the Inheritance example, what is the parent class and what are its child classes?", options:[
+    "Parent: User — Children: Student, Teacher, Administrator",
+    "Parent: Student — Children: User, Teacher, Administrator",
+    "Parent: Admin — Children: User, Student, Teacher",
+    "Parent: Login — Children: User, Student, Teacher"
+  ], correct:0, explain:"The parent class is User (common info like name, email, login, password); the child classes Student, Teacher, and Administrator inherit those features."},
+
+  {topic:"OOP", q:"What is the main benefit of Inheritance highlighted in the slides?", options:[
+    "Reduces repeated code and improves code organization",
+    "Makes methods run faster",
+    "Removes the need for classes",
+    "Hides all class attributes"
+  ], correct:0, explain:"Inheritance's benefits: reduces repeated code and improves code organization."},
+
+  {topic:"OOP", q:"Polymorphism means...", options:[
+    "the same method name can perform different actions depending on the object using it",
+    "combining data and methods into one class",
+    "one class reusing another class's code",
+    "showing only important features of an object"
+  ], correct:0, explain:"Polymorphism means \"many forms\" — the same method name (e.g., Login()) behaves differently depending on which object (Student, Teacher, Admin) calls it."},
+
+  {topic:"OOP", q:"In the Polymorphism example, which method is shared by Student, Teacher, and Admin but produces different results?", options:[
+    "Login()",
+    "Register()",
+    "Deposit()",
+    "UpdateProfile()"
+  ], correct:0, explain:"Login() is the shared method name; a student accesses classes/assignments, a teacher accesses grading tools, and an admin manages the system — different results, same method name."},
+
+  {topic:"OOP", q:"Abstraction means...", options:[
+    "hiding complex details and showing only important information",
+    "connecting one class to another",
+    "using the same method name for different classes",
+    "storing attributes and methods in a database"
+  ], correct:0, explain:"Abstraction focuses on showing only the important features of an object while hiding the complex details behind it."},
+
+  {topic:"OOP", q:"In the ATM example of Abstraction, which of the following does the user NOT see?", options:[
+    "Database process, security verification, transaction processing",
+    "Withdraw Money",
+    "Check Balance",
+    "The Withdraw and Check Balance buttons"
+  ], correct:0, explain:"Users see simple options like Withdraw Money and Check Balance, but do NOT see the database process, security verification, or transaction processing happening behind the screen."},
+
+  {topic:"OOP", q:"In OOP terminology, a \"Class\" is defined as...", options:[
+    "a blueprint for creating objects",
+    "an instance of an object",
+    "data or properties of an object",
+    "an action performed by an object"
+  ], correct:0, explain:"Class = blueprint for creating objects. Object = instance of a class. Attribute = data/properties. Method = action performed."},
+
+  {topic:"OOP", q:"Which OOP term is defined as \"used to initialize objects\"?", options:[
+    "Constructor",
+    "Method",
+    "Attribute",
+    "Class"
+  ], correct:0, explain:"Constructor is used to initialize objects, according to the Important OOP Terms table."},
+
+  // ---- Visual Studio ----
+  {topic:"Visual Studio", q:"What is Visual Studio?", options:[
+    "Microsoft's integrated development environment (IDE) supporting apps, websites, web services, and mobile apps",
+    "A cloud database management system",
+    "A programming language created by Microsoft",
+    "An operating system for developers"
+  ], correct:0, explain:"Visual Studio is Microsoft's IDE, supporting the building of apps, websites, web services, mobile apps, and more."},
+
+  {topic:"Visual Studio", q:"Which of these is NOT listed as something Visual Studio enables you to do?", options:[
+    "Market",
+    "Code",
+    "Debug",
+    "Collaborate"
+  ], correct:0, explain:"Visual Studio enables you to: Code, Build, Debug, Deploy, Collaborate, and Analyze — \"Market\" is not listed."},
+
+  {topic:"Visual Studio", q:"According to the History of Visual Studio slide, what was the FIRST released version?", options:[
+    "Visual Studio 97",
+    "Visual Studio 6.0",
+    "Visual Studio .NET (2002)",
+    "Visual Studio 2005"
+  ], correct:0, explain:"Visual Studio 97 (1997) was the first release, including VB, VC++, and FoxPro."},
+
+  {topic:"Visual Studio", q:"Which major highlight is associated with Visual Studio 2022?", options:[
+    "64-bit IDE, Hot Reload, IntelliCode improvements",
+    "Roslyn compiler, cross-platform tools",
+    "IntelliCode, Live Share",
+    "Azure integration, improved Git"
+  ], correct:0, explain:"Visual Studio 2022's highlights: 64-bit IDE, Hot Reload, and IntelliCode improvements."},
+
+  {topic:"Visual Studio", q:"Which version introduced the .NET Framework 1.0?", options:[
+    "Visual Studio .NET (2002)",
+    "Visual Studio 6.0",
+    "Visual Studio 2005",
+    "Visual Studio 2008"
+  ], correct:0, explain:"Visual Studio .NET (2002) introduced .NET Framework 1.0."},
+
+  {topic:"Visual Studio", q:"What does Solution Explorer show you?", options:[
+    "A graphical representation of the hierarchy of files and folders in your project, solution, or code folder",
+    "A live list of runtime errors only",
+    "The list of installed extensions",
+    "A history of Git commits"
+  ], correct:0, explain:"Solution Explorer shows a graphical hierarchy of files and folders in your project, solution, or code folder — you can browse it and open files in the Editor."},
+
+  {topic:"Visual Studio", q:"What does the Error List window show?", options:[
+    "Errors, warnings, and messages about the current state of your code",
+    "Only successful build logs",
+    "A list of all files in the solution",
+    "Version history of the project"
+  ], correct:0, explain:"The Error List shows errors, warnings, and messages about the current state of your code, such as a missing brace or semicolon."},
+
+  {topic:"Visual Studio", q:"When creating a new Console App project, which Framework should be selected in the Additional Information window (per the slides)?", options:[
+    ".NET 8.0 (Long Term Support)",
+    ".NET 4.8",
+    ".NET Core 1.0",
+    ".NET 9.0 Preview"
+  ], correct:0, explain:"The Additional Information window should show .NET 8.0 (Long Term Support) in the Framework dropdown before selecting Create."},
+
+  {topic:"Visual Studio", q:"Which button do you select to run your app in Visual Studio's debug toolbar?", options:[
+    "The Start Debugging button (green arrow)",
+    "The red Stop button",
+    "The blue Save icon",
+    "The yellow warning icon"
+  ], correct:0, explain:"You select the Start Debugging button, shown as a green arrow, in the debug toolbar to run your app."},
+
+  {topic:"Visual Studio", q:"What does Hot Reload let you do?", options:[
+    "Fix issues or make changes to the code on the fly and see results without restarting the app",
+    "Automatically deploy your app to Azure",
+    "Convert your project to a different language",
+    "Compile the app into an installer file"
+  ], correct:0, explain:"Hot Reload lets you fix issues or make changes to the code on the fly and see the results without restarting the app."},
+
+  {topic:"Visual Studio", q:"Where does the Editor window get its content from when you select Program.cs in Solution Explorer?", options:[
+    "It opens and shows the contents of the Program.cs file for editing",
+    "It shows the Error List instead",
+    "It compiles the file automatically",
+    "It opens a new blank console app"
+  ], correct:0, explain:"Browsing the Solution Explorer hierarchy and selecting a file (like Program.cs) opens it in the Editor window, which shows file contents and is where most coding work happens."}
+];
+
+</script>
+
+<!-- ================================= -->
+<!-- QUIZ ENGINE -->
+<!-- ================================= -->
+
+<script src="../js/quiz.js"></script>
+
+</body>
+</html>
