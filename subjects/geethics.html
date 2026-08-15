@@ -9,11 +9,170 @@
 
     <!-- Shared CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pdf.css">
+
 </head>
 
 <body>
 
 <div id="app">
+
+    <!-- =================================================
+         MODE SELECTION
+    ================================================== -->
+
+    <section id="modeScreen">
+
+        <div class="hero">
+
+
+            <div class="kicker">
+                GEETHICS
+            </div>
+
+
+            <h1 class="title display">
+
+                Choose Your
+                <span>Mode</span>
+
+            </h1>
+
+
+            <p class="subtitle">
+
+                Review the lessons or test your knowledge.
+
+            </p>
+
+
+            <div class="mode-grid">
+
+
+                <!-- ======================================
+                     REVIEWER CARD
+                ======================================= -->
+
+                <button
+                    type="button"
+                    id="reviewerModeBtn"
+                    class="mode-card">
+
+
+                    <div class="mode-icon">
+                        📖
+                    </div>
+
+
+                    <h3>
+                        Reviewer
+                    </h3>
+
+
+                    <p>
+                        Read the complete GEETHICS reviewer.
+                    </p>
+
+
+                    <span>
+                        Open Reviewer →
+                    </span>
+
+
+                </button>
+
+
+                <!-- ======================================
+                     QUIZ CARD
+                ======================================= -->
+
+                <button
+                    type="button"
+                    id="quizModeBtn"
+                    class="mode-card">
+
+
+                    <div class="mode-icon">
+                        📝
+                    </div>
+
+
+                    <h3>
+                        Quiz
+                    </h3>
+
+
+                    <p>
+                        Test your knowledge of GEETHICS.
+                    </p>
+
+
+                    <span>
+                        Start Quiz →
+                    </span>
+
+
+                </button>
+
+
+            </div>
+
+
+            <!-- ==========================================
+                 BACK TO SUBJECTS
+            =========================================== -->
+
+            <a
+                href="../index.html"
+                class="btn btn-ghost mode-back">
+
+                ← Back to Subjects
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         REVIEWER SCREEN
+    ================================================== -->
+
+    <section
+        id="reviewerScreen"
+        style="display:none;">
+
+
+        <button
+            type="button"
+            id="reviewerBackBtn"
+            class="back-link reviewer-back-btn">
+
+            ← Choose Mode
+
+        </button>
+
+
+        <div
+            id="pdfViewer"
+            class="pdf-viewer">
+
+
+            <div
+                class="pdf-loading">
+
+                Loading reviewer...
+
+            </div>
+
+
+        </div>
+
+
+    </section>
 
     <!-- ============================= -->
     <!-- START SCREEN -->
@@ -324,7 +483,7 @@
 <script>
 
     const SUBJECT = "GEETHICS";
-    
+    const REVIEWER_PDF = "../reviewers/geethics-reviewer.pdf";
     const QUESTIONS = [
 
         {
@@ -989,7 +1148,22 @@
 
 <script src="../js/quiz.js"></script>
 
+<!-- =====================================================
+     PDF REVIEWER
+====================================================== -->
 
+<script
+    type="module"
+    src="../js/pdf.js">
+</script>
+
+
+
+<!-- =====================================================
+     MODE SELECTION
+====================================================== -->
+
+<script src="../js/mode.js"></script>
 
 </body>
 </html>

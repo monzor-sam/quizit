@@ -1,0 +1,237 @@
+/* =========================================================
+   QuizIT — PDF REVIEWER STYLES
+========================================================= */
+
+
+/* =========================================================
+   REVIEWER SCREEN
+========================================================= */
+
+#reviewerScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    height: 100dvh;
+
+    z-index: 9999;
+
+    background:
+        var(--navy-deep);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   PDF SCROLL AREA
+========================================================= */
+
+.pdf-viewer {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    box-sizing: border-box;
+
+    padding:
+        70px
+        0
+        30px;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    /*
+     * Mobile touch scrolling.
+     */
+
+    -webkit-overflow-scrolling:
+        touch;
+
+    touch-action:
+        pan-y;
+
+    overscroll-behavior-y:
+        contain;
+}
+
+
+/* =========================================================
+   PDF PAGE
+========================================================= */
+
+.pdf-page {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    margin:
+        0 auto 20px;
+}
+
+
+/* =========================================================
+   PDF CANVAS
+========================================================= */
+
+.pdf-canvas {
+
+    display: block;
+
+    max-width:
+        calc(100vw - 16px);
+
+    height: auto;
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 4px 18px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.pdf-loading {
+
+    width: 100%;
+
+    min-height: 200px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color:
+        var(--cream);
+
+    font-size:
+        1rem;
+}
+
+
+/* =========================================================
+   CHOOSE MODE BUTTON
+========================================================= */
+
+.reviewer-back-btn {
+
+    position: fixed;
+
+    top: 20px;
+
+    left: 35px;
+
+    z-index: 10001;
+
+    margin: 0;
+
+    padding: 4px 0;
+
+    border: none;
+
+    background:
+        var(--navy-deep);
+
+    color:
+        var(--muted);
+
+    font-family:
+        inherit;
+
+    font-size:
+        0.85rem;
+
+    cursor: pointer;
+}
+
+
+.reviewer-back-btn:hover {
+
+    color:
+        var(--teal);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .pdf-viewer {
+
+        padding:
+            55px
+            0
+            20px;
+
+        touch-action:
+            pan-y;
+
+        -webkit-overflow-scrolling:
+            touch;
+
+    }
+
+
+    .pdf-page {
+
+        margin-bottom:
+            12px;
+
+    }
+
+
+    .pdf-canvas {
+
+        max-width:
+            calc(100vw - 16px);
+
+        box-shadow:
+            0 2px 10px
+            rgba(0, 0, 0, 0.2);
+
+    }
+
+
+    .reviewer-back-btn {
+
+        top: 10px;
+
+        left: 12px;
+
+    }
+
+}

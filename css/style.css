@@ -1736,3 +1736,256 @@ a {
 
     margin: 0;
 }
+
+/* =========================================================
+   QuizIT — MODE SELECTION
+   Matches the Subject Cards
+========================================================= */
+
+
+.mode-grid {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin:
+        40px auto 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   MODE CARD
+========================================================= */
+
+.mode-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    min-height: 260px;
+
+    padding: 28px 20px;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    color: #182b49;
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.12);
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    text-align: center;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.mode-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.20);
+
+    border-color:
+        #ff9f91;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.mode-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 34px;
+
+    background:
+        #eef3fa;
+
+    border-radius: 18px;
+
+    margin-bottom: 18px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.mode-card:hover .mode-icon {
+
+    transform:
+        scale(1.1)
+        rotate(-3deg);
+}
+
+
+/* =========================================================
+   MODE TITLE
+   Same size as Subject Code
+========================================================= */
+
+.mode-card h3 {
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    color:
+        #182b49;
+
+    margin:
+        0 0 8px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   Same size as Subject Name
+========================================================= */
+
+.mode-card p {
+
+    font-size: 20px;
+
+    line-height: 1.4;
+
+    text-align: center;
+
+    color:
+        #64748b;
+
+    margin: 0;
+
+    min-height: 56px;
+
+    max-width: 300px;
+}
+
+
+/* =========================================================
+   ACTION
+   Same size as Start Review
+========================================================= */
+
+.mode-card span {
+
+    margin-top: auto;
+
+    padding-top: 18px;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color:
+        #e97870;
+}
+
+
+.mode-card:hover span {
+
+    color:
+        #d85d56;
+}
+
+
+/* =========================================================
+   BACK TO SUBJECTS
+========================================================= */
+
+.mode-back {
+
+    display: inline-block;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   MOBILE MODE CARDS
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .mode-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 16px;
+
+        margin-top: 30px;
+
+    }
+
+
+    .mode-card {
+
+        min-height: 220px;
+
+        padding:
+            24px 18px;
+
+    }
+
+
+    .mode-card h3 {
+
+        font-size: 24px;
+
+    }
+
+
+    .mode-card p {
+
+        font-size: 20px;
+
+    }
+
+
+    .mode-card span {
+
+        font-size: 18px;
+
+    }
+
+}
