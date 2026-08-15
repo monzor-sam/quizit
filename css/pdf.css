@@ -147,40 +147,30 @@
 
 .reviewer-back-btn {
 
-    position: absolute;
+    position: relative;
 
-    top: 20px;
+    display: block;
 
-    left: 35px;
+    top: auto;
 
-    z-index: 10001;
+    left: auto;
 
-    margin: 0;
+    margin: 0 0 20px 35px;
 
     padding: 4px 0;
 
     border: none;
 
-    background:
-        var(--navy-deep);
+    background: transparent;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-family:
-        inherit;
+    font-family: inherit;
 
-    font-size:
-        0.85rem;
+    font-size: 0.85rem;
 
     cursor: pointer;
-}
 
-
-.reviewer-back-btn:hover {
-
-    color:
-        var(--teal);
 }
 
 
@@ -228,9 +218,8 @@
 
     .reviewer-back-btn {
 
-        top: 10px;
-
-        left: 12px;
+        margin:
+            0 0 15px 12px;
 
     }
 
