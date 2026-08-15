@@ -15,154 +15,9 @@
 
 <div id="app">
 
-    <!-- =====================================================
-    MODE SELECTION
-    ====================================================== -->
-
-    <section id="modeScreen">
-
-        <div class="hero">
-
-            <div class="kicker">
-                GEARTS • CHOOSE MODE
-            </div>
-
-            <h1 class="title display">
-                Choose Your <span>Mode</span>
-            </h1>
-
-            <p class="subtitle">
-                Study the reviewer or test your knowledge.
-            </p>
-
-
-            <div class="mode-card">
-
-                <!-- REVIEWER BUTTON -->
-
-                <button
-                    id="reviewerModeBtn"
-                    class="mode-option">
-
-                    <div class="mode-icon">
-                        📖
-                    </div>
-
-                    <div class="mode-text">
-
-                        <h3>
-                            Reviewer
-                        </h3>
-
-                        <p>
-                            View the complete GEARTS reviewer.
-                        </p>
-
-                    </div>
-
-                    <span class="mode-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-                <!-- QUIZ BUTTON -->
-
-                <button
-                    id="quizModeBtn"
-                    class="mode-option">
-
-                    <div class="mode-icon">
-                        📝
-                    </div>
-
-                    <div class="mode-text">
-
-                        <h3>
-                            Quiz
-                        </h3>
-
-                        <p>
-                            Test your knowledge with the quiz.
-                        </p>
-
-                    </div>
-
-                    <span class="mode-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-                <!-- BACK TO SUBJECTS -->
-
-                <a
-                    href="../index.html"
-                    class="btn btn-ghost">
-
-                    ← Back to Subjects
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
     <!-- ============================= -->
     <!-- START SCREEN -->
     <!-- ============================= -->
-
-    <!-- =====================================================
-     INSERTED: REVIEWER SCREEN
-====================================================== -->
-
-    <section
-        id="reviewerScreen"
-        style="display:none;">
-
-        <div class="reviewer-container">
-
-
-            <!-- REVIEWER TOP BAR -->
-
-            <div class="reviewer-top">
-
-                <button
-                    type="button"
-                    id="reviewerBackBtn"
-                    class="back-link">
-
-                    ← Choose Mode
-
-                </button>
-
-                <div class="subject-label">
-                    GEARTS • REVIEWER
-                </div>
-
-            </div>
-
-
-            <!-- REVIEWER PDF -->
-
-            <div class="reviewer-pdf-wrap">
-
-                <iframe
-                    id="reviewerFrame"
-                    class="reviewer-pdf"
-                    title="GEARTS Reviewer PDF">
-                </iframe>
-
-            </div>
-
-
-        </div>
-
-    </section>
 
     <section id="startScreen">
 
@@ -467,8 +322,6 @@
 <script>
 
     const SUBJECT = "GEARTS";
-
-    const REVIEWER_PDF = "../reviewers/gearts-reviewer.pdf";
 
     const QUESTIONS = [
 
@@ -1411,12 +1264,6 @@
 <!-- ================================= -->
 
 <script src="../js/quiz.js"></script>
-
-<!-- ================================= -->
-<!-- INSERTED: MODE SELECTION ENGINE -->
-<!-- ================================= -->
-
-<script src="../js/mode.js"></script>
 
 </body>
 </html>
