@@ -1736,3 +1736,125 @@ a {
 
     margin: 0;
 }
+
+/* =========================================================
+   QuizIT — Mode Selection
+========================================================= */
+
+.mode-card {
+    width: min(92%, 720px);
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mode-option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.05);
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.2s ease,
+                background 0.2s ease;
+}
+
+.mode-option:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.09);
+}
+
+.mode-icon {
+    font-size: 32px;
+    min-width: 45px;
+    text-align: center;
+}
+
+.mode-text {
+    flex: 1;
+}
+
+.mode-text h3 {
+    margin: 0 0 5px;
+}
+
+.mode-text p {
+    margin: 0;
+    opacity: 0.75;
+}
+
+.mode-arrow {
+    font-size: 24px;
+}
+
+
+/* =========================================================
+   QuizIT — PDF Reviewer
+========================================================= */
+
+.reviewer-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.reviewer-top {
+    width: min(1200px, 100%);
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.reviewer-pdf-wrap {
+    width: min(1200px, 100%);
+    height: calc(100vh - 120px);
+    min-height: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #fff;
+}
+
+.reviewer-pdf {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .reviewer-container {
+        padding: 12px;
+    }
+
+    .reviewer-top {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .reviewer-pdf-wrap {
+        height: calc(100vh - 150px);
+        min-height: 500px;
+    }
+
+    .mode-option {
+        padding: 18px;
+    }
+
+}
+

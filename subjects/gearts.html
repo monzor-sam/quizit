@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>QuizIT — Coming Soon</title>
+    <title>QuizIT — GEARTS</title>
 
+    <!-- Shared CSS -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -14,36 +15,194 @@
 
 <div id="app">
 
+    <!-- =====================================================
+    MODE SELECTION
+    ====================================================== -->
+
+    <section id="modeScreen">
+
+        <div class="hero">
+
+            <div class="kicker">
+                GEARTS • CHOOSE MODE
+            </div>
+
+            <h1 class="title display">
+                Choose Your <span>Mode</span>
+            </h1>
+
+            <p class="subtitle">
+                Study the reviewer or test your knowledge.
+            </p>
+
+
+            <div class="mode-card">
+
+                <!-- REVIEWER BUTTON -->
+
+                <button
+                    id="reviewerModeBtn"
+                    class="mode-option">
+
+                    <div class="mode-icon">
+                        📖
+                    </div>
+
+                    <div class="mode-text">
+
+                        <h3>
+                            Reviewer
+                        </h3>
+
+                        <p>
+                            View the complete GEARTS reviewer.
+                        </p>
+
+                    </div>
+
+                    <span class="mode-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- QUIZ BUTTON -->
+
+                <button
+                    id="quizModeBtn"
+                    class="mode-option">
+
+                    <div class="mode-icon">
+                        📝
+                    </div>
+
+                    <div class="mode-text">
+
+                        <h3>
+                            Quiz
+                        </h3>
+
+                        <p>
+                            Test your knowledge with the quiz.
+                        </p>
+
+                    </div>
+
+                    <span class="mode-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- BACK TO SUBJECTS -->
+
+                <a
+                    href="../index.html"
+                    class="btn btn-ghost">
+
+                    ← Back to Subjects
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ============================= -->
+    <!-- START SCREEN -->
+    <!-- ============================= -->
+
+    <!-- =====================================================
+     INSERTED: REVIEWER SCREEN
+====================================================== -->
+
+    <section
+        id="reviewerScreen"
+        style="display:none;">
+
+        <div class="reviewer-container">
+
+
+            <!-- REVIEWER TOP BAR -->
+
+            <div class="reviewer-top">
+
+                <button
+                    type="button"
+                    id="reviewerBackBtn"
+                    class="back-link">
+
+                    ← Choose Mode
+
+                </button>
+
+                <div class="subject-label">
+                    GEARTS • REVIEWER
+                </div>
+
+            </div>
+
+
+            <!-- REVIEWER PDF -->
+
+            <div class="reviewer-pdf-wrap">
+
+                <iframe
+                    id="reviewerFrame"
+                    class="reviewer-pdf"
+                    title="GEARTS Reviewer PDF">
+                </iframe>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
     <section id="startScreen">
 
         <div class="hero">
 
             <div class="kicker">
-                QUIZIT • COMING SOON
+                GEARTS • QUIZ
             </div>
 
             <h1 class="title display">
-                Reviewer <span>Unavailable</span>
+                QuizIT <span>GEARTS</span>
             </h1>
+
+            <p class="subtitle">
+                Art Appreciation
+            </p>
 
             <div class="start-card">
 
                 <div class="start-icon">
-                    🚧
+                    🎨
                 </div>
 
                 <h2>
-                    Oops..oops...oops!
+                    Ready to Review?
                 </h2>
 
                 <p>
-                    This reviewer is currently unavailable.
-                    Try again later.
+                    Test your knowledge of art, its functions, philosophy, Philippine art, and art appreciation!
                 </p>
+
+                <button
+                    class="btn btn-primary"
+                    id="startBtn">
+                    Start Reviewer →
+                </button>
 
                 <a
                     href="../index.html"
-                    class="btn btn-primary">
+                    class="btn btn-ghost">
                     ← Back to Subjects
                 </a>
 
@@ -53,7 +212,1211 @@
 
     </section>
 
+
+    <!-- ============================= -->
+    <!-- QUIZ SCREEN -->
+    <!-- ============================= -->
+
+    <section
+        id="quizScreen"
+        style="display:none;">
+
+        <div class="quiz-container">
+
+            <!-- TOP BAR -->
+
+            <div class="quiz-top">
+
+                <a
+                    href="../index.html"
+                    class="back-link">
+                    ← Subjects
+                </a>
+
+                <div class="subject-label">
+                    GEARTS
+                </div>
+
+                <div
+                    class="timer"
+                    id="timer">
+                    15
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION INFO -->
+
+            <div class="question-info">
+
+                <span id="questionNumber">
+                    Question 1
+                </span>
+
+                <span id="scoreDisplay">
+                    Score: 0
+                </span>
+
+                <span id="streakDisplay">
+                    🔥 0
+                </span>
+
+            </div>
+
+
+            <!-- TOPIC -->
+
+            <div
+                class="pill"
+                id="topicLabel">
+                Topic
+            </div>
+
+
+            <!-- QUESTION -->
+
+            <h2
+                id="questionText"
+                class="question">
+            </h2>
+
+
+            <!-- ANSWERS -->
+
+            <div
+                id="answers"
+                class="answers">
+
+            </div>
+
+
+            <!-- FEEDBACK -->
+
+            <div
+                id="feedback"
+                class="feedback-banner"
+                style="display:none;">
+
+                <div id="feedbackText"></div>
+
+                <div id="explanation"></div>
+
+            </div>
+
+
+            <!-- NEXT BUTTON -->
+
+            <button
+                id="nextBtn"
+                class="btn btn-primary"
+                style="display:none;">
+
+                Next Question →
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- RESULTS SCREEN -->
+    <!-- ============================= -->
+
+    <section
+        id="resultScreen"
+        style="display:none;">
+
+        <div class="hero">
+
+            <div class="kicker">
+                GEARTS • COMPLETE
+            </div>
+
+            <h1 class="title display">
+                Reviewer <span>Complete!</span>
+            </h1>
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    🏆
+                </div>
+
+                <h2 id="finalMessage">
+                    Great job!
+                </h2>
+
+
+                <!-- FINAL SCORE -->
+
+                <div class="final-score">
+
+                    <span id="finalScore">
+                        0
+                    </span>
+
+                    <small>
+                        points
+                    </small>
+
+                </div>
+
+
+                <!-- RESULT STATS -->
+
+                <div class="result-stats">
+
+                    <div>
+
+                        <strong id="correctCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Correct
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <strong id="totalCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Questions
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <strong id="bestStreak">
+                            0
+                        </strong>
+
+                        <span>
+                            Best Streak
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION REVIEW -->
+
+                <div
+                    id="reviewWrap"
+                    style="display:none;">
+
+                    <h3>
+                        Question Review
+                    </h3>
+
+                    <div id="reviewList"></div>
+
+                </div>
+
+
+                <!-- TRY AGAIN -->
+
+                <button
+                    class="btn btn-primary"
+                    onclick="location.reload()">
+
+                    Try Again 🔄
+
+                </button>
+
+
+                <!-- BACK TO SUBJECTS -->
+
+                <a
+                    href="../index.html"
+                    class="btn btn-ghost">
+
+                    Choose Another Subject
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </div>
+
+<script>
+
+    const SUBJECT = "GEARTS";
+
+    const REVIEWER_PDF = "../reviewers/gearts-reviewer.pdf";
+
+    const QUESTIONS = [
+
+    // =================================================
+    // LESSON 1 — THE NATURE OF ART
+    // =================================================
+
+    {
+        topic: "Lesson 1 — The Nature of Art",
+
+        q: "What is art according to the reviewer?",
+
+        options: [
+            "Anything that looks beautiful",
+            "A product of human creativity, imagination, and expression",
+            "A natural object found in the environment",
+            "Anything that is expensive"
+        ],
+
+        correct: 1,
+
+        explain:
+            "Art is described as a product of human creativity, imagination, and expression."
+    },
+
+    {
+        topic: "Lesson 1 — The Nature of Art",
+
+        q: "What does the French word associated with “art” refer to?",
+
+        options: [
+            "Nature",
+            "Beauty",
+            "Skill or result of practice",
+            "Emotion"
+        ],
+
+        correct: 2,
+
+        explain:
+            "The French word associated with art refers to skill or the result of practice."
+    },
+
+    {
+        topic: "Lesson 1 — The Nature of Art",
+
+        q: "What does the Latin word “ars” mean?",
+
+        options: [
+            "Ability or practiced skills",
+            "Natural beauty",
+            "Perfect beauty",
+            "Social unity"
+        ],
+
+        correct: 0,
+
+        explain:
+            "The Latin word “ars” refers to ability or the practice of skills."
+    },
+
+    {
+        topic: "Lesson 1 — The Nature of Art",
+
+        q: "Which statement about artists and spectators is correct?",
+
+        options: [
+            "Everyone is an artist",
+            "Only artists can appreciate art",
+            "Not everyone is an artist, but all are spectators of art",
+            "Spectators cannot understand art"
+        ],
+
+        correct: 2,
+
+        explain:
+            "The artist is distinguished as a creator while recognizing that people can experience art as spectators."
+    },
+
+    {
+        topic: "Lesson 1 — The Nature of Art",
+
+        q: "What does creativity require?",
+
+        options: [
+            "Thinking outside the box and originality",
+            "Exact copying",
+            "Avoiding new ideas",
+            "Following one fixed style"
+        ],
+
+        correct: 0,
+
+        explain:
+            "Creativity involves thinking outside the box and producing original ideas."
+    },
+
+    {
+        topic: "Lesson 1 — The Nature of Art",
+
+        q: "How does imagination contribute to art?",
+
+        options: [
+            "It removes creativity",
+            "It allows endless possibilities and can turn ideas into creations",
+            "It prevents experimentation",
+            "It limits artists to reality"
+        ],
+
+        correct: 1,
+
+        explain:
+            "Imagination allows artists to go beyond ordinary norms and explore endless possibilities that can become creations."
+    },
+
+    {
+        topic: "Lesson 1 — The Nature of Art",
+
+        q: "Which statement best describes art as expression?",
+
+        options: [
+            "It must copy external reality",
+            "It cannot communicate feelings",
+            "It explores inner emotions and creates something from them",
+            "It simply describes emotions"
+        ],
+
+        correct: 2,
+
+        explain:
+            "Art as expression explores the artist's inner emotions and transforms them into a creative work."
+    },
+
+    {
+        topic: "Lesson 1 — The Nature of Art",
+
+        q: "Which art form is defined by carving, modelling, and casting?",
+
+        options: [
+            "Literary works",
+            "Sculpture",
+            "Dance",
+            "Painting"
+        ],
+
+        correct: 1,
+
+        explain:
+            "Sculpture involves processes such as carving, modelling, and casting."
+    },
+
+
+    // =================================================
+    // LESSON 2 — ART AS UNIVERSAL, TIMELESS, AND HUMAN
+    // =================================================
+
+    {
+        topic: "Lesson 2 — Art as Universal and Timeless",
+
+        q: "Why is art considered universal?",
+
+        options: [
+            "It uses identical materials everywhere",
+            "It exists in only one culture",
+            "It transcends cultures, races, and civilizations",
+            "It began in one country"
+        ],
+
+        correct: 2,
+
+        explain:
+            "Art is considered universal because it exists across different cultures, races, and civilizations."
+    },
+
+    {
+        topic: "Lesson 2 — Art as Universal and Timeless",
+
+        q: "Art communicates stories, emotions, and values through ______.",
+
+        options: [
+            "Financial records",
+            "Color, sound, motion, and other artistic elements",
+            "Formulas only",
+            "Numbers only"
+        ],
+
+        correct: 1,
+
+        explain:
+            "Art can communicate stories, emotions, and values through artistic elements such as color, sound, and motion."
+    },
+
+    {
+        topic: "Lesson 2 — Art as Universal and Timeless",
+
+        q: "Why is art described as timeless?",
+
+        options: [
+            "It continually evolves and survives trends",
+            "It must be ancient",
+            "It never changes",
+            "It is always permanent"
+        ],
+
+        correct: 0,
+
+        explain:
+            "Art is considered timeless because it continually evolves and can survive changing trends while remaining connected to human life."
+    },
+
+    {
+        topic: "Lesson 2 — Art as Universal and Timeless",
+
+        q: "Which set contains human needs that can be addressed by art?",
+
+        options: [
+            "Comfort, entertainment, and education",
+            "Transportation, taxation, and banking",
+            "Competition, wealth, and business",
+            "Appreciation, imitation, and replication"
+        ],
+
+        correct: 0,
+
+        explain:
+            "Comfort, entertainment, and education are among the human needs addressed by art."
+    },
+
+    {
+        topic: "Lesson 2 — Art as Universal and Timeless",
+
+        q: "Why is art not considered nature?",
+
+        options: [
+            "Nature has no beauty",
+            "Art is man-made and involves process and planning",
+            "Nature cannot be experienced",
+            "Art never reflects nature"
+        ],
+
+        correct: 1,
+
+        explain:
+            "Art is distinguished from nature because it is a human creation involving skill, craftsmanship, process, and planning."
+    },
+
+    {
+        topic: "Lesson 2 — Art as Universal and Timeless",
+
+        q: "What does it mean that art involves experience?",
+
+        options: [
+            "Art must always be realistic",
+            "Art represents experience and demands immersion",
+            "Art requires no involvement",
+            "Art must be expensive"
+        ],
+
+        correct: 1,
+
+        explain:
+            "Art represents experience and involves the audience through participation, involvement, or immersion."
+    },
+
+    {
+        topic: "Lesson 2 — Art as Universal and Timeless",
+
+        q: "Which period is associated with carvings related to survival and hunting animals?",
+
+        options: [
+            "Medieval Period",
+            "Digital Art",
+            "Prehistoric Period",
+            "Ancient Period"
+        ],
+
+        correct: 2,
+
+        explain:
+            "Prehistoric art is associated with carvings and artworks connected to survival, including hunting animals."
+    },
+
+    {
+        topic: "Lesson 2 — Art as Universal and Timeless",
+
+        q: "Pyramids and sculptures connected with leadership, civilization, and religion belong to which period?",
+
+        options: [
+            "Renaissance Period",
+            "Prehistoric Period",
+            "Ancient Period",
+            "Medieval Period"
+        ],
+
+        correct: 2,
+
+        explain:
+            "The Ancient Period associates pyramids and sculptures to leadership, civilization, and religion."
+    },
+
+
+    // =================================================
+    // LESSON 3 — FUNCTIONS OF ART
+    // =================================================
+
+    {
+        topic: "Lesson 3 — Functions of Art",
+
+        q: "Telos is closely linked with ______.",
+
+        options: [
+            "Imitation",
+            "Function",
+            "Popularity",
+            "Color"
+        ],
+
+        correct: 1,
+
+        explain:
+            "Telos is closely associated with purpose or function."
+    },
+
+    {
+        topic: "Lesson 3 — Functions of Art",
+
+        q: "An inquiry into the function of art asks ______.",
+
+        options: [
+            "How old is art?",
+            "What color is art?",
+            "What is art for?",
+            "Who owns art?"
+        ],
+
+        correct: 2,
+
+        explain:
+            "The function of art concerns its purpose, or what the art is for."
+    },
+
+    {
+        topic: "Lesson 3 — Functions of Art",
+
+        q: "Which is an example of the personal function of art?",
+
+        options: [
+            "A building designed for practical use",
+            "A monument commemorating a hero",
+            "A protest film",
+            "A diary"
+        ],
+
+        correct: 3,
+
+        explain:
+            "The personal function of art involves expressing personal feelings or mental states, such as through a diary or love song."
+    },
+
+    {
+        topic: "Lesson 3 — Functions of Art",
+
+        q: "Which function of art raises awareness and challenges societal issues?",
+
+        options: [
+            "Social",
+            "Physical",
+            "Decorative",
+            "Personal"
+        ],
+
+        correct: 0,
+
+        explain:
+            "The social function of art addresses collective interests, raises awareness, and can challenge societal issues."
+    },
+
+    {
+        topic: "Lesson 3 — Functions of Art",
+
+        q: "Which is an example of the physical function of art?",
+
+        options: [
+            "A protest poem",
+            "A private diary",
+            "Architecture designed for practical use",
+            "A personal love song"
+        ],
+
+        correct: 2,
+
+        explain:
+            "The physical function serves a practical purpose, such as architecture designed for use."
+    },
+
+    {
+        topic: "Lesson 3 — Functions of Art",
+
+        q: "Which example shows a physical function of art?",
+
+        options: [
+            "A personal drawing",
+            "A private diary",
+            "Bahay Kubo",
+            "A love song"
+        ],
+
+        correct: 2,
+
+        explain:
+            "Bahay Kubo is given as an example of art serving a physical or practical function."
+    },
+
+    {
+        topic: "Lesson 3 — Functions of Art",
+
+        q: "How can sculpture serve a function?",
+
+        options: [
+            "By avoiding meaning",
+            "By functioning only as architecture",
+            "By only expressing private emotions",
+            "By commemorating important historical figures"
+        ],
+
+        correct: 3,
+
+        explain:
+            "Sculpture can serve a social or commemorative function by honoring important figures in history."
+    },
+
+    {
+        topic: "Lesson 3 — Functions of Art",
+
+        q: "Which statement best describes the relationship between art and function?",
+
+        options: [
+            "Only architecture has a function",
+            "There is no one-to-one correspondence between an art form and its function",
+            "Every artwork has exactly one function",
+            "Art has no functions"
+        ],
+
+        correct: 1,
+
+        explain:
+            "One type of art can have many different functions, and one function can be served by many different types of art."
+    },
+
+
+    // =================================================
+    // LESSON 4 — PHILOSOPHICAL PERSPECTIVES ON ART
+    // =================================================
+
+    {
+        topic: "Lesson 4 — Philosophical Perspectives",
+
+        q: "Who viewed art as imitation or mimesis?",
+
+        options: [
+            "Leo Tolstoy",
+            "Immanuel Kant",
+            "Aristotle",
+            "Plato"
+        ],
+
+        correct: 3,
+
+        explain:
+            "Plato viewed art as imitation, or mimesis."
+    },
+
+    {
+        topic: "Lesson 4 — Philosophical Perspectives",
+
+        q: "Why did Plato become suspicious of art?",
+
+        options: [
+            "It cannot be beautiful",
+            "It appeals to emotion and imitates rather than directly knowing reality",
+            "It is always functional",
+            "It is too expensive"
+        ],
+
+        correct: 1,
+
+        explain:
+            "Plato was concerned that art appeals to emotion and imitates reality rather than providing direct knowledge of reality."
+    },
+
+    {
+        topic: "Lesson 4 — Philosophical Perspectives",
+
+        q: "Why is art an “imitation of an imitation” in Plato's view?",
+
+        options: [
+            "Art copies only other artworks",
+            "Art has no relationship to reality",
+            "Art copies visible things, which are already imperfect copies of the Forms",
+            "Art copies the World of Forms directly"
+        ],
+
+        correct: 2,
+
+        explain:
+            "In Plato's view, visible things are imperfect copies of the perfect Forms. Art copies those visible things, making art an imitation of an imitation."
+    },
+
+    {
+        topic: "Lesson 4 — Philosophical Perspectives",
+
+        q: "Who saw art as representation that can aid philosophy and reveal truth?",
+
+        options: [
+            "Kant",
+            "Tolstoy",
+            "Plato",
+            "Aristotle"
+        ],
+
+        correct: 3,
+
+        explain:
+            "Aristotle viewed art as representation or imitation that can help reveal truth and possibilities."
+    },
+
+    {
+        topic: "Lesson 4 — Philosophical Perspectives",
+
+        q: "Which benefit of art is associated with Aristotle?",
+
+        options: [
+            "It can give pleasure and teach audiences about life",
+            "It should cloud rationality",
+            "It should be excluded from education",
+            "It cannot show possibilities"
+        ],
+
+        correct: 0,
+
+        explain:
+            "Aristotle believed art could provide pleasure and instruction, helping audiences understand life and possibilities."
+    },
+
+    {
+        topic: "Lesson 4 — Philosophical Perspectives",
+
+        q: "What is central to Kant's philosophical perspective on art?",
+
+        options: [
+            "Craftsmanship",
+            "Political protest",
+            "Judgment of beauty",
+            "Imitation"
+        ],
+
+        correct: 2,
+
+        explain:
+            "The judgment of beauty is central to Kant's philosophical perspective on art."
+    },
+
+    {
+        topic: "Lesson 4 — Philosophical Perspectives",
+
+        q: "Which statement illustrates Kant's distinction between personal taste and judgment?",
+
+        options: [
+            "Beauty is never subjective",
+            "Personal taste is always universal",
+            "All statements are exactly the same",
+            "“I like this painting” expresses personal taste, while “This painting is beautiful” is a judgment believed recognizable by others"
+        ],
+
+        correct: 3,
+
+        explain:
+            "According to Kant, personal preference differs from a judgment of beauty that can be presented as something recognizable or communicable to others."
+    },
+
+    {
+        topic: "Lesson 4 — Philosophical Perspectives",
+
+        q: "Who viewed art as a language that communicates feelings and emotions?",
+
+        options: [
+            "Tolstoy",
+            "Kant",
+            "Plato",
+            "Aristotle"
+        ],
+
+        correct: 0,
+
+        explain:
+            "Leo Tolstoy viewed art as a form of communication, particularly as a language that communicates feelings and emotions."
+    },
+
+
+    // =================================================
+    // LESSON 5 — ARTISTS, ARTISANS, AND PHILIPPINE ART
+    // =================================================
+
+    {
+        topic: "Lesson 5 — Artists, Artisans, and Philippine Art",
+
+        q: "Which best distinguishes an artist from an artisan?",
+
+        options: [
+            "Artisans cannot create beautiful things",
+            "Artists work only with metal",
+            "An artist uses imagination for creative or aesthetic art, while an artisan uses skill and experience for functional or decorative works",
+            "There is no distinction"
+        ],
+
+        correct: 2,
+
+        explain:
+            "Artists are creative practitioners who use imagination, while artisans are skilled manual workers whose work may be functional or decorative."
+    },
+
+    {
+        topic: "Lesson 5 — Artists, Artisans, and Philippine Art",
+
+        q: "Which person is an example of an artisan?",
+
+        options: [
+            "Musician",
+            "Weaver",
+            "Choreographer",
+            "Dancer"
+        ],
+
+        correct: 1,
+
+        explain:
+            "A weaver is listed as an example of an artisan because weaving involves practiced manual skill."
+    },
+
+    {
+        topic: "Lesson 5 — Artists, Artisans, and Philippine Art",
+
+        q: "When did artisan guilds become prevalent?",
+
+        options: [
+            "Modern Period",
+            "Digital Age",
+            "Prehistoric Period",
+            "Middle Ages"
+        ],
+
+        correct: 3,
+
+        explain:
+            "The Middle Ages was identified as the period when artisan guilds became prevalent."
+    },
+
+    {
+        topic: "Lesson 5 — Artists, Artisans, and Philippine Art",
+
+        q: "What could master artisans do within guilds?",
+
+        options: [
+            "Prevent specialization",
+            "Work only as painters",
+            "Hire apprentices for tutelage and instruction",
+            "Avoid teaching skills"
+        ],
+
+        correct: 2,
+
+        explain:
+            "Master artisans could hire apprentices and provide them with instruction and training in their skills."
+    },
+
+    {
+        topic: "Lesson 5 — Artists, Artisans, and Philippine Art",
+
+        q: "What is the highest national recognition given to Filipino individuals for significant contributions to Philippine arts?",
+
+        options: [
+            "National Living Treasures Medal",
+            "Order of National Artists",
+            "Artisan Guild Award",
+            "GAMABA"
+        ],
+
+        correct: 1,
+
+        explain:
+            "The Order of National Artists is identified as the highest national recognition for significant contributions to Philippine arts."
+    },
+
+    {
+        topic: "Lesson 5 — Artists, Artisans, and Philippine Art",
+
+        q: "Who was the first recipient of the Order of National Artists according to the reviewer?",
+
+        options: [
+            "Fernando Amorsolo",
+            "Vasily Kandinsky",
+            "Pablo Picasso",
+            "Apo Whang-Od"
+        ],
+
+        correct: 0,
+
+        explain:
+            "Fernando Amorsolo was identified as the first recipient of the Order of National Artists in 1972 for Visual Arts."
+    },
+
+    {
+        topic: "Lesson 5 — Artists, Artisans, and Philippine Art",
+
+        q: "What does GAMABA recognize?",
+
+        options: [
+            "Only architects",
+            "Only modern painters",
+            "Traditional artists whose skills contribute to intangible cultural heritage",
+            "International film directors"
+        ],
+
+        correct: 2,
+
+        explain:
+            "GAMABA recognizes traditional artists whose skills help preserve intangible cultural heritage and cultural identity."
+    },
+
+    {
+        topic: "Lesson 5 — Artists, Artisans, and Philippine Art",
+
+        q: "Under which law was GAMABA created according to the reviewer?",
+
+        options: [
+            "RA No. 6713",
+            "RA No. 7355",
+            "RA No. 9165",
+            "RA No. 1425"
+        ],
+
+        correct: 1,
+
+        explain:
+            "GAMABA was created in 1992 under Republic Act No. 7355 by the National Commission for Culture and the Arts (NCCA)."
+    },
+
+
+    // =================================================
+    // LESSON 6 — ART APPRECIATION AND CONTENT ANALYSIS
+    // =================================================
+
+    {
+        topic: "Lesson 6 — Art Appreciation and Content Analysis",
+
+        q: "What is perception in art appreciation?",
+
+        options: [
+            "A type of sculpture",
+            "A cultural symbol",
+            "The primary stage of engaging with art through looking",
+            "The final judgment of an artwork"
+        ],
+
+        correct: 2,
+
+        explain:
+            "Perception is the primary stage of engaging with art through observing or looking at the artwork."
+    },
+
+    {
+        topic: "Lesson 6 — Art Appreciation and Content Analysis",
+
+        q: "Which set correctly matches the three basic components of a work of art?",
+
+        options: [
+            "Subject = emotion, Content = material, Form = meaning",
+            "Subject = how, Content = what, Form = why",
+            "Subject = why, Content = how, Form = what",
+            "Subject = what, Content = why, Form = how"
+        ],
+
+        correct: 3,
+
+        explain:
+            "Memory guide: Subject = WHAT, Content = WHY, and Form = HOW."
+    },
+
+    {
+        topic: "Lesson 6 — Art Appreciation and Content Analysis",
+
+        q: "What is content?",
+
+        options: [
+            "The artist's biography",
+            "The meaning or message communicated by the artwork",
+            "The physical materials only",
+            "The object depicted only"
+        ],
+
+        correct: 1,
+
+        explain:
+            "Content refers to the meaning or message communicated by the artwork."
+    },
+
+    {
+        topic: "Lesson 6 — Art Appreciation and Content Analysis",
+
+        q: "What is form?",
+
+        options: [
+            "What object is depicted",
+            "The viewer's memory",
+            "How elements and materials are developed and put together",
+            "Why the artwork exists"
+        ],
+
+        correct: 2,
+
+        explain:
+            "Form refers to how the elements and materials of an artwork are developed, organized, and put together."
+    },
+
+    {
+        topic: "Lesson 6 — Art Appreciation and Content Analysis",
+
+        q: "Which is an example of representational art?",
+
+        options: [
+            "A fully non-figurative composition",
+            "Random shapes with no real-world subject",
+            "A realistic tree",
+            "Pure lines with no reference"
+        ],
+
+        correct: 2,
+
+        explain:
+            "Representational art depicts recognizable objects or events from the real world. A realistic tree is an example."
+    },
+
+    {
+        topic: "Lesson 6 — Art Appreciation and Content Analysis",
+
+        q: "What distinguishes abstract art?",
+
+        options: [
+            "It must be photographic",
+            "It begins from something real but changes, distorts, or simplifies it",
+            "It cannot contain recognizable forms",
+            "It has no possible connection to reality"
+        ],
+
+        correct: 1,
+
+        explain:
+            "Abstract art is characterized by beginning with something real but changing, distorting, or simplifying it."
+    },
+
+    {
+        topic: "Lesson 6 — Art Appreciation and Content Analysis",
+
+        q: "Which artist is identified as a proponent of non-representational art and was inspired by music?",
+
+        options: [
+            "Claude Monet",
+            "Pablo Picasso",
+            "Fernando Amorsolo",
+            "Vasily Kandinsky"
+        ],
+
+        correct: 3,
+
+        explain:
+            "Vasily Kandinsky is identified as a proponent of non-representational art whose works were often inspired by music."
+    },
+
+    {
+        topic: "Lesson 6 — Art Appreciation and Content Analysis",
+
+        q: "Which level of meaning is objective, basic, obvious, and verifiable?",
+
+        options: [
+            "Subjective",
+            "Personal",
+            "Factual",
+            "Conventional"
+        ],
+
+        correct: 2,
+
+        explain:
+            "Factual meaning is objective, basic, obvious, and based on information that can be verified."
+    },
+
+    {
+        topic: "Lesson 6 — Art Appreciation and Content Analysis",
+
+        q: "Which level of meaning is based on personal feelings, memories, experiences, and values?",
+
+        options: [
+            "Universal",
+            "Conventional",
+            "Factual",
+            "Subjective"
+        ],
+
+        correct: 3,
+
+        explain:
+            "Subjective meaning varies from viewer to viewer and is influenced by personal feelings, memories, experiences, and values."
+    },
+
+    {
+        topic: "Lesson 6 — Art Appreciation and Content Analysis",
+
+        q: "Who is identified as a leading scholar associated with content analysis in Meaning in the Visual Arts?",
+
+        options: [
+            "Albert Einstein",
+            "Erwin Panofsky",
+            "Jean-Paul Sartre",
+            "Robin George Collingwood"
+        ],
+
+        correct: 1,
+
+        explain:
+            "Erwin Panofsky is identified as a leading scholar associated with content analysis in Meaning in the Visual Arts."
+        }
+
+    ];
+
+</script>
+
+
+<!-- ================================= -->
+<!-- SHARED QUIZ ENGINE -->
+<!-- ================================= -->
+
+<script src="../js/quiz.js"></script>
+
+<!-- ================================= -->
+<!-- INSERTED: MODE SELECTION ENGINE -->
+<!-- ================================= -->
+
+<script src="../js/mode.js"></script>
 
 </body>
 </html>

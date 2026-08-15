@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>QuizIT — Coming Soon</title>
+    <title>QuizIT — GEETHICS</title>
 
+    <!-- Shared CSS -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -14,36 +15,194 @@
 
 <div id="app">
 
+<!-- =====================================================
+    MODE SELECTION
+    ====================================================== -->
+
+    <section id="modeScreen">
+
+        <div class="hero">
+
+            <div class="kicker">
+                GEARTS • CHOOSE MODE
+            </div>
+
+            <h1 class="title display">
+                Choose Your <span>Mode</span>
+            </h1>
+
+            <p class="subtitle">
+                Study the reviewer or test your knowledge.
+            </p>
+
+
+            <div class="mode-card">
+
+                <!-- REVIEWER BUTTON -->
+
+                <button
+                    id="reviewerModeBtn"
+                    class="mode-option">
+
+                    <div class="mode-icon">
+                        📖
+                    </div>
+
+                    <div class="mode-text">
+
+                        <h3>
+                            Reviewer
+                        </h3>
+
+                        <p>
+                            View the complete GEARTS reviewer.
+                        </p>
+
+                    </div>
+
+                    <span class="mode-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- QUIZ BUTTON -->
+
+                <button
+                    id="quizModeBtn"
+                    class="mode-option">
+
+                    <div class="mode-icon">
+                        📝
+                    </div>
+
+                    <div class="mode-text">
+
+                        <h3>
+                            Quiz
+                        </h3>
+
+                        <p>
+                            Test your knowledge with the quiz.
+                        </p>
+
+                    </div>
+
+                    <span class="mode-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- BACK TO SUBJECTS -->
+
+                <a
+                    href="../index.html"
+                    class="btn btn-ghost">
+
+                    ← Back to Subjects
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ============================= -->
+    <!-- START SCREEN -->
+    <!-- ============================= -->
+
+<!-- =====================================================
+     INSERTED: REVIEWER SCREEN
+====================================================== -->
+
+    <section
+        id="reviewerScreen"
+        style="display:none;">
+
+        <div class="reviewer-container">
+
+
+            <!-- REVIEWER TOP BAR -->
+
+            <div class="reviewer-top">
+
+                <button
+                    type="button"
+                    id="reviewerBackBtn"
+                    class="back-link">
+
+                    ← Choose Mode
+
+                </button>
+
+                <div class="subject-label">
+                    GEETHICS • REVIEWER
+                </div>
+
+            </div>
+
+
+            <!-- REVIEWER PDF -->
+
+            <div class="reviewer-pdf-wrap">
+
+                <iframe
+                    id="reviewerFrame"
+                    class="reviewer-pdf"
+                    title="GEETHICS Reviewer PDF">
+                </iframe>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
     <section id="startScreen">
 
         <div class="hero">
 
             <div class="kicker">
-                QUIZIT • COMING SOON
+                GEETHICS • REVIEWER
             </div>
 
             <h1 class="title display">
-                Reviewer <span>Unavailable</span>
+                QuizIT <span>GEETHICS</span>
             </h1>
+
+            <p class="subtitle">
+                Ethics
+            </p>
 
             <div class="start-card">
 
                 <div class="start-icon">
-                    🚧
+                    ⚖️
                 </div>
 
                 <h2>
-                    Oops..oops...oops!
+                    Ready to Review?
                 </h2>
 
                 <p>
-                    This reviewer is currently unavailable.
-                    Try again later.
+                    Test your knowledge of ethics, morality, human acts, moral standards, ethical dilemmas, freedom, natural law, and culture!
                 </p>
+
+                <button
+                    class="btn btn-primary"
+                    id="startBtn">
+                    Start Reviewer →
+                </button>
 
                 <a
                     href="../index.html"
-                    class="btn btn-primary">
+                    class="btn btn-ghost">
                     ← Back to Subjects
                 </a>
 
@@ -53,7 +212,935 @@
 
     </section>
 
+
+    <!-- ============================= -->
+    <!-- QUIZ SCREEN -->
+    <!-- ============================= -->
+
+    <section
+        id="quizScreen"
+        style="display:none;">
+
+        <div class="quiz-container">
+
+            <!-- TOP BAR -->
+
+            <div class="quiz-top">
+
+                <a
+                    href="../index.html"
+                    class="back-link">
+                    ← Subjects
+                </a>
+
+                <div class="subject-label">
+                    GEETHICS
+                </div>
+
+                <div
+                    class="timer"
+                    id="timer">
+                    15
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION INFO -->
+
+            <div class="question-info">
+
+                <span id="questionNumber">
+                    Question 1
+                </span>
+
+                <span id="scoreDisplay">
+                    Score: 0
+                </span>
+
+                <span id="streakDisplay">
+                    🔥 0
+                </span>
+
+            </div>
+
+
+            <!-- TOPIC -->
+
+            <div
+                class="pill"
+                id="topicLabel">
+                Topic
+            </div>
+
+
+            <!-- QUESTION -->
+
+            <h2
+                id="questionText"
+                class="question">
+            </h2>
+
+
+            <!-- ANSWERS -->
+
+            <div
+                id="answers"
+                class="answers">
+
+            </div>
+
+
+            <!-- FEEDBACK -->
+
+            <div
+                id="feedback"
+                class="feedback-banner"
+                style="display:none;">
+
+                <div id="feedbackText"></div>
+
+                <div id="explanation"></div>
+
+            </div>
+
+
+            <!-- NEXT BUTTON -->
+
+            <button
+                id="nextBtn"
+                class="btn btn-primary"
+                style="display:none;">
+
+                Next Question →
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- RESULTS SCREEN -->
+    <!-- ============================= -->
+
+    <section
+        id="resultScreen"
+        style="display:none;">
+
+        <div class="hero">
+
+            <div class="kicker">
+                SUBJECT CODE • COMPLETE
+            </div>
+
+            <h1 class="title display">
+                Reviewer <span>Complete!</span>
+            </h1>
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    🏆
+                </div>
+
+                <h2 id="finalMessage">
+                    Great job!
+                </h2>
+
+
+                <!-- FINAL SCORE -->
+
+                <div class="final-score">
+
+                    <span id="finalScore">
+                        0
+                    </span>
+
+                    <small>
+                        points
+                    </small>
+
+                </div>
+
+
+                <!-- RESULT STATS -->
+
+                <div class="result-stats">
+
+                    <div>
+
+                        <strong id="correctCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Correct
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <strong id="totalCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Questions
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <strong id="bestStreak">
+                            0
+                        </strong>
+
+                        <span>
+                            Best Streak
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUESTION REVIEW -->
+
+                <div
+                    id="reviewWrap"
+                    style="display:none;">
+
+                    <h3>
+                        Question Review
+                    </h3>
+
+                    <div id="reviewList"></div>
+
+                </div>
+
+
+                <!-- TRY AGAIN -->
+
+                <button
+                    class="btn btn-primary"
+                    onclick="location.reload()">
+
+                    Try Again 🔄
+
+                </button>
+
+
+                <!-- BACK TO SUBJECTS -->
+
+                <a
+                    href="../index.html"
+                    class="btn btn-ghost">
+
+                    Choose Another Subject
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </div>
+
+
+
+<script>
+
+    const SUBJECT = "GEETHICS";
+
+    const REVIEWER_PDF = "../reviewers/geethics-reviewer.pdf";
+
+    const QUESTIONS = [
+
+        {
+            topic: "Introduction to Ethics",
+            q: "What is ethics?",
+            options: [
+                "The study of language",
+                "The branch of philosophy concerned with morally right or wrong, good or bad, and fair or unfair",
+                "The study of physical matter",
+                "The study of political systems"
+            ],
+            correct: 1,
+            explain: "Ethics is the branch of philosophy concerned with moral right and wrong, good and bad, and fair and unfair."
+        },
+
+        {
+            topic: "Philosophy",
+            q: "The word philosophy comes from Greek words meaning:",
+            options: [
+                "Love of power",
+                "Search for truth",
+                "Love of wisdom",
+                "Study of nature"
+            ],
+            correct: 2,
+            explain: "Philosophy comes from the Greek words philo, meaning love, and sophia, meaning wisdom."
+        },
+
+        {
+            topic: "Epochs of Philosophy",
+            q: "Which epoch focused on the origin or primordial stuff of the universe?",
+            options: [
+                "Anthropocentric",
+                "Theocentric",
+                "Cosmocentric",
+                "Ethical"
+            ],
+            correct: 2,
+            explain: "The Cosmocentric Epoch focused on the origin or primordial stuff of the universe."
+        },
+
+        {
+            topic: "Epochs of Philosophy",
+            q: "Which epoch focused on whether God or something divine controls everything?",
+            options: [
+                "Theocentric",
+                "Cosmocentric",
+                "Anthropocentric",
+                "Applied"
+            ],
+            correct: 0,
+            explain: "The Theocentric Epoch centered on questions concerning God or the divine and what controls everything."
+        },
+
+        {
+            topic: "Epochs of Philosophy",
+            q: "Which epoch centered its focus on human beings and how they should behave with others?",
+            options: [
+                "Cosmocentric",
+                "Theocentric",
+                "Anthropocentric",
+                "Mythological"
+            ],
+            correct: 2,
+            explain: "The Anthropocentric Epoch directs attention toward human beings and human behavior."
+        },
+
+        {
+            topic: "Ethics as a Science",
+            q: "Why is ethics described as a science?",
+            options: [
+                "It uses laboratory experiments only",
+                "It is a systematically arranged body of connected data with reasons by which the data are known to be true",
+                "It studies only natural objects",
+                "It avoids reasoning"
+            ],
+            correct: 1,
+            explain: "Ethics is described as a science because it is a systematically arranged body of connected data together with reasons by which those data are known to be true."
+        },
+
+        {
+            topic: "Human Acts",
+            q: "Which best describes a human act?",
+            options: [
+                "An involuntary bodily response",
+                "An act performed without knowledge",
+                "A deliberate and free act involving advertence and motive",
+                "Any movement of the body"
+            ],
+            correct: 2,
+            explain: "A human act is deliberate and free, performed with advertence and motive and determined by free will."
+        },
+
+        {
+            topic: "Acts of Man",
+            q: "Which is an act of man?",
+            options: [
+                "A freely chosen decision",
+                "A deliberate moral choice",
+                "An action performed without advertence or free choice",
+                "A planned act"
+            ],
+            correct: 2,
+            explain: "Acts of man are performed without advertence or without the exercise of free choice."
+        },
+
+        {
+            topic: "Human Acts",
+            q: "Which set is associated with human acts?",
+            options: [
+                "Ignorance, no consent, involuntary",
+                "Knowledge, freedom, voluntariness",
+                "Habit, emotion, instinct",
+                "Force, fear, reflex"
+            ],
+            correct: 1,
+            explain: "Human acts involve knowledge of the act, freedom, and voluntariness."
+        },
+
+        {
+            topic: "Morality",
+            q: "Morality refers to:",
+            options: [
+                "The relationship of human activity with the dictates of reason",
+                "Rules of grammar only",
+                "Artistic taste",
+                "Political authority"
+            ],
+            correct: 0,
+            explain: "Morality is the relation of human activity with the dictates of reason."
+        },
+
+        {
+            topic: "Ethics and Morality",
+            q: "The term ethics comes from the Greek ethos, referring to:",
+            options: [
+                "Law",
+                "A characteristic way of acting",
+                "Wisdom",
+                "Nature"
+            ],
+            correct: 1,
+            explain: "Ethos refers to a characteristic way of acting."
+        },
+
+        {
+            topic: "Ethics and Morality",
+            q: "Morality comes from the Latin mos, moris, associated with:",
+            options: [
+                "Character, behavior, custom, or habit",
+                "Wisdom and knowledge",
+                "Government and law",
+                "Art and beauty"
+            ],
+            correct: 0,
+            explain: "Mos, moris refers to character, behavior, morals, custom, or habit."
+        },
+
+        {
+            topic: "Ethics and Morality",
+            q: "According to the distinction between morality and ethics, morality commonly pertains to:",
+            options: [
+                "Standards inherited from a community",
+                "Scientific measurements",
+                "Grammar rules",
+                "Athletic performance"
+            ],
+            correct: 0,
+            explain: "Morality commonly pertains to standards of right and wrong inherited from a community, while ethics critically studies such standards."
+        },
+
+        {
+            topic: "Meta-Ethics",
+            q: "What does meta-ethics study?",
+            options: [
+                "What a person ought to do in a specific case",
+                "The theoretical meaning and reference of moral propositions and how truth values are determined",
+                "How laws are enforced",
+                "How cultures transmit language"
+            ],
+            correct: 1,
+            explain: "Meta-ethics examines the meaning and reference of moral propositions and questions about moral truth."
+        },
+
+        {
+            topic: "Normative Ethics",
+            q: "Normative ethics is primarily concerned with:",
+            options: [
+                "What we ought to do",
+                "The origin of the universe",
+                "The grammar of moral language only",
+                "The history of clothing"
+            ],
+            correct: 0,
+            explain: "Normative ethics provides practical means of determining a moral course of action and asks what we ought to do."
+        },
+
+        {
+            topic: "Applied Ethics",
+            q: "Applied ethics examines:",
+            options: [
+                "Moral questions in special situations",
+                "Only abstract definitions",
+                "Only ancient philosophy",
+                "Physical laws"
+            ],
+            correct: 0,
+            explain: "Applied ethics considers moral questions and obligations in special situations such as war, animal rights, or capital punishment."
+        },
+
+        {
+            topic: "Importance of Ethics",
+            q: "Which is NOT listed as an importance of ethics?",
+            options: [
+                "Improving decision-making",
+                "Creating credibility",
+                "Securing society",
+                "Eliminating all disagreement"
+            ],
+            correct: 3,
+            explain: "The material lists improving decisions, creating credibility, satisfying human needs, uniting people and leaders, and securing society. Eliminating all disagreement is not listed."
+        },
+
+        {
+            topic: "Postulates of Ethics",
+            q: "Which is a basic postulate in ethics?",
+            options: [
+                "The existence of God",
+                "The existence of fashion",
+                "The existence of government",
+                "The existence of competition"
+            ],
+            correct: 0,
+            explain: "The existence of God is one of the basic postulates presented in the material."
+        },
+
+        {
+            topic: "Moral Responsibility",
+            q: "Which is one of the four postulates of actions in ethics?",
+            options: [
+                "All actions are neutral",
+                "Man is responsible for his actions",
+                "No action has consequences",
+                "Only authorities can judge actions"
+            ],
+            correct: 1,
+            explain: "One of the four postulates states that people are responsible for their actions."
+        },
+
+        {
+            topic: "Moral Agent",
+            q: "A moral agent is someone who:",
+            options: [
+                "Can discern right from wrong and be held accountable",
+                "Always agrees with authority",
+                "Never makes mistakes",
+                "Only follows legal rules"
+            ],
+            correct: 0,
+            explain: "A moral agent can discern right from wrong and can be held accountable for actions."
+        },
+
+        {
+            topic: "Human Person",
+            q: "Why is man described as a moral being in the material?",
+            options: [
+                "Man has no freedom",
+                "Man acts knowingly and possesses intellect and will",
+                "Man always chooses correctly",
+                "Man follows every social rule"
+            ],
+            correct: 1,
+            explain: "Man is described as a moral being because he knows his acts, possesses intellect, and has a will that enables free choice."
+        },
+
+        {
+            topic: "Intellect",
+            q: "The primary function of intellect is:",
+            options: [
+                "Choosing",
+                "Doing",
+                "Knowing",
+                "Enforcing"
+            ],
+            correct: 2,
+            explain: "Intellect is associated with knowing and thinking. It enables a person to understand truth and distinguish right from wrong."
+        },
+
+        {
+            topic: "Will",
+            q: "The will is primarily associated with:",
+            options: [
+                "Choosing and doing",
+                "Measuring",
+                "Remembering only",
+                "Observing art"
+            ],
+            correct: 0,
+            explain: "The will is associated with choosing and doing, while intellect is associated with knowing and thinking."
+        },
+
+        {
+            topic: "Moral Standards",
+            q: "A moral standard consists of:",
+            options: [
+                "Rules and laws",
+                "Norms and values",
+                "Customs and fashion",
+                "Authority and punishment"
+            ],
+            correct: 1,
+            explain: "Moral standards consist of norms about actions and values concerning what is morally good or bad."
+        },
+
+        {
+            topic: "Moral and Non-Moral Standards",
+            q: "Which is a non-moral standard?",
+            options: [
+                "A rule of etiquette",
+                "A principle against unjustified harm",
+                "A duty of fairness",
+                "A moral obligation"
+            ],
+            correct: 0,
+            explain: "Etiquette concerns manners rather than moral right and wrong, making it a non-moral standard."
+        },
+
+        {
+            topic: "Characteristics of Moral Standards",
+            q: "Which is a characteristic of moral standards?",
+            options: [
+                "They are always established by authority figures",
+                "They involve serious wrongs or significant benefits",
+                "They apply only to one individual",
+                "They are based on personal preference alone"
+            ],
+            correct: 1,
+            explain: "Moral standards involve serious wrongs or significant benefits and also include characteristics such as universalizability and impartiality."
+        },
+
+        {
+            topic: "Universalizability",
+            q: "Universalizability means moral standards:",
+            options: [
+                "Apply only to leaders",
+                "Can be applied generally rather than arbitrarily to selected individuals",
+                "Depend entirely on fashion",
+                "Change whenever authority changes"
+            ],
+            correct: 1,
+            explain: "Universalizability means a moral standard can be applied consistently to relevantly similar cases rather than being arbitrarily limited to particular people."
+        },
+
+        {
+            topic: "Etiquette",
+            q: "Which is an example of a usual rule of life that judges manners?",
+            options: [
+                "Legal rule",
+                "Language rule",
+                "Etiquette",
+                "Athletic rule"
+            ],
+            correct: 2,
+            explain: "Etiquette judges manners as good or bad and is associated with social expectations."
+        },
+
+        {
+            topic: "Legal Rules",
+            q: "Legal rules judge:",
+            options: [
+                "Artistic quality",
+                "Legal right and wrong",
+                "Grammatical correctness",
+                "Game performance"
+            ],
+            correct: 1,
+            explain: "Legal rules judge what is legally right or wrong."
+        },
+
+        {
+            topic: "Rules",
+            q: "Why are rules important?",
+            options: [
+                "They eliminate the need for judgment",
+                "They organize relations and help people live together peacefully",
+                "They make every action morally correct",
+                "They replace all moral standards"
+            ],
+            correct: 1,
+            explain: "Rules organize lives and relationships, help people get along and show respect, and contribute to peaceful social order."
+        },
+
+        {
+            topic: "Ethical Dilemmas",
+            q: "An ethical dilemma is best described as:",
+            options: [
+                "A choice with only one acceptable option",
+                "A situation involving conflicting options with moral implications",
+                "A disagreement about grammar",
+                "A problem with no decision required"
+            ],
+            correct: 1,
+            explain: "An ethical dilemma involves conflicting courses of action with moral implications, often without a fully acceptable choice."
+        },
+
+        {
+            topic: "Ethical Dilemmas",
+            q: "Which is NOT one of the three conditions of a moral dilemma?",
+            options: [
+                "The agent is obliged to decide",
+                "Different courses of action exist",
+                "Every option compromises some moral principle",
+                "One option is guaranteed to be morally perfect"
+            ],
+            correct: 3,
+            explain: "A moral dilemma involves an obligation to choose, different possible courses of action, and compromise of some moral principle regardless of the choice."
+        },
+
+        {
+            topic: "Ethical Dilemma Approaches",
+            q: "Which approach to an ethical dilemma chooses the greater good or lesser evil?",
+            options: [
+                "Value theory approach",
+                "Grammar approach",
+                "Authority approach",
+                "Aesthetic approach"
+            ],
+            correct: 0,
+            explain: "The value theory approach compares the values at stake and chooses the greater good or lesser evil."
+        },
+
+        {
+            topic: "Solving Ethical Dilemmas",
+            q: "What is one way to solve an ethical dilemma?",
+            options: [
+                "Refuse to think about it",
+                "Find alternative solutions",
+                "Always follow the majority",
+                "Ignore moral principles"
+            ],
+            correct: 1,
+            explain: "Finding alternative solutions may reveal another course of action that avoids the original conflict."
+        },
+
+        {
+            topic: "Critical Thinking",
+            q: "Critical thinking is the process of:",
+            options: [
+                "Accepting all claims as true",
+                "Determining right or wrong through analysis, distinguishing fact from fiction, and using verified information",
+                "Following emotions only",
+                "Avoiding difficult decisions"
+            ],
+            correct: 1,
+            explain: "Critical thinking analyzes claims, distinguishes fact from fiction, identifies what is unknown, and supports decisions with verified information."
+        },
+
+        {
+            topic: "Impartiality",
+            q: "Impartiality requires:",
+            options: [
+                "Treating stakeholders arbitrarily",
+                "Considering every stakeholder's interests fairly",
+                "Favoring friends",
+                "Ignoring differences in relevant circumstances"
+            ],
+            correct: 1,
+            explain: "Impartiality requires fair consideration of stakeholders and avoiding arbitrary treatment."
+        },
+
+        {
+            topic: "Foundational Moral Principle",
+            q: "A foundational moral principle is:",
+            options: [
+                "A universal norm on which other principles of rightness and wrongness are based",
+                "A fashion trend",
+                "A game rule",
+                "A personal preference"
+            ],
+            correct: 0,
+            explain: "A foundational moral principle is a universal norm upon which other moral principles of rightness and wrongness are based."
+        },
+
+        {
+            topic: "Natural Law",
+            q: "Natural law is described as:",
+            options: [
+                "A law written in the hearts of human beings",
+                "A law created only by governments",
+                "A rule of etiquette",
+                "A temporary custom"
+            ],
+            correct: 0,
+            explain: "Natural law is described as the law written in the hearts of human beings and as the light of natural reason by which good and evil can be discerned."
+        },
+
+        {
+            topic: "Freedom",
+            q: "Freedom is best defined as:",
+            options: [
+                "Doing anything without consequences",
+                "The power rooted in reason and will to act or not act deliberately and responsibly",
+                "Freedom from all rules",
+                "The ability to avoid responsibility"
+            ],
+            correct: 1,
+            explain: "Freedom is rooted in reason and will and involves deliberate action or restraint with responsibility."
+        },
+
+        {
+            topic: "Freedom",
+            q: "True freedom is:",
+            options: [
+                "The ability to choose evil whenever desired",
+                "Always oriented toward the good",
+                "Freedom from responsibility",
+                "Identical to external freedom"
+            ],
+            correct: 1,
+            explain: "True freedom is oriented toward the good rather than being defined simply as having the possibility of doing evil."
+        },
+
+        {
+            topic: "External Freedom",
+            q: "External freedom means:",
+            options: [
+                "Freedom from outside factors limiting free will",
+                "Freedom from emotions only",
+                "Freedom from knowledge",
+                "Freedom from responsibility"
+            ],
+            correct: 0,
+            explain: "External freedom concerns freedom from external factors that restrict free will."
+        },
+
+        {
+            topic: "Internal Freedom",
+            q: "Internal freedom means:",
+            options: [
+                "Freedom from interior factors limiting free will",
+                "Freedom from laws",
+                "Freedom from society",
+                "Freedom from moral values"
+            ],
+            correct: 0,
+            explain: "Internal freedom concerns freedom from internal factors that limit free will."
+        },
+
+        {
+            topic: "Ethics and Religion",
+            q: "Ethics and religious belief differ because ethics primarily asks:",
+            options: [
+                "How human beings should live and what is right or wrong",
+                "What material objects exist",
+                "How games are played",
+                "What grammar rules apply"
+            ],
+            correct: 0,
+            explain: "Ethics asks fundamental questions about how people should live, what goals and values to pursue, and what is right or wrong."
+        },
+
+        {
+            topic: "Training the Intellect",
+            q: "Training the intellect includes:",
+            options: [
+                "Avoiding universal truths",
+                "Making judgments based on an objective standard of morality",
+                "Choosing without thinking",
+                "Ignoring cause and effect"
+            ],
+            correct: 1,
+            explain: "Training the intellect includes grasping universal truths, reasoning about moral precepts, making objective moral judgments, analyzing cause and effect, and solving problems rationally."
+        },
+
+        {
+            topic: "Formation of the Will",
+            q: "Formation of the will includes:",
+            options: [
+                "Acting upon a decision and making responsible use of freedom",
+                "Refusing to choose",
+                "Ignoring consequences",
+                "Avoiding moral values"
+            ],
+            correct: 0,
+            explain: "Formation of the will includes acting on decisions, choosing higher goods and moral values, accepting rational consequences, and using freedom responsibly."
+        },
+
+        {
+            topic: "Culture",
+            q: "Culture is best described as:",
+            options: [
+                "Only physical objects",
+                "A social heritage transmitted from one generation to the next through language",
+                "A private opinion",
+                "A biological instinct"
+            ],
+            correct: 1,
+            explain: "Culture includes symbols, ideas, experiences, and material products associated with a social system and is transmitted across generations through language."
+        },
+
+        {
+            topic: "Material Culture",
+            q: "Which is an example of material culture?",
+            options: [
+                "Moral values",
+                "Language",
+                "Clothing",
+                "Customs"
+            ],
+            correct: 2,
+            explain: "Material culture consists of concrete or tangible things people create and use, including clothing, tools, books, machines, and artifacts."
+        },
+
+        {
+            topic: "Non-Material Culture",
+            q: "Which is an example of non-material culture?",
+            options: [
+                "Dwelling unit",
+                "Tool",
+                "Machine",
+                "Language"
+            ],
+            correct: 3,
+            explain: "Non-material culture consists of intangible elements such as knowledge, laws, ideas, customs, values, language, and moral behavior."
+        },
+
+        {
+            topic: "Culture and Moral Behavior",
+            q: "Which is NOT listed as a provider of moral behavior in culture?",
+            options: [
+                "Family",
+                "School",
+                "Government",
+                "Weather"
+            ],
+            correct: 3,
+            explain: "The listed providers include the family, school, church, government, and workplace. Weather is not listed."
+        },
+
+        {
+            topic: "Cultural Relativism",
+            q: "Which is a weakness associated with cultural relativism?",
+            options: [
+                "It can limit moral progress",
+                "It always promotes moral progress",
+                "It eliminates all bias",
+                "It guarantees diversity"
+            ],
+            correct: 0,
+            explain: "The material lists limiting moral progress or humanity's progress as one weakness associated with cultural relativism."
+        }
+
+    ];
+
+
+</script>
+
+
+<!-- ================================= -->
+<!-- SHARED QUIZ ENGINE -->
+<!-- ================================= -->
+
+<script src="../js/quiz.js"></script>
+
+<!-- ================================= -->
+<!-- INSERTED: MODE SELECTION ENGINE -->
+<!-- ================================= -->
+
+<script src="../js/mode.js"></script>
 
 </body>
 </html>
