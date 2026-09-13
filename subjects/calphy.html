@@ -2,48 +2,243 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>QuizIT — Coming Soon</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../css/style.css">
+    <title>QuizIT — CALPH++</title>
+
+
+    <!-- ==============================================
+         EXISTING MAIN CSS
+    =============================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css">
+
+
+    <!-- ==============================================
+         PDF REVIEWER CSS
+    =============================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/pdf.css">
+
 </head>
+
 
 <body>
 
 <div id="app">
+
+
+    <!-- =================================================
+         MODE SELECTION
+    ================================================== -->
+
+    <section id="modeScreen">
+
+        <div class="hero">
+
+
+            <div class="kicker">
+                CALPH++ • CHOOSE MODE
+            </div>
+
+
+            <h1 class="title display">
+
+                Choose Your
+                <span>Mode</span>
+
+            </h1>
+
+
+            <p class="subtitle">
+
+                Review the lessons or test your knowledge.
+
+            </p>
+
+
+            <div class="mode-grid">
+
+
+                <!-- ======================================
+                     REVIEWER CARD
+                ======================================= -->
+
+                <button
+                    type="button"
+                    id="reviewerModeBtn"
+                    class="mode-card">
+
+
+                    <div class="mode-icon">
+                        📖
+                    </div>
+
+
+                    <h3>
+                        Reviewer
+                    </h3>
+
+
+                    <p>
+                        Read the complete CALPH++ reviewer.
+                    </p>
+
+
+                    <span>
+                        Open Reviewer →
+                    </span>
+
+
+                </button>
+
+
+                <!-- ======================================
+                     QUIZ CARD
+                ======================================= -->
+
+                <button
+                    type="button"
+                    id="quizModeBtn"
+                    class="mode-card">
+
+
+                    <div class="mode-icon">
+                        📝
+                    </div>
+
+
+                    <h3>
+                        Quiz
+                    </h3>
+
+
+                    <p>
+                        Test your knowledge of CALPH++.
+                    </p>
+
+
+                    <span>
+                        Start Quiz →
+                    </span>
+
+
+                </button>
+
+
+            </div>
+
+
+            <!-- ==========================================
+                 BACK TO SUBJECTS
+            =========================================== -->
+
+            <a
+                href="../index.html"
+                class="btn btn-ghost mode-back">
+
+                ← Back to Subjects
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         REVIEWER SCREEN
+    ================================================== -->
+
+    <section
+        id="reviewerScreen"
+        style="display:none;">
+
+
+        <button
+            type="button"
+            id="reviewerBackBtn"
+            class="back-link reviewer-back-btn">
+
+            ← Choose Mode
+
+        </button>
+
+
+        <div
+            id="pdfViewer"
+            class="pdf-viewer">
+
+
+            <div
+                class="pdf-loading">
+
+                Loading reviewer...
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         START SCREEN
+    ================================================== -->
 
     <section id="startScreen">
 
         <div class="hero">
 
             <div class="kicker">
-                QUIZIT • COMING SOON
+                CALPH++ • REVIEWER
             </div>
 
             <h1 class="title display">
-                Reviewer <span>Unavailable</span>
+                QuizIT <span>CALPH++</span>
             </h1>
+
+            <p class="subtitle">
+                Integrative Programming & Technologies
+            </p>
 
             <div class="start-card">
 
                 <div class="start-icon">
-                    🚧
+                    💻
                 </div>
 
                 <h2>
-                    Oops..oops...oops!
+                    Ready to Review?
                 </h2>
 
                 <p>
-                    This reviewer is currently unavailable.
-                    Try again later.
+                    Test your knowledge in sound and waves as well as electric charge and electric field.
                 </p>
+
+                <button
+                    class="btn btn-primary"
+                    id="startBtn">
+                    Start Reviewer →
+                </button>
 
                 <a
                     href="../index.html"
-                    class="btn btn-primary">
+                    class="btn btn-ghost">
                     ← Back to Subjects
                 </a>
 
@@ -53,7 +248,1084 @@
 
     </section>
 
+
+
+    <!-- =================================================
+         QUIZ SCREEN
+    ================================================== -->
+
+    <section
+        id="quizScreen"
+        style="display:none;">
+
+        <div class="quiz-container">
+
+            <!-- TOP BAR -->
+
+            <div class="quiz-top">
+
+                <a
+                    href="../index.html"
+                    class="back-link">
+                    ← Subjects
+                </a>
+
+                <div class="subject-label">
+                    CCIT102
+                </div>
+
+                <div
+                    class="timer"
+                    id="timer">
+                    15
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION INFO -->
+
+            <div class="question-info">
+
+                <span id="questionNumber">
+                    Question 1
+                </span>
+
+                <span id="scoreDisplay">
+                    Score: 0
+                </span>
+
+                <span id="streakDisplay">
+                    🔥 0
+                </span>
+
+            </div>
+
+
+            <!-- TOPIC -->
+
+            <div
+                class="pill"
+                id="topicLabel">
+                IPT
+            </div>
+
+
+            <!-- QUESTION -->
+
+            <h2
+                id="questionText"
+                class="question">
+            </h2>
+
+
+            <!-- ANSWERS -->
+
+            <div
+                id="answers"
+                class="answers">
+
+            </div>
+
+
+            <!-- FEEDBACK -->
+
+            <div
+                id="feedback"
+                class="feedback-banner"
+                style="display:none;">
+
+                <div id="feedbackText"></div>
+
+                <div id="explanation"></div>
+
+            </div>
+
+
+            <!-- NEXT BUTTON -->
+
+            <button
+                id="nextBtn"
+                class="btn btn-primary"
+                style="display:none;">
+
+                Next Question →
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         RESULT SCREEN
+    ================================================== -->
+
+    <section
+        id="resultScreen"
+        style="display:none;">
+
+        <div class="hero">
+
+            <div class="kicker">
+                CCIT102 • COMPLETE
+            </div>
+
+            <h1 class="title display">
+                Reviewer <span>Complete!</span>
+            </h1>
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    🏆
+                </div>
+
+                <h2 id="finalMessage">
+                    Great job!
+                </h2>
+
+                <div class="final-score">
+
+                    <span id="finalScore">
+                        0
+                    </span>
+
+                    <small>
+                        points
+                    </small>
+
+                </div>
+
+                <div class="result-stats">
+
+                    <div>
+                        <strong id="correctCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Correct
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong id="totalCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Questions
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong id="bestStreak">
+                            0
+                        </strong>
+
+                        <span>
+                            Best Streak
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="btn btn-primary"
+                    onclick="location.reload()">
+
+                    Try Again 🔄
+
+                </button>
+
+
+                <a
+                    href="../index.html"
+                    class="btn btn-ghost">
+
+                    Choose Another Subject
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
 </div>
+
+
+
+<!-- =====================================================
+     SUBJECT CONFIGURATION
+====================================================== -->
+
+<script>
+
+    /*
+     * CHANGE THESE TWO VALUES
+     * FOR EVERY SUBJECT.
+     */
+
+    const SUBJECT = "CALPH++";
+    const REVIEWER_PDF = "../reviewers/calphy_midterm_reviewer.pdf";
+
+
+    /* =================================================
+       QUESTION BANK
+
+       Replace the sample questions below with
+       this subject's questions.
+    ================================================== */
+
+    const QUESTIONS = [
+
+        // =========================================================
+        // 1–10: NATURE OF WAVES
+        // =========================================================
+
+        {
+            topic: "Nature of Waves",
+            q: "Which statement BEST defines a wave?",
+            options: [
+                "A disturbance or oscillation that travels through matter or space while transferring energy",
+                "A particle that permanently moves from one location to another",
+                "A force that exists only when two objects collide",
+                "A vibration that transfers matter but not energy"
+            ],
+            correct: 0,
+            explain: "A wave is a disturbance or oscillation that travels through matter or space and is accompanied by a transfer of energy."
+        },
+
+        {
+            topic: "Nature of Waves",
+            q: "In which type of wave does the disturbance occur perpendicular to the direction of travel?",
+            options: [
+                "Longitudinal wave",
+                "Transverse wave",
+                "Periodic wave",
+                "Sound wave"
+            ],
+            correct: 1,
+            explain: "In a transverse wave, the disturbance is perpendicular to the direction of wave travel."
+        },
+
+        {
+            topic: "Nature of Waves",
+            q: "Which example is specifically identified as a longitudinal wave in the reviewer?",
+            options: [
+                "Light",
+                "A wave on a string",
+                "Sound",
+                "A water surface pattern"
+            ],
+            correct: 2,
+            explain: "Sound is identified as a longitudinal wave."
+        },
+
+        {
+            topic: "Nature of Waves",
+            q: "What distinguishes a longitudinal wave from a transverse wave?",
+            options: [
+                "It always travels faster",
+                "It always has a greater wavelength",
+                "It can only travel through solids",
+                "Its disturbance occurs parallel to the direction of travel"
+            ],
+            correct: 3,
+            explain: "A longitudinal wave has a disturbance parallel to the line of travel."
+        },
+
+        {
+            topic: "Periodic Waves",
+            q: "What is a periodic wave?",
+            options: [
+                "A wave whose displacement has a periodic variation with time or distance, or both",
+                "A wave that always has zero amplitude",
+                "A wave that can only travel through a vacuum",
+                "A wave whose frequency continuously decreases"
+            ],
+            correct: 0,
+            explain: "A periodic wave has displacement that varies periodically with time, distance, or both."
+        },
+
+        {
+            topic: "Wave Properties",
+            q: "What does amplitude represent?",
+            options: [
+                "The distance traveled during one complete cycle",
+                "The maximum displacement from the equilibrium position",
+                "The number of cycles completed in one second",
+                "The time needed to travel one wavelength"
+            ],
+            correct: 1,
+            explain: "Amplitude is the maximum displacement from the equilibrium position."
+        },
+
+        {
+            topic: "Wave Properties",
+            q: "Which point represents the highest point of a wave pattern?",
+            options: [
+                "Trough",
+                "Equilibrium",
+                "Crest",
+                "Node"
+            ],
+            correct: 2,
+            explain: "The crest is the highest point on the wave pattern."
+        },
+
+        {
+            topic: "Wave Properties",
+            q: "Which point represents the lowest point of a wave pattern?",
+            options: [
+                "Crest",
+                "Amplitude",
+                "Equilibrium",
+                "Trough"
+            ],
+            correct: 3,
+            explain: "The trough is the lowest point on the wave pattern."
+        },
+
+        {
+            topic: "Wave Properties",
+            q: "What is wavelength (λ)?",
+            options: [
+                "The horizontal length of one complete cycle of a wave",
+                "The number of cycles occurring each second",
+                "The maximum vertical displacement of a wave",
+                "The time needed for half a cycle"
+            ],
+            correct: 0,
+            explain: "Wavelength is the horizontal length of one cycle of the wave."
+        },
+
+        {
+            topic: "Wave Properties",
+            q: "What is the period (T) of a periodic wave?",
+            options: [
+                "The maximum displacement of the wave",
+                "The time required for one complete cycle",
+                "The number of cycles per second",
+                "The distance between a crest and trough"
+            ],
+            correct: 1,
+            explain: "The period is the time required for one complete cycle."
+        },
+
+
+        // =========================================================
+        // 11–20: FREQUENCY, WAVE FORMULAS, STRING WAVES
+        // =========================================================
+
+        {
+            topic: "Wave Properties",
+            q: "What is frequency?",
+            options: [
+                "The distance covered by one wave",
+                "The maximum displacement from equilibrium",
+                "The number of cycles per second",
+                "The time for one complete cycle"
+            ],
+            correct: 2,
+            explain: "Frequency is the number of cycles per second and is measured in Hertz."
+        },
+
+        {
+            topic: "Wave Formula",
+            q: "Which equation correctly relates frequency and period?",
+            options: [
+                "f = T",
+                "f = λ/T",
+                "f = T/λ",
+                "f = 1/T"
+            ],
+            correct: 3,
+            explain: "Frequency is the reciprocal of period: f = 1/T."
+        },
+
+        {
+            topic: "Wave Formula",
+            q: "Which equation gives the speed of a periodic wave?",
+            options: [
+                "v = λ/T",
+                "v = T/λ",
+                "v = λT",
+                "v = 1/(λT)"
+            ],
+            correct: 0,
+            explain: "The speed of a periodic wave is v = λ/T."
+        },
+
+        {
+            topic: "Wave Formula",
+            q: "Which equation is equivalent to T = λ/v?",
+            options: [
+                "T = vλ",
+                "T = λ/v",
+                "T = v/λ",
+                "T = 1/(vλ)"
+            ],
+            correct: 1,
+            explain: "From v = λ/T, solving for T gives T = λ/v."
+        },
+
+        {
+            topic: "Wave on a String",
+            q: "The speed of a wave pulse traveling along a string is determined by which two main quantities?",
+            options: [
+                "Frequency and wavelength",
+                "Amplitude and period",
+                "Mass per unit length and tension",
+                "Temperature and pressure"
+            ],
+            correct: 2,
+            explain: "The reviewer states that string-wave speed depends on mass per unit length and tension."
+        },
+
+        {
+            topic: "Wave on a String",
+            q: "In the string-wave formula, what does T represent?",
+            options: [
+                "Time",
+                "Temperature",
+                "Trough",
+                "Tension"
+            ],
+            correct: 3,
+            explain: "In the wave-on-a-string formula, T represents tension."
+        },
+
+        {
+            topic: "Wave on a String",
+            q: "In the string-wave formula, what does L represent?",
+            options: [
+                "Length",
+                "Loudness",
+                "Linear frequency",
+                "Longitudinal displacement"
+            ],
+            correct: 0,
+            explain: "L represents the length of the string."
+        },
+
+        {
+            topic: "Wave on a String",
+            q: "In the string-wave formula, what does m represent?",
+            options: [
+                "Momentum",
+                "Mass",
+                "Meter",
+                "Modulus"
+            ],
+            correct: 1,
+            explain: "m represents mass."
+        },
+
+        {
+            topic: "Wave on a String",
+            q: "Which expression represents the mass per unit length of a string?",
+            options: [
+                "mL",
+                "L/m",
+                "m/L",
+                "TL/m"
+            ],
+            correct: 2,
+            explain: "Mass per unit length is m/L."
+        },
+
+        {
+            topic: "Wave on a String",
+            q: "If the wave speed and wavelength are known, which expression gives frequency?",
+            options: [
+                "f = vλ",
+                "f = λ/v",
+                "f = 1/(vλ)",
+                "f = v/λ"
+            ],
+            correct: 3,
+            explain: "From v = fλ, frequency is f = v/λ."
+        },
+
+
+        // =========================================================
+        // 21–30: SOUND AND CHARACTERISTICS OF SOUND
+        // =========================================================
+
+        {
+            topic: "Nature of Sound",
+            q: "Which statement about sound is correct?",
+            options: [
+                "Sound is a longitudinal wave created by a vibrating object",
+                "Sound is always a transverse wave",
+                "Sound can only travel through empty space",
+                "Sound is produced only by light"
+            ],
+            correct: 0,
+            explain: "The reviewer defines sound as a longitudinal wave created by a vibrating object."
+        },
+
+        {
+            topic: "Nature of Sound",
+            q: "Sound can be created or transmitted only in what condition?",
+            options: [
+                "A vacuum",
+                "A medium such as gas, liquid, or solid",
+                "A perfectly empty space",
+                "A magnetic field only"
+            ],
+            correct: 1,
+            explain: "Sound requires a medium such as gas, liquid, or solid."
+        },
+
+        {
+            topic: "Sound",
+            q: "What is a pure tone?",
+            options: [
+                "A sound with no frequency",
+                "A sound containing every possible frequency",
+                "A single-frequency sound",
+                "A sound that cannot be heard"
+            ],
+            correct: 2,
+            explain: "A pure tone is a single-frequency sound."
+        },
+
+        {
+            topic: "Sound Frequency",
+            q: "Which frequency range describes infrasonic waves?",
+            options: [
+                "20 Hz to 20 kHz",
+                "Above 20 kHz",
+                "Exactly 20 kHz",
+                "Below 20 Hz"
+            ],
+            correct: 3,
+            explain: "Infrasonic waves have frequencies below 20 Hz."
+        },
+
+        {
+            topic: "Sound Frequency",
+            q: "Which frequency range is identified as sonic and audible to humans?",
+            options: [
+                "20 Hz to 20 kHz",
+                "Below 20 Hz",
+                "Above 20 kHz",
+                "Only frequencies below 1 Hz"
+            ],
+            correct: 0,
+            explain: "Sonic waves are between 20 Hz and 20 kHz and can be heard by the human ear."
+        },
+
+        {
+            topic: "Sound Frequency",
+            q: "Which waves have frequencies above 20 kHz?",
+            options: [
+                "Infrasonic waves",
+                "Ultrasonic waves",
+                "Sonic waves",
+                "Periodic waves only"
+            ],
+            correct: 1,
+            explain: "Ultrasonic waves have frequencies above 20 kHz."
+        },
+
+        {
+            topic: "Classification of Sound",
+            q: "What characterizes noise?",
+            options: [
+                "A single regular vibration",
+                "A sound with only one exact frequency",
+                "Irregular vibration or a sound with no definite range of frequency",
+                "A sound that is always above 20 kHz"
+            ],
+            correct: 2,
+            explain: "Noise is associated with irregular vibration or no definite range of frequency."
+        },
+
+        {
+            topic: "Characteristics of Sound",
+            q: "Loudness depends mainly on which wave characteristic?",
+            options: [
+                "Wavelength",
+                "Frequency",
+                "Period",
+                "Amplitude"
+            ],
+            correct: 3,
+            explain: "Loudness is a physiological sensation that depends mainly on sound amplitude."
+        },
+
+        {
+            topic: "Characteristics of Sound",
+            q: "What is intensity?",
+            options: [
+                "Power carried by a wave through a unit area perpendicular to propagation",
+                "The lowest frequency of a tone",
+                "The persistence of sound after the source stops",
+                "The number of cycles per second"
+            ],
+            correct: 0,
+            explain: "Intensity is the power carried by the wave through a unit area perpendicular to propagation."
+        },
+
+        {
+            topic: "Characteristics of Sound",
+            q: "Pitch is primarily related to which quantity?",
+            options: [
+                "Amplitude",
+                "Frequency",
+                "Intensity",
+                "Wavelength only"
+            ],
+            correct: 1,
+            explain: "Pitch is primarily related to frequency."
+        },
+
+
+        // =========================================================
+        // 31–40: PITCH, TIMBRE, SOUND TERMS, SPEED OF SOUND
+        // =========================================================
+
+        {
+            topic: "Sound Characteristics",
+            q: "What is the fundamental frequency?",
+            options: [
+                "The loudest frequency",
+                "The highest frequency present",
+                "The tone with the lowest frequency",
+                "The frequency of the echo"
+            ],
+            correct: 2,
+            explain: "The fundamental frequency is the tone with the lowest frequency."
+        },
+
+        {
+            topic: "Sound Characteristics",
+            q: "What are harmonics?",
+            options: [
+                "Sounds with random frequencies",
+                "Only frequencies below 20 Hz",
+                "Sounds with no fundamental frequency",
+                "Overtones whose frequencies are integer multiples of the fundamental"
+            ],
+            correct: 3,
+            explain: "Harmonics are overtones with frequencies that are integer multiples of the fundamental frequency."
+        },
+
+        {
+            topic: "Sound Characteristics",
+            q: "What is quality or timbre?",
+            options: [
+                "An attribute that allows a listener to distinguish sounds with similar loudness and pitch",
+                "The number of waves produced each second",
+                "The maximum displacement of a sound wave",
+                "The speed of sound through air"
+            ],
+            correct: 0,
+            explain: "Timbre or tone color helps distinguish similarly presented sounds with the same loudness and pitch."
+        },
+
+        {
+            topic: "Sound Terminology",
+            q: "What is an echo?",
+            options: [
+                "The original sound before transmission",
+                "A reflected sound or repetition",
+                "The lowest frequency in a sound",
+                "The permanent vibration of a medium"
+            ],
+            correct: 1,
+            explain: "An echo is a reflected sound or repetition."
+        },
+
+        {
+            topic: "Sound Terminology",
+            q: "What is reverberation?",
+            options: [
+                "A single-frequency sound",
+                "The change in pitch due to motion",
+                "Persistence of sound in space after the original sound is removed",
+                "The reflection of light from a surface"
+            ],
+            correct: 2,
+            explain: "Reverberation is the persistence of sound after the original sound is removed."
+        },
+
+        {
+            topic: "Sound Terminology",
+            q: "What does interference refer to?",
+            options: [
+                "The speed of sound",
+                "The lowest possible sound frequency",
+                "The conversion of sound into electricity",
+                "The superimposition of one wave on another"
+            ],
+            correct: 3,
+            explain: "Interference is the superimposition of one wave on another."
+        },
+
+        {
+            topic: "Speed of Sound",
+            q: "For air at temperatures at or below 20°C, which formula is given for the speed of sound?",
+            options: [
+                "V = 331.45 + 0.6T",
+                "V = 331.45T",
+                "V = 0.6/T",
+                "V = 331.45 - 0.6T"
+            ],
+            correct: 0,
+            explain: "For T ≤ 20°C, the reviewer gives V = 331.45 + 0.6T."
+        },
+
+        {
+            topic: "Speed of Sound",
+            q: "In the speed-of-sound formula for air at temperatures above 20°C, what temperature scale is used?",
+            options: [
+                "Celsius",
+                "Kelvin",
+                "Fahrenheit",
+                "Rankine"
+            ],
+            correct: 1,
+            explain: "For the T > 20°C formula, temperature T is specified in Kelvin."
+        },
+
+        {
+            topic: "Speed of Sound",
+            q: "For an ideal gas, which expression is given for the speed of sound?",
+            options: [
+                "V = Y/ρ",
+                "V = λ/T",
+                "V = √(γRT/MW)",
+                "V = kq₁q₂/r²"
+            ],
+            correct: 2,
+            explain: "For an ideal gas, the reviewer gives V = √(γRT/MW)."
+        },
+
+        {
+            topic: "Speed of Sound",
+            q: "According to the reviewer, the speed of sound is independent of which set of quantities?",
+            options: [
+                "Temperature, density, and elasticity",
+                "Mass, tension, and length",
+                "Charge, force, and distance",
+                "Pressure, frequency, and wavelength"
+            ],
+            correct: 3,
+            explain: "The reviewer specifically states that speed of sound is independent of pressure, frequency, and wavelength."
+        },
+
+
+        // =========================================================
+        // 41–50: DOPPLER EFFECT, ELECTRIC CHARGE, COULOMB'S LAW,
+        //        ELECTRIC FIELD
+        // =========================================================
+
+        {
+            topic: "Doppler Effect",
+            q: "What is the Doppler effect?",
+            options: [
+                "A change in detected frequency or pitch caused by different velocities of the source and observer",
+                "A permanent increase in the source's actual frequency",
+                "A decrease in amplitude caused only by distance",
+                "The reflection of sound from a surface"
+            ],
+            correct: 0,
+            explain: "The Doppler effect is the change in detected frequency or pitch caused by relative motion between source and observer."
+        },
+
+        {
+            topic: "Doppler Effect",
+            q: "In the Doppler formula, what does f₀ represent?",
+            options: [
+                "The source's original frequency",
+                "The observed or apparent frequency",
+                "The observer's velocity",
+                "The source's velocity"
+            ],
+            correct: 1,
+            explain: "f₀ represents the observed or apparent frequency in Hz."
+        },
+
+        {
+            topic: "Doppler Effect",
+            q: "In the Doppler formula, what does fₛ represent?",
+            options: [
+                "The observed frequency",
+                "The observer's velocity",
+                "The frequency of the source",
+                "The speed of sound"
+            ],
+            correct: 2,
+            explain: "fₛ represents the frequency of the source in Hz."
+        },
+
+        {
+            topic: "Electric Charge",
+            q: "Which particle has a positive electric charge?",
+            options: [
+                "Electron",
+                "Neutron",
+                "Photon",
+                "Proton"
+            ],
+            correct: 3,
+            explain: "A proton has a positive charge."
+        },
+
+        {
+            topic: "Electric Charge",
+            q: "Which particle has a negative electric charge?",
+            options: [
+                "Electron",
+                "Proton",
+                "Neutron",
+                "Nucleus"
+            ],
+            correct: 0,
+            explain: "An electron has a negative charge."
+        },
+
+        {
+            topic: "Electric Charge",
+            q: "Which statement about the neutron is correct?",
+            options: [
+                "It has a positive charge equal to the proton",
+                "It has no net electric charge",
+                "It has a negative charge equal to the electron",
+                "It has twice the charge of a proton"
+            ],
+            correct: 1,
+            explain: "A neutron has no net electric charge."
+        },
+
+        {
+            topic: "Electric Charge",
+            q: "What is the SI unit of electric charge?",
+            options: [
+                "Newton",
+                "Volt",
+                "Coulomb",
+                "Ampere"
+            ],
+            correct: 2,
+            explain: "The SI unit of electric charge is the Coulomb (C)."
+        },
+
+        {
+            topic: "Electric Forces",
+            q: "What happens when two like charges interact?",
+            options: [
+                "They attract",
+                "They become neutral",
+                "They exchange their charges",
+                "They repel"
+            ],
+            correct: 3,
+            explain: "Like charges repel each other."
+        },
+
+        {
+            topic: "Electric Forces",
+            q: "What happens when two unlike charges interact?",
+            options: [
+                "They attract each other",
+                "They always repel each other",
+                "They lose all electric charge",
+                "They become identical charges"
+            ],
+            correct: 0,
+            explain: "Unlike charges attract each other."
+        },
+
+        {
+            topic: "Electric Charge",
+            q: "Which statement BEST describes the law of conservation of charge?",
+            options: [
+                "Charge can be created whenever two objects collide",
+                "Charge can neither be created nor destroyed, only transferred",
+                "Positive charge can be destroyed but negative charge cannot",
+                "The total charge always increases in an isolated system"
+            ],
+            correct: 1,
+            explain: "Charge can neither be created nor destroyed; it can only be transferred."
+        },
+
+        {
+            topic: "Conductors and Insulators",
+            q: "Which material is identified as a good electrical conductor?",
+            options: [
+                "Rubber",
+                "Plastic",
+                "Copper",
+                "Wood"
+            ],
+            correct: 2,
+            explain: "Copper is listed as an electrical conductor."
+        },
+
+        {
+            topic: "Conductors and Insulators",
+            q: "Which material is identified as an electrical insulator?",
+            options: [
+                "Copper",
+                "Silver",
+                "Aluminum",
+                "Rubber"
+            ],
+            correct: 3,
+            explain: "Rubber is listed as an electrical insulator."
+        },
+
+        {
+            topic: "Coulomb's Law",
+            q: "According to Coulomb's law, the magnitude of electrostatic force is directly proportional to what?",
+            options: [
+                "The magnitudes of both charges",
+                "The square of the distance",
+                "Only the distance between charges",
+                "The inverse of both charges"
+            ],
+            correct: 0,
+            explain: "Coulomb's law states that force is directly proportional to |q₁||q₂|."
+        },
+
+        {
+            topic: "Coulomb's Law",
+            q: "According to Coulomb's law, how does electrostatic force depend on distance r?",
+            options: [
+                "Directly proportional to r²",
+                "Inversely proportional to r²",
+                "Directly proportional to r",
+                "Independent of r"
+            ],
+            correct: 1,
+            explain: "Electrostatic force is inversely proportional to the square of the distance."
+        },
+
+        {
+            topic: "Coulomb's Law",
+            q: "Which equation correctly represents Coulomb's law?",
+            options: [
+                "F = kr²/|q₁q₂|",
+                "F = k|q₁q₂|r²",
+                "F = k|q₁||q₂|/r²",
+                "F = |q₁||q₂|/(kr²)"
+            ],
+            correct: 2,
+            explain: "Coulomb's law is F = k|q₁||q₂|/r²."
+        },
+
+        {
+            topic: "Centrifugal Force",
+            q: "Which equation represents the centrifugal force formula given in the reviewer?",
+            options: [
+                "Fc = mr/v²",
+                "Fc = mv/r",
+                "Fc = mr²/v",
+                "Fc = mv²/r"
+            ],
+            correct: 3,
+            explain: "The reviewer gives Fc = mv²/r."
+        },
+
+        {
+            topic: "Electric Field",
+            q: "How is electric field E defined in terms of electric force and test charge?",
+            options: [
+                "E = F/|q₀|",
+                "E = F|q₀|",
+                "E = |q₀|/F",
+                "E = F + |q₀|"
+            ],
+            correct: 0,
+            explain: "Electric field is defined as E = F/|q₀|."
+        },
+
+        {
+            topic: "Electric Field",
+            q: "What is the SI unit of electric field?",
+            options: [
+                "Coulomb per Newton (C/N)",
+                "Newton per Coulomb (N/C)",
+                "Newton-meter (N·m)",
+                "Coulomb-meter (C·m)"
+            ],
+            correct: 1,
+            explain: "The SI unit of electric field is Newton per Coulomb (N/C)."
+        },
+
+        {
+            topic: "Electric Field",
+            q: "The direction of the electric field is the same as the direction of the force on what kind of test charge?",
+            options: [
+                "A negative test charge",
+                "A neutral test charge",
+                "A positive test charge",
+                "Any charge regardless of sign"
+            ],
+            correct: 2,
+            explain: "The electric field direction is the same as the force direction on a positive test charge."
+        },
+
+        {
+            topic: "Electric Charge",
+            q: "What is the approximate magnitude of the charge of a proton according to the reviewer?",
+            options: [
+                "9.11 × 10⁻³¹ C",
+                "8.99 × 10⁹ C",
+                "1.675 × 10⁻²⁷ C",
+                "1.602 × 10⁻¹⁹ C"
+            ],
+            correct: 3,
+            explain: "The proton's charge is +1.602 × 10⁻¹⁹ C, while the electron's charge is −1.602 × 10⁻¹⁹ C."
+        }
+    ];
+
+</script>
+
+<!-- =====================================================
+     EXISTING QUIZ ENGINE
+====================================================== -->
+
+<script src="../js/quiz.js"></script>
+
+<!-- =====================================================
+     PDF REVIEWER
+====================================================== -->
+
+<script
+    type="module"
+    src="../js/pdf.js">
+</script>
+
+<!-- =====================================================
+     MODE SELECTION
+====================================================== -->
+
+<script src="../js/mode.js"></script>
 
 </body>
 </html>
