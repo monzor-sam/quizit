@@ -7,32 +7,32 @@
    SETTINGS
    ========================================= */
 
-const TIME_LIMIT = 30;
+const TIME_LIMIT = 3600;
 
 
 /* =========================================
    QUIZ VARIABLES
    ========================================= */
 
-   let activeQuestions = [];
+    let activeQuestions = [];
 
-let currentIndex = 0;
+    let currentIndex = 0;
 
-let score = 0;
+    let score = 0;
 
-let streak = 0;
+    let streak = 0;
 
-let bestStreak = 0;
+    let bestStreak = 0;
 
-let correctCount = 0;
+    let correctCount = 0;
 
-let missed = [];
+    let missed = [];
 
-let questionResults = [];
+    let questionResults = [];
 
-let timeLeft = TIME_LIMIT;
+    let timeLeft = TIME_LIMIT;
 
-let timer = null;
+    let timer = null;
 
 
 /* =========================================

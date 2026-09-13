@@ -11,22 +11,194 @@
 
     <title>QuizIT — ADVSTAT</title>
 
+
+    <!-- ==============================================
+         EXISTING MAIN CSS
+    =============================================== -->
+
     <link
         rel="stylesheet"
         href="../css/style.css">
+
+
+    <!-- ==============================================
+         PDF REVIEWER CSS
+    =============================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/pdf.css">
 
 </head>
 
 
 <body>
 
-
 <div id="app">
 
 
-    <!-- ================================================= -->
-    <!-- START SCREEN -->
-    <!-- ================================================= -->
+    <!-- =================================================
+         MODE SELECTION
+    ================================================== -->
+
+    <section id="modeScreen">
+
+        <div class="hero">
+
+
+            <div class="kicker">
+                ADVSTAT • CHOOSE MODE
+            </div>
+
+
+            <h1 class="title display">
+
+                Choose Your
+                <span>Mode</span>
+
+            </h1>
+
+
+            <p class="subtitle">
+
+                Review the lessons or test your knowledge.
+
+            </p>
+
+
+            <div class="mode-grid">
+
+
+                <!-- ======================================
+                     REVIEWER CARD
+                ======================================= -->
+
+                <button
+                    type="button"
+                    id="reviewerModeBtn"
+                    class="mode-card">
+
+
+                    <div class="mode-icon">
+                        📖
+                    </div>
+
+
+                    <h3>
+                        Reviewer
+                    </h3>
+
+
+                    <p>
+                        Read the complete ADVSTAT reviewer.
+                    </p>
+
+
+                    <span>
+                        Open Reviewer →
+                    </span>
+
+
+                </button>
+
+
+                <!-- ======================================
+                     QUIZ CARD
+                ======================================= -->
+
+                <button
+                    type="button"
+                    id="quizModeBtn"
+                    class="mode-card">
+
+
+                    <div class="mode-icon">
+                        📝
+                    </div>
+
+
+                    <h3>
+                        Quiz
+                    </h3>
+
+
+                    <p>
+                        Test your knowledge of ADVSTAT.
+                    </p>
+
+
+                    <span>
+                        Start Quiz →
+                    </span>
+
+
+                </button>
+
+
+            </div>
+
+
+            <!-- ==========================================
+                 BACK TO SUBJECTS
+            =========================================== -->
+
+            <a
+                href="../index.html"
+                class="btn btn-ghost mode-back">
+
+                ← Back to Subjects
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         REVIEWER SCREEN
+    ================================================== -->
+
+    <section
+        id="reviewerScreen"
+        style="display:none;">
+
+
+        <button
+            type="button"
+            id="reviewerBackBtn"
+            class="back-link reviewer-back-btn">
+
+            ← Choose Mode
+
+        </button>
+
+
+        <div
+            id="pdfViewer"
+            class="pdf-viewer">
+
+
+            <div
+                class="pdf-loading">
+
+                Loading reviewer...
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         START SCREEN
+    ================================================== -->
 
     <section id="startScreen">
 
@@ -36,16 +208,13 @@
                 ADVSTAT • REVIEWER
             </div>
 
-
             <h1 class="title display">
                 QuizIT <span>ADVSTAT</span>
             </h1>
 
-
             <p class="subtitle">
-                Advanced Statistics — Descriptive Statistics
+                Advanced Statistics
             </p>
-
 
             <div class="start-card">
 
@@ -53,33 +222,24 @@
                     📊
                 </div>
 
-
                 <h2>
                     Ready to Review?
                 </h2>
 
-
                 <p>
-                    Test your knowledge of descriptive statistics,
-                    data analysis, variability, and graphical presentation.
+                    Test your knowledge in probability distributions.
                 </p>
-
 
                 <button
                     class="btn btn-primary"
                     id="startBtn">
-
                     Start Reviewer →
-
                 </button>
-
 
                 <a
                     href="../index.html"
                     class="btn btn-ghost">
-
                     ← Back to Subjects
-
                 </a>
 
             </div>
@@ -90,16 +250,15 @@
 
 
 
-    <!-- ================================================= -->
-    <!-- QUIZ SCREEN -->
-    <!-- ================================================= -->
+    <!-- =================================================
+         QUIZ SCREEN
+    ================================================== -->
 
     <section
         id="quizScreen"
         style="display:none;">
 
         <div class="quiz-container">
-
 
             <!-- TOP BAR -->
 
@@ -108,27 +267,20 @@
                 <a
                     href="../index.html"
                     class="back-link">
-
                     ← Subjects
-
                 </a>
-
 
                 <div class="subject-label">
                     ADVSTAT
                 </div>
 
-
                 <div
                     class="timer"
                     id="timer">
-
                     15
-
                 </div>
 
             </div>
-
 
 
             <!-- PROGRESS -->
@@ -143,7 +295,6 @@
             </div>
 
 
-
             <!-- QUESTION INFO -->
 
             <div class="question-info">
@@ -152,11 +303,9 @@
                     Question 1
                 </span>
 
-
                 <span id="scoreDisplay">
                     Score: 0
                 </span>
-
 
                 <span id="streakDisplay">
                     🔥 0
@@ -165,17 +314,13 @@
             </div>
 
 
-
             <!-- TOPIC -->
 
             <div
                 class="pill"
                 id="topicLabel">
-
-                Statistics
-
+                IPT
             </div>
-
 
 
             <!-- QUESTION -->
@@ -183,9 +328,7 @@
             <h2
                 id="questionText"
                 class="question">
-
             </h2>
-
 
 
             <!-- ANSWERS -->
@@ -197,25 +340,18 @@
             </div>
 
 
-
-            <!-- ================================================= -->
-            <!-- FEEDBACK + EXPLANATION -->
-            <!-- ================================================= -->
+            <!-- FEEDBACK -->
 
             <div
                 id="feedback"
                 class="feedback-banner"
                 style="display:none;">
 
-                <div id="feedbackText">
-                </div>
+                <div id="feedbackText"></div>
 
-
-                <div id="explanation">
-                </div>
+                <div id="explanation"></div>
 
             </div>
-
 
 
             <!-- NEXT BUTTON -->
@@ -229,16 +365,15 @@
 
             </button>
 
-
         </div>
 
     </section>
 
 
 
-    <!-- ================================================= -->
-    <!-- RESULTS SCREEN -->
-    <!-- ================================================= -->
+    <!-- =================================================
+         RESULT SCREEN
+    ================================================== -->
 
     <section
         id="resultScreen"
@@ -246,36 +381,23 @@
 
         <div class="hero">
 
-
             <div class="kicker">
                 ADVSTAT • COMPLETE
             </div>
-
 
             <h1 class="title display">
                 Reviewer <span>Complete!</span>
             </h1>
 
-
             <div class="result-card">
 
-
-                <!-- RESULT ICON -->
-
                 <div class="result-icon">
-                    📊
+                    🏆
                 </div>
-
-
-                <!-- FINAL MESSAGE -->
 
                 <h2 id="finalMessage">
                     Great job!
                 </h2>
-
-
-
-                <!-- FINAL SCORE -->
 
                 <div class="final-score">
 
@@ -289,15 +411,9 @@
 
                 </div>
 
-
-
-                <!-- RESULT STATS -->
-
                 <div class="result-stats">
 
-
                     <div>
-
                         <strong id="correctCount">
                             0
                         </strong>
@@ -305,12 +421,9 @@
                         <span>
                             Correct
                         </span>
-
                     </div>
 
-
                     <div>
-
                         <strong id="totalCount">
                             0
                         </strong>
@@ -318,12 +431,9 @@
                         <span>
                             Questions
                         </span>
-
                     </div>
 
-
                     <div>
-
                         <strong id="bestStreak">
                             0
                         </strong>
@@ -331,51 +441,10 @@
                         <span>
                             Best Streak
                         </span>
-
                     </div>
-
 
                 </div>
 
-
-
-                <!-- ================================================= -->
-                <!-- COMPLETE QUESTION REVIEW -->
-                <!-- ================================================= -->
-
-                <div
-                    id="reviewWrap"
-                    class="review-wrap"
-                    style="display:none;">
-
-
-                    <div class="review-heading">
-
-                        📚 Question Review
-
-                    </div>
-
-
-                    <p class="review-subtitle">
-
-                        Review all the questions and check the
-                        explanations for the items you missed.
-
-                    </p>
-
-
-                    <div
-                        id="reviewList"
-                        class="review-list">
-
-                    </div>
-
-
-                </div>
-
-
-
-                <!-- TRY AGAIN -->
 
                 <button
                     class="btn btn-primary"
@@ -386,9 +455,6 @@
                 </button>
 
 
-
-                <!-- CHOOSE ANOTHER SUBJECT -->
-
                 <a
                     href="../index.html"
                     class="btn btn-ghost">
@@ -396,7 +462,6 @@
                     Choose Another Subject
 
                 </a>
-
 
             </div>
 
@@ -409,826 +474,772 @@
 
 
 
-<!-- ================================================= -->
-<!-- ADVSTAT QUESTION BANK -->
-<!-- ================================================= -->
+<!-- =====================================================
+     SUBJECT CONFIGURATION
+====================================================== -->
 
 <script>
 
-const SUBJECT = "ADVSTAT";
+    const SUBJECT = "ADVSTAT";
+    const REVIEWER_PDF = "../reviewers/advstat_midterm_reviewer.pdf";
 
 
-const QUESTIONS = [
+    /* =================================================
+       QUESTION BANK
+    ================================================== */
 
-    {
-        topic: "Problem Solving",
-        q: "For the dataset 3, 5, 2, 7, 6, 4, 9, what is the IQR?",
-        options: [
-            "7",
-            "4",
+    const QUESTIONS = [
+        {
+            topic: "Discrete Probability Distribution",
+            q: "Which condition must be satisfied by every probability in a discrete probability distribution?",
+            options: [
+            "Each probability must be between 0 and 1, inclusive.",
+            "Each probability must be greater than 1.",
+            "Each probability must be exactly 0.5.",
+            "Each probability must be negative."
+            ],
+            correct: 0,
+            explain: "The reviewer states that each probability must be between zero and one, inclusive."
+        },
+
+        {
+            topic: "Discrete Probability Distribution",
+            q: "The probabilities in a discrete probability distribution must add up to what value?",
+            options: [
+            "0",
+            "1",
             "10",
-            "5"
-        ],
-        correct: 1,
-        explain:
-            "Ordered data: 2, 3, 4, 5, 6, 7, 9. Q1 = 3 and Q3 = 7. IQR = Q3 − Q1 = 7 − 3 = 4."
-    },
+            "100"
+            ],
+            correct: 1,
+            explain: "All probabilities in a valid discrete probability distribution must sum to 1."
+        },
 
-    {
-        topic: "Statistics",
-        q: "Which field of statistics describes and summarizes data without making inferences about a larger group?",
-        options: [
-            "Probability",
-            "Experimental Statistics",
-            "Descriptive Statistics",
-            "Inferential Statistics"
-        ],
-        correct: 2,
-        explain:
-            "Descriptive Statistics focuses on collecting, organizing, summarizing, and presenting data."
-    },
+        {
+            topic: "Random Variables",
+            q: "Which is an example of a discrete random variable?",
+            options: [
+            "Weight of a person",
+            "Temperature of a room",
+            "Number of siblings a student has",
+            "Speed of a car"
+            ],
+            correct: 2,
+            explain: "The number of siblings is countable, making it a discrete random variable."
+        },
 
-    {
-        topic: "Variability",
-        q: "Which measure of variability is generally less affected by extreme values?",
-        options: [
-            "Range",
-            "IQR",
-            "Mean",
-            "Variance"
-        ],
-        correct: 1,
-        explain:
-            "IQR focuses on the middle 50% of the data, so extreme values have less effect on it."
-    },
+        {
+            topic: "Random Variables",
+            q: "Which characteristic best describes a continuous random variable?",
+            options: [
+            "It can only have two outcomes.",
+            "It must always be a whole number.",
+            "It has a fixed number of outcomes.",
+            "It can take an infinite number of values within a range."
+            ],
+            correct: 3,
+            explain: "A continuous random variable can take infinitely many possible values within a given range."
+        },
 
-    {
-        topic: "Central Tendency",
-        q: "What is the weighted mean of values 80 and 90 if their weights are 2 and 3 respectively?",
-        options: [
-            "87",
-            "88",
-            "86",
-            "85"
-        ],
-        correct: 2,
-        explain:
-            "Weighted Mean = [(80)(2) + (90)(3)] / (2 + 3) = (160 + 270) / 5 = 86."
-    },
+        {
+            topic: "CDF",
+            q: "What does a cumulative distribution function, or CDF, give?",
+            options: [
+            "The probability that X is less than or equal to a certain value.",
+            "Only the probability that X is greater than a certain value.",
+            "The average value of X only.",
+            "The number of possible values of X."
+            ],
+            correct: 0,
+            explain: "The reviewer defines the CDF as P(X ≤ x), the probability that X is less than or equal to a specified value."
+        },
 
-    {
-        topic: "Graphical Presentation",
-        q: "Which graph is appropriate for grouped numerical data across continuous intervals?",
-        options: [
-            "Bar Graph",
-            "Line Graph",
-            "Histogram",
-            "Pie Chart"
-        ],
-        correct: 2,
-        explain:
-            "A histogram displays grouped numerical data across intervals using adjacent bars."
-    },
+        {
+            topic: "CDF",
+            q: "A student reads 0, 1, 2, 3, or 4 books with probabilities 1/10, 2/10, 4/10, 2/10, and 1/10. What is P(X ≤ 2)?",
+            options: [
+            "0.3",
+            "0.7",
+            "0.6",
+            "0.4"
+            ],
+            correct: 1,
+            explain: "P(X ≤ 2) = 1/10 + 2/10 + 4/10 = 7/10 = 0.7."
+        },
 
-    {
-        topic: "Quartiles",
-        q: "What percentage of the data is below Q3?",
-        options: [
-            "90%",
-            "75%",
-            "25%",
-            "50%"
-        ],
-        correct: 1,
-        explain:
-            "Q3 is the third quartile and corresponds to the 75th percentile."
-    },
+        {
+            topic: "Expected Value",
+            q: "What does expected value represent?",
+            options: [
+            "The largest possible outcome.",
+            "The smallest possible outcome.",
+            "The long-term average or mean.",
+            "The probability of failure."
+            ],
+            correct: 2,
+            explain: "Expected value is the long-term average or weighted mean of a random variable."
+        },
 
-    {
-        topic: "Variability",
-        q: "What is the range of 5, 9, 12, 17, and 20?",
-        options: [
-            "12",
-            "25",
-            "15",
-            "20"
-        ],
-        correct: 2,
-        explain:
-            "Range = highest − lowest = 20 − 5 = 15."
-    },
+        {
+            topic: "Expected Value",
+            q: "A game pays ₱12 when a die shows 6 and ₱0 otherwise. What is the expected value?",
+            options: [
+            "₱1",
+            "₱6",
+            "₱12",
+            "₱2"
+            ],
+            correct: 3,
+            explain: "E(X) = (12)(1/6) + (0)(5/6) = ₱2."
+        },
 
-    {
-        topic: "Skewness",
-        q: "In a positively skewed distribution, where does the tail extend?",
-        options: [
-            "There is no tail",
-            "To the left",
-            "Equally in both directions",
-            "To the right"
-        ],
-        correct: 3,
-        explain:
-            "A positively skewed or right-skewed distribution has a tail extending toward the right."
-    },
+        {
+            topic: "Law of Large Numbers",
+            q: "According to the Law of Large Numbers, what happens as the number of trials increases?",
+            options: [
+            "The relative frequency approaches the theoretical probability.",
+            "The theoretical probability becomes zero.",
+            "The outcomes become identical.",
+            "The probability of every event becomes 0.5."
+            ],
+            correct: 0,
+            explain: "As the number of trials increases, the difference between theoretical probability and relative frequency approaches zero."
+        },
 
-    {
-        topic: "Central Tendency",
-        q: "Which measure represents the value that occurs most frequently?",
-        options: [
-            "Range",
-            "Mode",
-            "Median",
-            "Mean"
-        ],
-        correct: 1,
-        explain:
-            "The mode is the value that occurs most frequently in a data set."
-    },
+        {
+            topic: "Binomial Distribution",
+            q: "Which situation is most appropriate for a binomial distribution?",
+            options: [
+            "Measuring a person's exact height.",
+            "Counting the number of successes in a fixed number of independent trials.",
+            "Measuring waiting time until the next customer.",
+            "Selecting items without replacement."
+            ],
+            correct: 1,
+            explain: "Binomial distribution applies to a fixed number of trials with two outcomes and the same probability of success."
+        },
 
-    {
-        topic: "Quartiles",
-        q: "Using the formula (n + 1) × 1/4, what does the answer represent?",
-        options: [
-            "The IQR",
-            "The value of Q2",
-            "The position of Q1",
-            "The value of Q1 in every case"
-        ],
-        correct: 2,
-        explain:
-            "The formula first gives the position of Q1. If the position is a decimal, interpolation may be used to obtain the quartile value."
-    },
+        {
+            topic: "Binomial Distribution",
+            q: "In the FITS guide for identifying a binomial distribution, what does F represent?",
+            options: [
+            "Failure",
+            "Frequency",
+            "Fixed number of trials",
+            "Final probability"
+            ],
+            correct: 2,
+            explain: "F stands for Fixed number of trials."
+        },
 
-    {
-        topic: "Variance",
-        q: "Which formula is used for sample variance?",
-        options: [
-            "s² = Q3 − Q1",
-            "s² = Σ(xᵢ − x̄)² / (n − 1)",
-            "s² = Xmax − Xmin",
-            "s² = Σ(xᵢ − x̄) / n"
-        ],
-        correct: 1,
-        explain:
-            "Sample variance uses the denominator n − 1."
-    },
+        {
+            topic: "Binomial Distribution",
+            q: "In a binomial distribution, what does q represent?",
+            options: [
+            "Number of trials",
+            "Number of successes",
+            "Probability of success",
+            "Probability of failure, or 1 − p"
+            ],
+            correct: 3,
+            explain: "The reviewer defines q as the probability of failure, calculated as 1 − p."
+        },
 
-    {
-        topic: "Graphical Presentation",
-        q: "Which graph shows categories as portions of a whole?",
-        options: [
-            "Scatter Plot",
-            "Pie Chart",
-            "Histogram",
-            "Line Graph"
-        ],
-        correct: 1,
-        explain:
-            "A pie chart represents each category as a portion or sector of the whole."
-    },
+        {
+            topic: "Binomial Distribution",
+            q: "A student guesses on a 5-question true-or-false quiz. Each answer has a 0.5 probability of being correct. What is the probability of exactly 3 correct answers?",
+            options: [
+            "0.3125",
+            "0.2500",
+            "0.5000",
+            "0.6250"
+            ],
+            correct: 0,
+            explain: "Using the binomial formula, P(X = 3) = 5C3(0.5)^3(0.5)^2 = 0.3125."
+        },
 
-    {
-        topic: "Problem Solving",
-        q: "For the ordered data 3, 5, 7, 9, 12, 14, 16, 18, 21, 25, 28, what is Q3?",
-        options: [
-            "25",
-            "28",
-            "18",
-            "21"
-        ],
-        correct: 3,
-        explain:
-            "n = 11. Q3 position = (11 + 1)(3/4) = 9. The 9th value is 21."
-    },
-
-    {
-        topic: "Variability",
-        q: "What does MAD stand for?",
-        options: [
-            "Mean Adjusted Deviation",
-            "Mean Absolute Deviation",
-            "Median Absolute Distribution",
-            "Mean Average Difference"
-        ],
-        correct: 1,
-        explain:
-            "MAD stands for Mean Absolute Deviation."
-    },
-
-    {
-        topic: "Percentiles",
-        q: "What percentile is equivalent to Q2?",
-        options: [
-            "75th",
-            "40th",
-            "25th",
-            "50th"
-        ],
-        correct: 3,
-        explain:
-            "Q2 is the median and corresponds to the 50th percentile."
-    },
-
-    {
-        topic: "Outliers",
-        q: "Which formula is used to find the upper outlier limit?",
-        options: [
-            "Q3 + 1.5(IQR)",
-            "Q1 + 1.5(IQR)",
-            "Q3 − 1.5(IQR)",
-            "Q1 − 1.5(IQR)"
-        ],
-        correct: 0,
-        explain:
-            "The upper outlier limit is Q3 + 1.5(IQR)."
-    },
-
-    {
-        topic: "Central Tendency",
-        q: "Which formula is used to calculate the weighted mean?",
-        options: [
-            "x̄w = Σx / n",
-            "x̄w = Σx² / n",
-            "x̄w = Q3 − Q1",
-            "x̄w = Σ(wᵢxᵢ) / Σwᵢ"
-        ],
-        correct: 3,
-        explain:
-            "The weighted mean is calculated by multiplying each value by its weight, adding the products, and dividing by the sum of the weights."
-    },
-
-    {
-        topic: "Skewness",
-        q: "If Mean < Mode, what type of skewness is indicated?",
-        options: [
-            "Symmetric positive skew",
-            "Negative skewness",
-            "Zero skewness",
-            "Positive skewness"
-        ],
-        correct: 1,
-        explain:
-            "When the mean is less than the mode, the distribution is negatively skewed."
-    },
-
-    {
-        topic: "Problem Solving",
-        q: "Find the mean of 4, 7, 2, 9, 5, 7, 3, 8, and 7.",
-        options: [
-            "52",
-            "7",
-            "5.778",
-            "6.778"
-        ],
-        correct: 2,
-        explain:
-            "The sum is 52 and there are 9 values. Mean = 52 ÷ 9 = 5.778."
-    },
-
-    {
-        topic: "Data",
-        q: "What is the complete group of individuals or objects being studied called?",
-        options: [
-            "Statistic",
-            "Population",
-            "Sample",
-            "Variable"
-        ],
-        correct: 1,
-        explain:
-            "A population is the complete group of individuals or objects that a researcher is interested in studying."
-    },
-
-    {
-        topic: "Standard Deviation",
-        q: "If the variance is 25, what is the standard deviation?",
-        options: [
-            "25",
-            "625",
-            "5",
-            "10"
-        ],
-        correct: 2,
-        explain:
-            "Standard deviation = √25 = 5."
-    },
-
-    {
-        topic: "Deciles",
-        q: "Which decile corresponds to the 70th percentile?",
-        options: [
-            "D8",
-            "D7",
-            "D5",
-            "D6"
-        ],
-        correct: 1,
-        explain:
-            "D7 represents 70%, so D7 corresponds to the 70th percentile."
-    },
-
-    {
-        topic: "Graphical Presentation",
-        q: "Which graph is best for showing how a value changes over time?",
-        options: [
-            "Box Plot",
-            "Histogram",
-            "Pie Chart",
-            "Line Graph"
-        ],
-        correct: 3,
-        explain:
-            "A line graph is useful for showing trends and changes in values over time."
-    },
-
-    {
-        topic: "Problem Solving",
-        q: "If Q1 = 12 and Q3 = 28, what is the IQR?",
-        options: [
-            "40",
-            "16",
+        {
+            topic: "Binomial Distribution",
+            q: "A basketball player makes a free throw with probability 0.70. If the player takes 8 shots, which value represents n?",
+            options: [
+            "0.70",
             "8",
-            "20"
-        ],
-        correct: 1,
-        explain:
-            "IQR = Q3 − Q1 = 28 − 12 = 16."
-    },
-
-    {
-        topic: "Kurtosis",
-        q: "Which three types of kurtosis are discussed in descriptive statistics?",
-        options: [
-            "Mean, Median, Mode",
-            "Q1, Q2, Q3",
-            "Leptokurtic, Platykurtic, Mesokurtic",
-            "Positive, Negative, Zero"
-        ],
-        correct: 2,
-        explain:
-            "The three types of kurtosis are leptokurtic, platykurtic, and mesokurtic."
-    },
-
-    {
-        topic: "Central Tendency",
-        q: "What is the median of 3, 6, 8, 10, 12, 15?",
-        options: [
-            "9.5",
-            "8",
-            "9",
-            "10"
-        ],
-        correct: 2,
-        explain:
-            "There are 6 values, so take the average of the two middle values: (8 + 10) / 2 = 9."
-    },
-
-    {
-        topic: "Outliers",
-        q: "If Q3 = 30 and IQR = 10, what is the upper outlier limit?",
-        options: [
-            "45",
-            "15",
-            "35",
-            "40"
-        ],
-        correct: 0,
-        explain:
-            "Upper limit = Q3 + 1.5(IQR) = 30 + 15 = 45."
-    },
-
-    {
-        topic: "Percentiles",
-        q: "How many equal parts are created when data are divided into percentiles?",
-        options: [
-            "50",
-            "4",
-            "100",
-            "10"
-        ],
-        correct: 2,
-        explain:
-            "Percentiles divide ordered data into 100 equal parts."
-    },
-
-    {
-        topic: "Variability",
-        q: "What is the difference between the highest and lowest values in a data set?",
-        options: [
-            "Mean",
-            "Range",
-            "Variance",
-            "Standard Deviation"
-        ],
-        correct: 1,
-        explain:
-            "The range is calculated by subtracting the lowest value from the highest value."
-    },
-
-    {
-        topic: "Problem Solving",
-        q: "For the ordered data 10, 20, 30, 40, 50, 60, 70, 80, what is Q1 using interpolation?",
-        options: [
-            "30",
-            "22.5",
-            "25",
-            "20"
-        ],
-        correct: 1,
-        explain:
-            "Q1 position = (8 + 1) × 1/4 = 2.25. It lies 25% of the way from 20 to 30: 20 + 0.25(30 − 20) = 22.5."
-    },
-
-    {
-        topic: "Variance",
-        q: "What does a high variance generally indicate?",
-        options: [
-            "Values are more spread out from the mean",
-            "There are no outliers",
-            "The mode is high",
-            "Values are all equal"
-        ],
-        correct: 0,
-        explain:
-            "A high variance indicates that observations tend to be farther from the mean."
-    },
-
-    {
-        topic: "Graphical Presentation",
-        q: "What is the key visual difference between a bar graph and a histogram?",
-        options: [
-            "Bar graphs always use percentages",
-            "Histograms only use categories",
-            "Bar graphs cannot compare frequencies",
-            "Histogram bars represent continuous numerical intervals and touch"
-        ],
-        correct: 3,
-        explain:
-            "Histograms represent numerical intervals and their bars are adjacent, while bar graphs compare separate categories."
-    },
-
-    {
-        topic: "Problem Solving",
-        q: "If Q1 = 12 and IQR = 16, what is the lower outlier limit?",
-        options: [
-            "4",
-            "-12",
-            "36",
-            "−4"
-        ],
-        correct: 1,
-        explain:
-            "Lower limit = Q1 − 1.5(IQR) = 12 − 24 = −12."
-    },
-
-    {
-        topic: "Central Tendency",
-        q: "Which measure of central tendency is calculated by adding all values and dividing by the number of values?",
-        options: [
-            "Mode",
-            "Range",
-            "Mean",
-            "Median"
-        ],
-        correct: 2,
-        explain:
-            "The mean is calculated by adding all values and dividing the sum by the total number of values."
-    },
-
-    {
-        topic: "Kurtosis",
-        q: "What happens to the curve when the standard deviation is large?",
-        options: [
-            "The curve disappears",
-            "The curve becomes wider",
-            "The curve becomes narrower",
-            "The curve becomes a single point"
-        ],
-        correct: 1,
-        explain:
-            "A large standard deviation means greater spread, producing a wider curve."
-    },
-
-    {
-        topic: "Mean Absolute Deviation",
-        q: "Why are absolute values used when calculating MAD?",
-        options: [
-            "To find the median",
-            "To calculate the range",
-            "To make the variance zero",
-            "To prevent positive and negative deviations from canceling"
-        ],
-        correct: 3,
-        explain:
-            "Absolute values make all deviations positive so that they do not cancel each other when averaged."
-    },
-
-    {
-        topic: "Classification",
-        q: "A researcher wants to determine whether an observation is unusually high or low using the 1.5 × IQR rule. What should be calculated?",
-        options: [
-            "Weighted mean",
-            "Outlier limits",
-            "Mode",
-            "Mean"
-        ],
-        correct: 1,
-        explain:
-            "The lower and upper outlier limits are calculated using Q1 − 1.5(IQR) and Q3 + 1.5(IQR)."
-    },
-
-    {
-        topic: "Percentiles",
-        q: "Using Pk = (n + 1) × k/100, what does the result represent?",
-        options: [
-            "The variance",
-            "Always the exact percentile value",
-            "The percentile position",
-            "The range"
-        ],
-        correct: 2,
-        explain:
-            "The formula gives the position of the requested percentile. If the position is not an integer, interpolation may be used."
-    },
-
-    {
-        topic: "Skewness",
-        q: "What does skewness describe?",
-        options: [
-            "The middle 50%",
-            "The lack of symmetry of a distribution",
-            "The total number of observations",
-            "The most frequent value"
-        ],
-        correct: 1,
-        explain:
-            "Skewness describes the lack of symmetry in a distribution."
-    },
-
-    {
-        topic: "Quartiles",
-        q: "What does Q2 represent?",
-        options: [
-            "The third quartile",
-            "The maximum value",
-            "The median or 50th percentile",
-            "The first quartile"
-        ],
-        correct: 2,
-        explain:
-            "Q2 is the second quartile and is equal to the median or 50th percentile."
-    },
-
-    {
-        topic: "Standard Deviation",
-        q: "How is standard deviation related to variance?",
-        options: [
-            "Standard deviation is the IQR",
-            "Standard deviation is variance plus the mean",
-            "Standard deviation is variance squared",
-            "Standard deviation is the positive square root of variance"
-        ],
-        correct: 3,
-        explain:
-            "Standard deviation is obtained by taking the positive square root of variance."
-    },
-
-    {
-        topic: "Problem Solving",
-        q: "For the dataset 3, 5, 2, 7, 6, 4, 9, what is the mean?",
-        options: [
             "5",
-            "36",
-            "4.857",
-            "5.143"
-        ],
-        correct: 3,
-        explain:
-            "The sum is 36 and there are 7 observations. Mean = 36 ÷ 7 = 5.143."
-    },
+            "0.30"
+            ],
+            correct: 1,
+            explain: "In a binomial problem, n is the fixed number of trials. Here, there are 8 shots."
+        },
 
-    {
-        topic: "Problem Solving",
-        q: "What is the median of 4, 7, 2, 9, 5?",
-        options: [
-            "9",
-            "5",
+        {
+            topic: "Binomial Distribution",
+            q: "Which condition would violate the FITS requirements for a binomial distribution?",
+            options: [
+            "There are exactly 10 trials.",
+            "Each trial has success or failure.",
+            "The probability of success changes from one trial to another.",
+            "The trials are independent."
+            ],
+            correct: 2,
+            explain: "The same probability of success must remain constant for every trial."
+        },
+
+        {
+            topic: "Geometric Distribution",
+            q: "When is a geometric distribution used?",
+            options: [
+            "When there are infinitely many possible values.",
+            "When a fixed number of successes is required.",
+            "When sampling is done without replacement.",
+            "When trials are repeated until the first success."
+            ],
+            correct: 3,
+            explain: "Geometric distribution models repeated trials until the first success occurs."
+        },
+
+        {
+            topic: "Geometric Distribution",
+            q: "Which phrase is the strongest clue that a problem uses a geometric distribution?",
+            options: [
+            "First success on the 4th try",
+            "Exactly 4 successes out of 10 trials",
+            "Choose 4 without replacement",
+            "How many customers arrive in one hour?"
+            ],
+            correct: 0,
+            explain: "The reviewer identifies phrases such as 'first success' and 'on the 3rd/4th/5th try' as geometric clues."
+        },
+
+        {
+            topic: "Geometric Distribution",
+            q: "A basketball player has a 60% chance of making a free throw. What is the probability that the first successful shot occurs on the 4th try?",
+            options: [
+            "0.0640",
+            "0.0384",
+            "0.0960",
+            "0.1536"
+            ],
+            correct: 1,
+            explain: "P(X = 4) = (0.60)(0.40)^3 = 0.0384."
+        },
+
+        {
+            topic: "Geometric Distribution",
+            q: "In the geometric formula P(X = n) = p q^(n−1), what does n represent?",
+            options: [
+            "Probability of failure",
+            "Probability of success",
+            "Number of trials until the first success",
+            "Total number of possible outcomes"
+            ],
+            correct: 2,
+            explain: "n represents the number of the trial on which the first success occurs."
+        },
+
+        {
+            topic: "Hypergeometric Distribution",
+            q: "What is the biggest clue that a problem uses a hypergeometric distribution?",
+            options: [
+            "A fixed time interval",
+            "A first success",
+            "A waiting time",
+            "Sampling without replacement"
+            ],
+            correct: 3,
+            explain: "Hypergeometric distribution is used when selecting from a fixed population without replacement."
+        },
+
+        {
+            topic: "Hypergeometric Distribution",
+            q: "A company has 30 employees, including 12 managers and 18 regular employees. A committee of 7 is selected without replacement. What does N represent?",
+            options: [
+            "The total population, 30",
+            "The sample size, 7",
+            "The managers selected, 3",
+            "The regular employees, 18"
+            ],
+            correct: 0,
+            explain: "N represents the total number of items in the population, which is 30."
+        },
+
+        {
+            topic: "Hypergeometric Distribution",
+            q: "In a hypergeometric distribution, what does K represent?",
+            options: [
+            "Sample size",
+            "Total number of items in the group of interest",
+            "Number of selected items from the group",
+            "Total population"
+            ],
+            correct: 1,
+            explain: "K is the total number of items in the group of interest, or successes."
+        },
+
+        {
+            topic: "Hypergeometric Distribution",
+            q: "Using the company example with N = 30, K = 12, n = 7, and k = 3, what is the probability of selecting exactly 3 managers?",
+            options: [
+            "0.2307",
+            "0.4307",
+            "0.3307",
+            "0.5307"
+            ],
+            correct: 2,
+            explain: "Using the hypergeometric formula, P(3) = (12C3)(18C4)/(30C7) = 0.3307."
+        },
+
+        {
+            topic: "Poisson Distribution",
+            q: "What does a Poisson distribution measure?",
+            options: [
+            "The waiting time until an event.",
+            "The first success in repeated trials.",
+            "The probability of a continuous measurement.",
+            "The number of events occurring within a fixed interval."
+            ],
+            correct: 3,
+            explain: "Poisson distribution counts how many times an event occurs within a fixed interval of time or space."
+        },
+
+        {
+            topic: "Poisson Distribution",
+            q: "A coffee shop receives an average of 4 customers per hour. In a Poisson distribution, what is μ?",
+            options: [
             "4",
-            "7"
-        ],
-        correct: 1,
-        explain:
-            "Arrange the data: 2, 4, 5, 7, 9. The middle value is 5, so the median is 5."
-    },
+            "6",
+            "1",
+            "0.25"
+            ],
+            correct: 0,
+            explain: "The Poisson mean μ is the average number of occurrences in the interval, which is 4."
+        },
 
-    {
-        topic: "Deciles",
-        q: "How many equal parts are created when data are divided into deciles?",
-        options: [
-            "100",
-            "50",
-            "10",
-            "4"
-        ],
-        correct: 2,
-        explain:
-            "Deciles divide an ordered dataset into 10 equal parts."
-    },
+        {
+            topic: "Poisson Distribution",
+            q: "A coffee shop receives an average of 4 customers per hour. What is the probability that exactly 6 customers arrive in one hour?",
+            options: [
+            "0.2042",
+            "0.1042",
+            "0.3042",
+            "0.4042"
+            ],
+            correct: 1,
+            explain: "Using the Poisson formula P(X = 6) = (4^6 e^−4)/6! = 0.1042."
+        },
 
-    {
-        topic: "Classification",
-        q: "A researcher wants to describe how peaked or flat a distribution is. Which measure is appropriate?",
-        options: [
-            "Kurtosis",
-            "IQR",
-            "Skewness",
-            "Median"
-        ],
-        correct: 0,
-        explain:
-            "Kurtosis describes the degree of peakedness or flatness of a distribution."
-    },
+        {
+            topic: "Poisson Distribution",
+            q: "Which question is most naturally modeled using a Poisson distribution?",
+            options: [
+            "How long until the next customer arrives?",
+            "What is the first successful attempt?",
+            "How many customers arrive in one hour?",
+            "What is a student's exact height?"
+            ],
+            correct: 2,
+            explain: "Poisson focuses on HOW MANY events occur during a fixed interval."
+        },
 
-    {
-        topic: "Problem Solving",
-        q: "For the ordered data 3, 5, 7, 9, 12, 14, 16, 18, 21, 25, 28, what is Q1?",
-        options: [
-            "12",
-            "5",
-            "9",
-            "7"
-        ],
-        correct: 3,
-        explain:
-            "n = 11. Q1 position = (11 + 1)(1/4) = 3. The 3rd value is 7."
-    },
+        {
+            topic: "Continuous Random Variables",
+            q: "Which is an example of a continuous random variable from the reviewer?",
+            options: [
+            "Number of siblings",
+            "Number of correct answers",
+            "Number of customers",
+            "Weight"
+            ],
+            correct: 3,
+            explain: "Weight is measurable and can take infinitely many values within a range."
+        },
 
-    {
-        topic: "Outliers",
-        q: "A value is 50, Q3 is 30, and IQR is 10. Is 50 an outlier?",
-        options: [
-            "Only if it is the mode",
-            "Cannot be determined",
-            "Yes",
-            "No"
-        ],
-        correct: 2,
-        explain:
-            "Upper limit = 30 + 1.5(10) = 45. Since 50 is greater than 45, it is an outlier."
-    },
+        {
+            topic: "Continuous Random Variables",
+            q: "What does a probability density function describe for a continuous random variable?",
+            options: [
+            "The likelihood of the variable falling within a particular range.",
+            "Only the exact probability of one value.",
+            "The number of trials in an experiment.",
+            "The number of successes in a fixed sample."
+            ],
+            correct: 0,
+            explain: "The PDF describes the likelihood or density of a continuous variable over a range."
+        },
 
-    {
-        topic: "Graphical Presentation",
-        q: "Which graph uses separate bars to compare categories?",
-        options: [
-            "Line Graph",
-            "Bar Graph",
-            "Histogram",
-            "Pie Chart"
-        ],
-        correct: 1,
-        explain:
-            "A bar graph compares separate categories using distinct bars."
-    },
+        {
+            topic: "Normal Distribution",
+            q: "Which statement describes a normal distribution?",
+            options: [
+            "It is always negatively skewed.",
+            "It is symmetric with no skew.",
+            "It always has a mean of zero.",
+            "It can only contain whole numbers."
+            ],
+            correct: 1,
+            explain: "The reviewer describes the normal distribution as symmetric with no skew, or skew = 0."
+        },
 
-    {
-        topic: "Formula Identification",
-        q: "Which formula represents the sample mean?",
-        options: [
-            "MAD = Σ|xᵢ − x̄| / n",
-            "IQR = Q3 − Q1",
-            "μ = ΣX / N",
-            "x̄ = Σx / n"
-        ],
-        correct: 3,
-        explain:
-            "The sample mean is x̄ = Σx / n."
-    },
+        {
+            topic: "Normal Distribution",
+            q: "What effect does increasing the mean have on a normal distribution curve?",
+            options: [
+            "It makes the curve narrower.",
+            "It makes the curve wider.",
+            "It shifts the curve to the right.",
+            "It shifts the curve downward."
+            ],
+            correct: 2,
+            explain: "Increasing the mean moves the normal curve to the right."
+        },
 
-    {
-        topic: "Variability",
-        q: "What percentage of the data is represented by the IQR?",
-        options: [
-            "100%",
-            "25%",
-            "50%",
-            "75%"
-        ],
-        correct: 2,
-        explain:
-            "The IQR represents the spread of the middle 50% of the data."
-    },
+        {
+            topic: "Normal Distribution",
+            q: "What effect does a larger standard deviation have on a normal distribution?",
+            options: [
+            "It shifts the curve to the left.",
+            "It changes the mean to zero.",
+            "It makes the curve narrower.",
+            "It makes the curve wider."
+            ],
+            correct: 3,
+            explain: "A larger standard deviation stretches the curve, making it wider."
+        },
 
-    {
-        topic: "Skewness",
-        q: "If Mean > Mode, what type of skewness is indicated?",
-        options: [
-            "Zero skewness",
-            "Positive skewness",
-            "No skewness can exist",
-            "Negative skewness"
-        ],
-        correct: 1,
-        explain:
-            "When the mean is greater than the mode, the distribution is positively skewed."
-    },
+        {
+            topic: "Standard Normal Distribution",
+            q: "What are the mean and standard deviation of the standard normal distribution?",
+            options: [
+            "Mean = 0 and standard deviation = 1",
+            "Mean = 1 and standard deviation = 0",
+            "Mean = 0 and standard deviation = 0",
+            "Mean = 1 and standard deviation = 1"
+            ],
+            correct: 0,
+            explain: "The standard normal distribution has mean 0 and standard deviation 1."
+        },
 
-    {
-        topic: "Central Tendency",
-        q: "What is the median position formula for an ordered dataset?",
-        options: [
-            "(n − 1) / 2",
-            "2n / 4",
-            "(n + 1) / 2",
-            "n / 2"
-        ],
-        correct: 2,
-        explain:
-            "The median position formula is (n + 1) / 2."
-    },
+        {
+            topic: "Z-Score",
+            q: "Which formula is used to calculate a z-score?",
+            options: [
+            "z = x + μ / σ",
+            "z = (x − μ) / σ",
+            "z = σ / (x − μ)",
+            "z = xσ − μ"
+            ],
+            correct: 1,
+            explain: "The reviewer gives the z-score formula as z = (x − μ) / σ."
+        },
 
-    {
-        topic: "Problem Solving",
-        q: "If Q3 = 35 and IQR = 15, what is the upper outlier limit?",
-        options: [
-            "35",
-            "12.5",
-            "57.5",
-            "42.5"
-        ],
-        correct: 2,
-        explain:
-            "Upper limit = Q3 + 1.5(IQR) = 35 + 22.5 = 57.5."
-    },
+        {
+            topic: "Z-Score",
+            q: "A student's height is 160 cm, the mean is 165 cm, and the standard deviation is 5 cm. What is the z-score?",
+            options: [
+            "−2",
+            "−0.5",
+            "−1",
+            "1"
+            ],
+            correct: 2,
+            explain: "z = (160 − 165) / 5 = −5/5 = −1."
+        },
 
-    {
-        topic: "Kurtosis",
-        q: "What does kurtosis describe?",
-        options: [
-            "The range of the data",
-            "The average value",
-            "The middle value",
-            "The peakedness or flatness of a distribution"
-        ],
-        correct: 3,
-        explain:
-            "Kurtosis describes the degree of peakedness or flatness of a distribution relative to a normal distribution."
-    },
+        {
+            topic: "Z-Score",
+            q: "For the height example with μ = 165 cm, σ = 5 cm, and x = 160 cm, what is P(Z < −1) according to the reviewer?",
+            options: [
+            "0.8413",
+            "0.5000",
+            "0.3413",
+            "0.1587"
+            ],
+            correct: 3,
+            explain: "The reviewer gives P(Z < −1) = 0.1587, or 15.87%."
+        },
 
-    {
-        topic: "Graphical Presentation",
-        q: "Which graph is commonly used to display frequencies of numerical data using connected bars?",
-        options: [
-            "Scatter Plot",
-            "Histogram",
-            "Pie Chart",
-            "Line Graph"
-        ],
-        correct: 1,
-        explain:
-            "A histogram uses adjacent bars to represent the frequencies of numerical data grouped into intervals."
-    },
+        {
+            topic: "Z-Score",
+            q: "Which information is necessary when solving a typical normal-distribution probability using a z-score?",
+            options: [
+            "Mean, standard deviation, and the specific value or score.",
+            "Only the maximum value.",
+            "Only the number of trials.",
+            "Population size and sample size only."
+            ],
+            correct: 0,
+            explain: "The reviewer lists the mean, standard deviation, specific value, and requested probability or percentage as key information."
+        },
 
-    {
-        topic: "Data",
-        q: "What is a smaller group selected from a population?",
-        options: [
-            "Variable",
-            "Parameter",
-            "Population",
-            "Sample"
-        ],
-        correct: 3,
-        explain:
-            "A sample is a smaller group selected from a population and is often used to represent the larger population."
-    },
+        {
+            topic: "Exponential Distribution",
+            q: "What does an exponential distribution describe?",
+            options: [
+            "The number of successes in fixed trials.",
+            "The waiting time between events occurring at a constant rate.",
+            "The number of events in a fixed interval.",
+            "The probability of two events happening together."
+            ],
+            correct: 1,
+            explain: "Exponential distribution is used for waiting time until the next event when events occur at a constant rate."
+        },
 
-    {
-        topic: "Variance",
-        q: "What does variance measure?",
-        options: [
-            "The average squared deviation from the mean",
-            "The difference between Q3 and Q1",
-            "The most frequent value",
-            "The middle value"
-        ],
-        correct: 0,
-        explain:
-            "Variance is the average of the squared deviations from the mean."
-    }
+        {
+            topic: "Exponential Distribution",
+            q: "What symbol represents the rate parameter in an exponential distribution?",
+            options: [
+            "μ",
+            "σ",
+            "λ",
+            "x"
+            ],
+            correct: 2,
+            explain: "Lambda, λ, represents the rate of events per unit time."
+        },
 
-];
+        {
+            topic: "Exponential Distribution",
+            q: "A store receives an average of 2 customers per hour. What is the exponential PDF value at x = 0.5 hour?",
+            options: [
+            "0.2358",
+            "0.5358",
+            "0.9358",
+            "0.7358"
+            ],
+            correct: 3,
+            explain: "f(0.5) = 2e^(−2×0.5) = 2e^−1 = 0.7358."
+        },
+
+        {
+            topic: "Exponential Distribution",
+            q: "A store receives an average of 2 customers per hour. What is the probability that the next customer arrives within 30 minutes?",
+            options: [
+            "0.6321",
+            "0.3679",
+            "0.1353",
+            "0.5000"
+            ],
+            correct: 0,
+            explain: "Using F(x) = 1 − e^(−λx), with λ = 2 and x = 0.5, the probability is 0.6321."
+        },
+
+        {
+            topic: "Exponential Distribution",
+            q: "For an exponential distribution with λ = 2, what is P(X ≥ 1)?",
+            options: [
+            "0.8647",
+            "0.1353",
+            "0.6321",
+            "0.5000"
+            ],
+            correct: 1,
+            explain: "P(X ≥ x) = e^(−λx), so P(X ≥ 1) = e^−2 = 0.1353."
+        },
+
+        {
+            topic: "Poisson vs Exponential",
+            q: "Which pairing correctly distinguishes Poisson from exponential distributions?",
+            options: [
+            "Poisson = HOW LONG; Exponential = HOW MANY",
+            "Poisson = FIRST SUCCESS; Exponential = WITHOUT REPLACEMENT",
+            "Poisson = HOW MANY; Exponential = HOW LONG",
+            "Poisson = MEASURABLE; Exponential = DISCRETE"
+            ],
+            correct: 2,
+            explain: "The reviewer summarizes the distinction as Poisson = HOW MANY and Exponential = HOW LONG."
+        },
+
+        {
+            topic: "Joint Probability",
+            q: "What does joint probability represent?",
+            options: [
+            "The probability of only Event A.",
+            "The probability of Event A occurring after Event B.",
+            "The probability of neither event occurring.",
+            "The probability that two events happen together."
+            ],
+            correct: 3,
+            explain: "Joint probability is the probability of two events occurring together, written as P(A ∩ B)."
+        },
+
+        {
+            topic: "Joint Probability",
+            q: "If 60% of students like basketball and 40% like both basketball and volleyball, what is the joint probability of liking both?",
+            options: [
+            "0.40",
+            "0.60",
+            "1.00",
+            "0.20"
+            ],
+            correct: 0,
+            explain: "The joint probability given in the example is P(Basketball ∩ Volleyball) = 0.40."
+        },
+
+        {
+            topic: "Joint PMF",
+            q: "A joint probability table has P(X = 1, Y = 1) = 0.20. What does 0.20 represent?",
+            options: [
+            "The probability that X = 1 only.",
+            "The probability that both X = 1 and Y = 1 occur.",
+            "The probability that Y = 1 only.",
+            "The probability that neither X nor Y equals 1."
+            ],
+            correct: 1,
+            explain: "A joint PMF value P(X = x, Y = y) gives the probability that both specified values occur together."
+        },
+
+        {
+            topic: "Conditional Probability",
+            q: "Which formula represents conditional probability P(A | B)?",
+            options: [
+            "P(A) + P(B)",
+            "P(A)P(B)",
+            "P(A ∩ B) / P(B)",
+            "P(B) / P(A ∩ B)"
+            ],
+            correct: 2,
+            explain: "The conditional probability formula is P(A | B) = P(A ∩ B) / P(B)."
+        },
+
+        {
+            topic: "Conditional Probability",
+            q: "A class has 12 students who like basketball, and 8 of those students are boys. What is the probability of selecting a boy given that the student likes basketball?",
+            options: [
+            "0.40",
+            "0.50",
+            "0.3333",
+            "0.6667"
+            ],
+            correct: 3,
+            explain: "P(Boy | Basketball) = 8/12 = 0.6667, or 66.67%."
+        },
+
+        {
+            topic: "Conditional Probability",
+            q: "In conditional probability, the phrase 'given that' tells you what?",
+            options: [
+            "What should be used as the denominator.",
+            "What should always be multiplied by 100.",
+            "Which event must have probability zero.",
+            "Which event is impossible."
+            ],
+            correct: 0,
+            explain: "The condition after 'given that' identifies the event used in the denominator."
+        },
+
+        {
+            topic: "Bayes' Theorem",
+            q: "What is Bayes' Theorem commonly used to determine?",
+            options: [
+            "The number of events in a fixed interval.",
+            "The probability of a possible cause using observed evidence.",
+            "The waiting time until the next event.",
+            "The standard deviation of a distribution."
+            ],
+            correct: 1,
+            explain: "The reviewer explains that Bayes' Theorem is used when an observation or evidence is known and the probability of its possible cause is sought."
+        },
+
+        {
+            topic: "Bayes' Theorem",
+            q: "A school has 30% athletes. Among athletes, 80% bring a water bottle, while 20% of non-athletes do. If a student is known to bring a water bottle, what is P(Athlete | Water Bottle)?",
+            options: [
+            "0.3000",
+            "0.3800",
+            "0.6316",
+            "0.8000"
+            ],
+            correct: 2,
+            explain: "P(W) = (0.80)(0.30) + (0.20)(0.70) = 0.38. Then P(A|W) = (0.80)(0.30)/0.38 = 0.6316."
+        },
+
+        {
+            topic: "Marginal Probability",
+            q: "What is another name for marginal probability?",
+            options: [
+            "Joint probability",
+            "Conditional probability",
+            "Dependent probability",
+            "Unconditional probability"
+            ],
+            correct: 3,
+            explain: "The reviewer identifies marginal probability as unconditional probability."
+        },
+
+        {
+            topic: "Marginal Probability",
+            q: "A survey of 20 students shows 10 prefer volleyball. What is the marginal probability that a randomly selected student prefers volleyball?",
+            options: [
+            "0.50",
+            "0.25",
+            "0.10",
+            "0.75"
+            ],
+            correct: 0,
+            explain: "P(Volleyball) = 10/20 = 0.50, or 50%."
+        },
+
+        {
+            topic: "Marginal Probability",
+            q: "In the survey table, 6 students prefer Math and 14 prefer English out of 20 students. What is the marginal probability of preferring English?",
+            options: [
+            "0.30",
+            "0.70",
+            "0.40",
+            "0.60"
+            ],
+            correct: 1,
+            explain: "P(English) = 14/20 = 0.70, or 70%."
+        },
+
+        {
+            topic: "Distribution Identification",
+            q: "A researcher counts the number of phone calls received during one hour when the average rate is known. Which distribution is most appropriate?",
+            options: [
+            "Geometric",
+            "Exponential",
+            "Poisson",
+            "Normal"
+            ],
+            correct: 2,
+            explain: "Poisson distribution models the number of events occurring within a fixed interval when an average rate is given."
+        },
+
+        {
+            topic: "Distribution Identification",
+            q: "A researcher wants to know how long a person waits until the next phone call arrives. Which distribution is most appropriate?",
+            options: [
+            "Binomial",
+            "Hypergeometric",
+            "Poisson",
+            "Exponential"
+            ],
+            correct: 3,
+            explain: "Exponential distribution models waiting time until the next event."
+        }
+    ];
 
 </script>
 
-<!-- ================================================= -->
-<!-- SHARED QUIZ ENGINE -->
-<!-- ================================================= -->
+<!-- =====================================================
+     EXISTING QUIZ ENGINE
+====================================================== -->
 
 <script src="../js/quiz.js"></script>
 
+<!-- =====================================================
+     PDF REVIEWER
+====================================================== -->
+
+<script
+    type="module"
+    src="../js/pdf.js">
+</script>
+
+<!-- =====================================================
+     MODE SELECTION
+====================================================== -->
+
+<script src="../js/mode.js"></script>
 
 </body>
-
 </html>
