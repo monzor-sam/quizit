@@ -46,7 +46,7 @@
                 </h2>
 
                 <p>
-                    Test your knowledge and see how much you know about Networking Fundamentals, Static Routing, RIPv2, and OSPF.
+                    Test your knowledge and see how much you know about OSPF, DHCP, and NAT.
                 </p>
 
                 <button
@@ -327,692 +327,766 @@
      * ==========================================
      * QUESTION BANK
      * ==========================================
-     *
-     * Replace the questions below with the
-     * question bank for this subject.
-     *
-     * correct = zero-based index:
-     *
-     * 0 = first option
-     * 1 = second option
-     * 2 = third option
-     * 3 = fourth option
-     *
-     * The shared quiz.js will shuffle the
-     * answer choices automatically.
      */
 
     const QUESTIONS = [
-
-        // =================================================
-        // NETWORK ENGINEERING FUNDAMENTALS
-        // =================================================
-
         {
-            topic: "Network Engineering Fundamentals",
-            q: "What is the primary purpose of a network?",
+            topic: "OSPF",
+            q: "What is the first step in the OSPF Routing Engine Pipeline?",
             options: [
-                "To connect devices and enable communication and resource sharing",
-                "To replace all computer hardware",
-                "To store operating systems",
-                "To prevent devices from communicating"
+            "Discover neighbors via Hello packets",
+            "Run Dijkstra's SPF algorithm",
+            "Install routes in the routing table",
+            "Calculate the Shortest-Path Tree"
             ],
             correct: 0,
-            explain: "The presentation explains that networks allow devices to communicate and share resources such as hardware, data, and internet access."
+            explain: "OSPF first discovers neighbors using Hello packets."
         },
 
         {
-            topic: "Network Engineering Fundamentals",
-            q: "Which network type covers a small personal area, typically around 1–10 meters?",
+            topic: "OSPF",
+            q: "What does the LSDB contain?",
             options: [
-                "PAN",
-                "WAN",
-                "MAN",
-                "LAN"
+            "DHCP lease information",
+            "A complete topographical representation of the network",
+            "NAT translation entries",
+            "Only public IP addresses"
             ],
-            correct: 0,
-            explain: "A Personal Area Network (PAN) covers a very small area, approximately 1–10 meters."
+            correct: 1,
+            explain: "The LSDB contains the network's link-state information and represents the network topology."
         },
 
         {
-            topic: "Network Engineering Fundamentals",
-            q: "Which network type is designed for a local area such as a school or office?",
+            topic: "OSPF",
+            q: "Which algorithm does OSPF use to calculate the most efficient path?",
             options: [
-                "MAN",
-                "PAN",
-                "LAN",
-                "WAN"
+            "DORA",
+            "PAT",
+            "Dijkstra's Shortest-Path First algorithm",
+            "NAT"
             ],
             correct: 2,
-            explain: "A Local Area Network (LAN) covers a local area such as a school, laboratory, or office."
+            explain: "OSPF uses Dijkstra's SPF algorithm with the information stored in the LSDB."
         },
 
         {
-            topic: "Network Engineering Fundamentals",
-            q: "Which device forwards packets between different networks?",
+            topic: "OSPF",
+            q: "What is the final output of the OSPF routing process?",
             options: [
-                "Hub",
-                "Router",
-                "Access point",
-                "Switch"
-            ],
-            correct: 1,
-            explain: "A router forwards packets between different networks. This distinguishes it from a switch, which primarily connects devices within the same network."
-        },
-
-        {
-            topic: "Network Engineering Fundamentals",
-            q: "What is the primary function of a switch?",
-            options: [
-                "Route packets between different networks",
-                "Connect devices within the same network and forward frames to the correct destination",
-                "Assign public IP addresses",
-                "Encrypt all network traffic"
-            ],
-            correct: 1,
-            explain: "The presentation describes a switch as a device that connects devices within the same LAN and forwards frames to the appropriate destination."
-        },
-
-        {
-            topic: "Network Engineering Fundamentals",
-            q: "According to the presentation, which topology is identified as the primary blueprint for modern LANs and is easy to troubleshoot and expand?",
-            options: [
-                "Bus",
-                "Ring",
-                "Mesh",
-                "Star"
+            "A DHCP pool",
+            "A NAT translation",
+            "A Hello packet",
+            "The active routing table"
             ],
             correct: 3,
-            explain: "The presentation identifies the star topology as the primary blueprint for modern LANs because it is easy to troubleshoot and expand."
+            explain: "The SPF process produces the Shortest-Path Tree and finalizes the active routing table."
         },
 
         {
-            topic: "Network Engineering Fundamentals",
-            q: "In the OSI model, which layer is associated with logical addressing?",
+            topic: "Static Routing",
+            q: "Which routing method requires an administrator to manually configure specific routes?",
             options: [
-                "Data Link",
-                "Physical",
-                "Network",
-                "Transport"
-            ],
-            correct: 2,
-            explain: "Logical addressing is associated with the Network Layer (Layer 3) of the OSI model."
-        },
-
-        {
-            topic: "Network Engineering Fundamentals",
-            q: "Which OSI layer is associated with MAC addressing?",
-            options: [
-                "Data Link",
-                "Physical",
-                "Session",
-                "Network"
+            "Static routing",
+            "OSPF",
+            "PAT",
+            "DHCP"
             ],
             correct: 0,
-            explain: "MAC addressing is associated with the Data Link Layer (Layer 2)."
+            explain: "Static routing requires the administrator to manually enter routes."
         },
 
         {
-            topic: "Network Engineering Fundamentals",
-            q: "In the TCP/IP model, which layer corresponds to the OSI Network layer?",
+            topic: "Dynamic Routing",
+            q: "Which routing protocol dynamically discovers topology and calculates routes?",
             options: [
-                "Transport",
-                "Network Access",
-                "Application",
-                "Internet"
+            "Static routing",
+            "OSPF",
+            "DHCP",
+            "PAT"
+            ],
+            correct: 1,
+            explain: "OSPF dynamically discovers network topology and calculates the best routes."
+        },
+
+        {
+            topic: "OSPF Areas",
+            q: "Which OSPF area serves as the backbone?",
+            options: [
+            "Area 1",
+            "Area 10",
+            "Area 0",
+            "Area 255"
+            ],
+            correct: 2,
+            explain: "OSPF uses Area 0 as its backbone area."
+        },
+
+        {
+            topic: "OSPF Router ID",
+            q: "What type of identity does every OSPF router require?",
+            options: [
+            "A DHCP lease",
+            "A DNS address",
+            "A NAT address",
+            "A unique 32-bit Router ID"
             ],
             correct: 3,
-            explain: "The TCP/IP Internet layer corresponds to the OSI Network layer."
+            explain: "Every OSPF router requires a unique 32-bit Router ID within the autonomous system."
         },
 
         {
-            topic: "Network Engineering Fundamentals",
-            q: "In the IPv4 address 192.168.1.10/24, what does /24 represent?",
+            topic: "OSPF Metric",
+            q: "What metric does OSPF primarily use when selecting a route?",
             options: [
-                "Prefix length/subnet mask",
-                "Host address",
-                "Broadcast address",
-                "Default gateway"
+            "Cumulative cost",
+            "Lease duration",
+            "Port number",
+            "DNS priority"
             ],
             correct: 0,
-            explain: "The /24 indicates the network prefix length. In the presentation, /24 corresponds to the subnet mask 255.255.255.0."
+            explain: "OSPF prefers routes with the lowest cumulative cost."
         },
 
         {
-            topic: "Network Engineering Fundamentals",
-            q: "What is the broadcast address for the 192.168.20.0/24 network?",
+            topic: "OSPF Hello",
+            q: "What is one purpose of OSPF Hello packets?",
             options: [
-                "192.168.20.254",
-                "192.168.20.255",
-                "192.168.20.1",
-                "192.168.0.255"
-            ],
-            correct: 1,
-            explain: "For the 192.168.20.0/24 network, .255 is the broadcast address."
-        },
-
-        {
-            topic: "Network Engineering Fundamentals",
-            q: "Which command saves the running configuration so it persists after a reboot?",
-            options: [
-                "show ip interface brief",
-                "traceroute",
-                "copy running-config startup-config",
-                "show ip route"
+            "Assign IP addresses",
+            "Translate private addresses",
+            "Discover neighbors and ensure reachability",
+            "Create NAT pools"
             ],
             correct: 2,
-            explain: "This command saves the current running configuration to the startup configuration so it can be retained after a reboot."
+            explain: "Hello packets discover neighbors, ensure reachability, and help form relationships."
         },
 
-
-        // =================================================
-        // STATIC ROUTING
-        // =================================================
+        {
+            topic: "OSPF Adjacency",
+            q: "When can OSPF routers form an adjacency?",
+            options: [
+            "When required parameters match",
+            "When DHCP is disabled",
+            "When NAT is enabled",
+            "When all routes are static"
+            ],
+            correct: 0,
+            explain: "OSPF adjacency requires the relevant parameters to match correctly."
+        },
 
         {
-            topic: "Static Routing",
-            q: "What is routing?",
+            topic: "OSPF Configuration",
+            q: "In the sample single-area configuration, which area is used?",
             options: [
-                "The process of encrypting packets",
-                "The process of assigning MAC addresses",
-                "The process of creating user accounts",
-                "The process of forwarding packets from one network to another"
+            "Area 1",
+            "Area 2",
+            "Area 10",
+            "Area 0"
             ],
             correct: 3,
-            explain: "The static-routing presentation defines routing as the process of forwarding packets from one network to another."
+            explain: "The sample configurations place the networks in Area 0."
         },
 
         {
-            topic: "Static Routing",
-            q: "What does a router need in order to determine where to forward a packet?",
+            topic: "OSPF Commands",
+            q: "Which command displays OSPF neighbor information?",
             options: [
-                "A DNS server",
-                "A routing table",
-                "A switch configuration",
-                "A password database"
+            "show ip route",
+            "show ip ospf neighbor",
+            "show ip protocols",
+            "show ip ospf interface"
             ],
             correct: 1,
-            explain: "The router examines its routing table to determine where packets should be forwarded."
+            explain: "show ip ospf neighbor displays the neighbor ID, state, address, and interface."
         },
 
         {
-            topic: "Static Routing",
-            q: "Which of the following is directly connected to a router and automatically known by the router?",
+            topic: "OSPF Commands",
+            q: "Which command displays OSPF routes marked with O?",
             options: [
-                "A directly connected network",
-                "A remote network",
-                "A neighboring organization's network",
-                "An unknown network"
+            "show ip route",
+            "show ip ospf neighbor",
+            "show ip protocols",
+            "show ip ospf interface"
             ],
             correct: 0,
-            explain: "A router automatically knows about a directly connected network when the relevant interface is active."
+            explain: "show ip route displays OSPF routes and their route information."
         },
 
         {
-            topic: "Static Routing",
-            q: "How can a router learn about a remote network?",
+            topic: "OSPF Troubleshooting",
+            q: "Which can cause an OSPF neighbor relationship to fail?",
             options: [
-                "Only through DHCP",
-                "Only through a hub",
-                "Through manually configured static routes or dynamic routing protocols",
-                "Only through a switch"
-            ],
-            correct: 2,
-            explain: "Remote networks can be learned through manually configured static routes or dynamic routing protocols."
-        },
-
-        {
-            topic: "Static Routing",
-            q: "Which routing method requires manual configuration of routes?",
-            options: [
-                "RIP only",
-                "Static routing",
-                "Dynamic routing",
-                "OSPF only"
+            "A full DHCP pool",
+            "Mismatched Hello/Dead timers",
+            "An active PAT session",
+            "A valid DNS server"
             ],
             correct: 1,
-            explain: "Static routes are manually configured by the network administrator."
+            explain: "Mismatched Hello/Dead timers are listed as a cause of failed OSPF neighbor establishment."
         },
 
         {
-            topic: "Static Routing",
-            q: "Which is an advantage of static routing?",
+            topic: "OSPF Troubleshooting",
+            q: "Which command can help investigate a missing OSPF route?",
             options: [
-                "It automatically scales to very large networks",
-                "It requires no configuration",
-                "It automatically discovers topology changes",
-                "It is simple to implement and highly predictable"
+            "show ip protocols and show ip route",
+            "show ip nat translations only",
+            "show ip dhcp binding only",
+            "show ip ospf neighbor only"
+            ],
+            correct: 0,
+            explain: "The reviewer recommends show ip protocols and show ip route for missing OSPF routes."
+        },
+
+        {
+            topic: "DHCP",
+            q: "What does DHCP automatically provide to clients?",
+            options: [
+            "Only a public IP address",
+            "Only a DNS address",
+            "IP address, subnet mask, gateway, DNS server, and lease duration",
+            "Only a default gateway"
+            ],
+            correct: 2,
+            explain: "DHCP automatically provides the client's IP configuration and lease duration."
+        },
+
+        {
+            topic: "DHCP DORA",
+            q: "What is the first step of the DHCP DORA process?",
+            options: [
+            "Discover",
+            "Offer",
+            "Request",
+            "Acknowledgement"
+            ],
+            correct: 0,
+            explain: "Discover asks whether a DHCP server is available."
+        },
+
+        {
+            topic: "DHCP DORA",
+            q: "During which DORA step does the client accept a specific offered configuration?",
+            options: [
+            "Discover",
+            "Offer",
+            "Request",
+            "Acknowledgement"
+            ],
+            correct: 2,
+            explain: "Request is when the client accepts a specific offered configuration."
+        },
+
+        {
+            topic: "DHCP DORA",
+            q: "What happens during DHCP Acknowledgement?",
+            options: [
+            "The client searches for a server",
+            "The server sends an offer",
+            "The client requests an address",
+            "The lease is confirmed"
             ],
             correct: 3,
-            explain: "The presentation lists simplicity and predictability as advantages of static routing."
+            explain: "Acknowledgement confirms that the DHCP lease is assigned."
         },
 
         {
-            topic: "Static Routing",
-            q: "Which is a disadvantage of static routing?",
+            topic: "DHCP",
+            q: "What is the purpose of ip dhcp excluded-address?",
             options: [
-                "It requires manual configuration and can become difficult to maintain in large networks",
-                "It automatically changes routes too frequently",
-                "It cannot route packets",
-                "It always consumes large amounts of bandwidth"
+            "Prevent DHCP from handing out reserved addresses",
+            "Enable OSPF",
+            "Create NAT translations",
+            "Configure a DNS server"
             ],
             correct: 0,
-            explain: "Static routing requires manual updates. As a network grows, maintaining many routes becomes more difficult."
+            explain: "Excluded addresses are reserved for devices such as routers, switches, or servers."
         },
 
         {
-            topic: "Static Routing",
-            q: "In the command ip route 192.168.2.0 255.255.255.0 10.10.10.2, what does 192.168.2.0 represent?",
+            topic: "DHCP Pool",
+            q: "Which command defines the subnet and mask for a DHCP scope?",
             options: [
-                "Source network",
-                "Next-hop router",
-                "Destination network",
-                "Subnet mask"
+            "default-router",
+            "dns-server",
+            "network",
+            "ip helper-address"
             ],
             correct: 2,
-            explain: "In the static route command, 192.168.2.0 is the destination network the router wants to reach."
+            explain: "The network command defines the DHCP scope's subnet and mask."
         },
 
         {
-            topic: "Static Routing",
-            q: "In the command ip route 192.168.2.0 255.255.255.0 10.10.10.2, what does 255.255.255.0 represent?",
+            topic: "DHCP Pool",
+            q: "What does the default-router command specify?",
             options: [
-                "Default gateway",
-                "Destination network",
-                "Subnet mask",
-                "Next-hop router"
-            ],
-            correct: 2,
-            explain: "255.255.255.0 identifies the size of the destination network."
-        },
-
-        {
-            topic: "Static Routing",
-            q: "In the command ip route 192.168.2.0 255.255.255.0 10.10.10.2, what does 10.10.10.2 represent?",
-            options: [
-                "Next-hop router",
-                "Destination network",
-                "Broadcast address",
-                "Subnet mask"
-            ],
-            correct: 0,
-            explain: "10.10.10.2 identifies the next-hop router through which traffic should be forwarded."
-        },
-
-        {
-            topic: "Static Routing",
-            q: "Which command verifies that the routing table contains the manually configured route?",
-            options: [
-                "ping",
-                "show running-config",
-                "no shutdown",
-                "show ip route"
-            ],
-            correct: 3,
-            explain: "The presentation specifically uses show ip route to verify the routing table and confirm that the static route is present."
-        },
-
-        {
-            topic: "Static Routing",
-            q: "Which command is used to verify interface status and IP assignments?",
-            options: [
-                "show ip interface brief",
-                "traceroute",
-                "copy running-config startup-config",
-                "show ip route"
-            ],
-            correct: 0,
-            explain: "This command verifies interface status and IP address assignments."
-        },
-
-        {
-            topic: "Static Routing",
-            q: "If a router interface is down, which command is used in interface configuration mode to activate it?",
-            options: [
-                "show ip route",
-                "ip route",
-                "no shutdown",
-                "enable"
-            ],
-            correct: 2,
-            explain: "The presentation identifies no shutdown as the command used to activate an interface that is administratively down."
-        },
-
-
-        // =================================================
-        // RIPv2 FUNDAMENTALS
-        // =================================================
-
-        {
-            topic: "RIPv2 Fundamentals",
-            q: "What type of routing protocol is RIP?",
-            options: [
-                "Distance vector",
-                "Link-state",
-                "Hybrid switching protocol",
-                "Path vector"
-            ],
-            correct: 0,
-            explain: "RIP is presented as a distance-vector routing protocol."
-        },
-
-        {
-            topic: "RIPv2 Fundamentals",
-            q: "What metric does RIP primarily use to determine the best path?",
-            options: [
-                "Delay",
-                "Hop count",
-                "Cost",
-                "Bandwidth"
+            "The DNS server",
+            "The gateway IP address",
+            "The NAT pool",
+            "The OSPF Router ID"
             ],
             correct: 1,
-            explain: "RIP determines the route metric using hop count."
+            explain: "default-router specifies the gateway IP address given to DHCP clients."
         },
 
         {
-            topic: "RIPv2 Fundamentals",
-            q: "What is the maximum hop count supported by RIP?",
+            topic: "DHCP Relay",
+            q: "What does ip helper-address do?",
             options: [
-                "30 hops",
-                "Unlimited hops",
-                "15 hops",
-                "16 hops"
-            ],
-            correct: 2,
-            explain: "RIP has a maximum usable hop count of 15. A route requiring 16 hops is considered unreachable."
-        },
-
-        {
-            topic: "RIPv2 Fundamentals",
-            q: "How often does RIP send routing updates according to the presentation?",
-            options: [
-                "Every 30 seconds",
-                "Every 5 seconds",
-                "Every 60 seconds",
-                "Every 10 seconds"
+            "Forwards intercepted DHCP requests toward a remote server",
+            "Calculates OSPF cost",
+            "Creates NAT translations",
+            "Reserves DHCP addresses"
             ],
             correct: 0,
-            explain: "The presentation states that RIP sends routing updates every 30 seconds."
+            explain: "ip helper-address tells the interface where to forward intercepted DHCP requests."
         },
 
         {
-            topic: "RIPv2 Fundamentals",
-            q: "What is one major limitation of RIP?",
+            topic: "NAT",
+            q: "What is the purpose of Network Address Translation?",
             options: [
-                "It cannot exchange routing information",
-                "It has a 15-hop maximum, limiting scalability",
-                "It cannot use IP addressing",
-                "It only works with directly connected networks"
+            "Discover OSPF neighbors",
+            "Assign DHCP leases",
+            "Translate private IPv4 addresses into public addresses",
+            "Build the LSDB"
+            ],
+            correct: 2,
+            explain: "NAT translates internal private IPv4 addresses into public external addresses."
+        },
+
+        {
+            topic: "Static NAT",
+            q: "What mapping type does Static NAT use?",
+            options: [
+            "1:1 fixed mapping",
+            "Many:Pool",
+            "Many:1",
+            "1:Many"
+            ],
+            correct: 0,
+            explain: "Static NAT uses a fixed one-to-one mapping."
+        },
+
+        {
+            topic: "Dynamic NAT",
+            q: "What does Dynamic NAT require?",
+            options: [
+            "A DHCP server",
+            "A pool of public IP addresses",
+            "A single public IP and ports",
+            "An OSPF backbone"
             ],
             correct: 1,
-            explain: "The 15-hop limit is one of RIP's major scalability limitations."
+            explain: "Dynamic NAT uses a pool of public IP addresses."
         },
 
         {
-            topic: "RIPv2 Fundamentals",
-            q: "What does RIPv2 add compared with RIPv1?",
+            topic: "PAT",
+            q: "What mapping type does PAT use?",
             options: [
-                "Removal of authentication",
-                "VLSM support",
-                "Elimination of multicast",
-                "Removal of routing updates"
+            "1:1",
+            "Many:Pool",
+            "Many:1",
+            "1:Many"
+            ],
+            correct: 2,
+            explain: "PAT allows many private hosts to share one public IP address."
+        },
+
+        {
+            topic: "PAT",
+            q: "How does PAT distinguish separate active sessions?",
+            options: [
+            "By OSPF area IDs",
+            "By unique port numbers",
+            "By DHCP lease duration",
+            "By Router IDs"
             ],
             correct: 1,
-            explain: "The presentation's RIPv1 vs. RIPv2 comparison identifies VLSM support as a feature of RIPv2 that RIPv1 lacks."
+            explain: "PAT uses distinct source port numbers to separate sessions."
         },
 
         {
-            topic: "RIPv2 Fundamentals",
-            q: "What multicast address is used by RIPv2 for routing updates?",
+            topic: "NAT Interfaces",
+            q: "Which command marks an interface as an internal NAT interface?",
             options: [
-                "224.0.0.5",
-                "255.255.255.255",
-                "224.0.0.9",
-                "224.0.0.1"
-            ],
-            correct: 2,
-            explain: "RIPv2 uses the multicast address 224.0.0.9 for routing updates."
-        },
-
-        {
-            topic: "RIPv2 Fundamentals",
-            q: "Which command starts the RIP routing process?",
-            options: [
-                "show ip rip database",
-                "ip route",
-                "router ospf 1",
-                "router rip"
-            ],
-            correct: 3,
-            explain: "router rip starts the RIP routing process in the configuration shown."
-        },
-
-        {
-            topic: "RIPv2 Fundamentals",
-            q: "What does the command version 2 accomplish under the RIP configuration?",
-            options: [
-                "Enables RIPv2",
-                "Disables RIP",
-                "Changes the router hostname",
-                "Deletes routing information"
+            "ip nat inside",
+            "ip nat outside",
+            "ip helper-address",
+            "default-router"
             ],
             correct: 0,
-            explain: "The version 2 command tells the router to use RIPv2."
+            explain: "ip nat inside is applied to internal LAN interfaces."
         },
 
         {
-            topic: "RIPv2 Fundamentals",
-            q: "What does no auto-summary accomplish in the RIPv2 configuration shown?",
+            topic: "NAT Interfaces",
+            q: "Which command marks an interface as the external NAT interface?",
             options: [
-                "Removes all connected networks",
-                "Disables the routing process",
-                "Disables automatic route summarization",
-                "Enables automatic summarization"
-            ],
-            correct: 2,
-            explain: "no auto-summary disables automatic summarization, which is important for the addressing behavior demonstrated in the presentation."
-        },
-
-        {
-            topic: "RIPv2 Fundamentals",
-            q: "What does the RIP network command do?",
-            options: [
-                "Shuts down the interface",
-                "Advertises the connected network through RIP",
-                "Changes the router's hostname",
-                "Deletes the network from the routing table"
+            "ip nat inside",
+            "ip nat outside",
+            "network",
+            "dns-server"
             ],
             correct: 1,
-            explain: "The network command identifies the connected network that RIP should advertise."
+            explain: "ip nat outside is applied to the external ISP-facing interface."
         },
 
         {
-            topic: "RIPv2 Fundamentals",
-            q: "Which command displays the raw RIP routing database?",
+            topic: "PAT Configuration",
+            q: "Which keyword activates PAT/NAT Overload?",
             options: [
-                "show ip route",
-                "ping",
-                "show ip protocols",
-                "show ip rip database"
+            "network",
+            "inside",
+            "overload",
+            "outside"
             ],
-            correct: 3,
-            explain: "The presentation uses this command to display the raw RIP routing database."
+            correct: 2,
+            explain: "The overload keyword activates PAT."
         },
 
         {
-            topic: "RIPv2 Fundamentals",
-            q: "In the routing table entry R 192.168.2.0/24 [120/1] via 10.10.10.2, what does R indicate?",
+            topic: "PAT Configuration",
+            q: "What does the ACL used in the PAT setup identify?",
             options: [
-                "Routing error",
-                "RIP route",
-                "Router ID",
-                "Remote interface"
+            "The internal network permitted to be translated",
+            "The OSPF backbone",
+            "The DNS server",
+            "The external ISP"
+            ],
+            correct: 0,
+            explain: "The ACL identifies which internal private network is allowed to be translated."
+        },
+
+        {
+            topic: "DHCP Verification",
+            q: "Which command displays DHCP address bindings?",
+            options: [
+            "show ip route",
+            "show ip nat translations",
+            "show ip dhcp binding",
+            "show ip ospf neighbor"
+            ],
+            correct: 2,
+            explain: "show ip dhcp binding displays IP addresses, client information, lease expiration, and type."
+        },
+
+        {
+            topic: "NAT Verification",
+            q: "Which command displays NAT translation entries?",
+            options: [
+            "show ip dhcp binding",
+            "show ip nat translations",
+            "show ip protocols",
+            "show ip ospf interface"
             ],
             correct: 1,
-            explain: "The R code in the routing table indicates that the route was learned through RIP."
-        },
-
-
-        // =================================================
-        // OSPF
-        // =================================================
-
-        {
-            topic: "OSPF",
-            q: "What type of routing protocol is OSPF?",
-            options: [
-                "Static routing",
-                "Broadcast-only routing",
-                "Link-state",
-                "Distance vector"
-            ],
-            correct: 2,
-            explain: "OSPF is a link-state routing protocol."
+            explain: "show ip nat translations displays the active NAT translation information."
         },
 
         {
-            topic: "OSPF",
-            q: "What metric does OSPF use to determine the best path?",
+            topic: "Enterprise Integration",
+            q: "Which technology automates client provisioning?",
             options: [
-                "Cost based on bandwidth",
-                "Hop count",
-                "Update interval",
-                "Number of interfaces"
+            "DHCP",
+            "NAT/PAT",
+            "OSPF",
+            "Dijkstra"
             ],
             correct: 0,
-            explain: "The OSPF presentation describes its metric as cost, which is based on bandwidth."
+            explain: "DHCP automates client provisioning."
         },
 
         {
-            topic: "OSPF",
-            q: "Compared with RIP, what is a major scalability advantage of OSPF shown in the presentation?",
+            topic: "Enterprise Integration",
+            q: "Which technology translates private addressing for global Internet communication?",
             options: [
-                "OSPF requires manual route updates",
-                "OSPF has a maximum of 15 hops",
-                "OSPF does not use a routing table",
-                "OSPF has an unlimited design-limit hop count"
-            ],
-            correct: 3,
-            explain: "The comparison slide shows RIP with a 15-hop maximum while OSPF has an unlimited design-limit hop count."
-        },
-
-        {
-            topic: "OSPF",
-            q: "How does OSPF differ from RIP in terms of routing updates?",
-            options: [
-                "OSPF updates every 30 seconds",
-                "OSPF never sends routing information",
-                "OSPF updates only when the topology changes",
-                "OSPF requires manual updates"
-            ],
-            correct: 2,
-            explain: "Unlike RIP's periodic 30-second updates, OSPF sends updates based on topology changes."
-        },
-
-        {
-            topic: "OSPF",
-            q: "What is an OSPF area?",
-            options: [
-                "A type of subnet mask",
-                "A grouping of routers used to localize updates",
-                "A routing table code",
-                "A physical cable type"
+            "DHCP",
+            "NAT/PAT",
+            "OSPF",
+            "LSDB"
             ],
             correct: 1,
-            explain: "An OSPF area groups routers together to help localize link-state information and updates."
+            explain: "NAT/PAT translates private addressing for Internet communication."
         },
 
         {
-            topic: "OSPF",
-            q: "What is the backbone area in OSPF?",
+            topic: "Enterprise Integration",
+            q: "Which protocol dynamically shares routing intelligence between enterprise nodes?",
             options: [
-                "Area 0",
-                "Area 100",
-                "Area 1",
-                "Area 10"
-            ],
-            correct: 0,
-            explain: "Area 0 is the OSPF backbone area shown in the presentation."
-        },
-
-        {
-            topic: "OSPF",
-            q: "Which condition is required before OSPF routers can form a neighbor relationship according to the presentation?",
-            options: [
-                "They must use static routes",
-                "They must have identical hostnames",
-                "They must meet the required neighbor conditions, including matching area and IP connectivity",
-                "They must be on the same physical interface type only"
+            "DHCP",
+            "PAT",
+            "OSPF",
+            "DORA"
             ],
             correct: 2,
-            explain: "The presentation's Neighbor Gatekeeper shows that conditions such as interface status, area matching, IP connectivity, and timer synchronization must be satisfied before routers can form an adjacency."
+            explain: "OSPF dynamically shares routing information between enterprise nodes."
         },
 
         {
-            topic: "OSPF",
-            q: "What does the FULL state indicate in the OSPF neighbor output?",
+            topic: "Troubleshooting",
+            q: "If a client has no valid IP address, what should be checked first?",
             options: [
-                "The neighbor adjacency has been fully established",
-                "The routing table is empty",
-                "The interface is administratively down",
-                "The router is using RIP"
+            "DHCP pool and network settings",
+            "Only NAT translations",
+            "Only OSPF cost",
+            "Only DNS"
             ],
             correct: 0,
-            explain: "The FULL state indicates that the OSPF neighbor adjacency has been successfully established."
+            explain: "The workflow says to check the DHCP pool, network settings, and missing ip helper-address."
         },
 
         {
-            topic: "OSPF",
-            q: "Which command is used to verify OSPF neighbors?",
+            topic: "Troubleshooting",
+            q: "If a PC cannot ping its default gateway, what should be checked?",
             options: [
-                "show ip ospf neighbor",
-                "copy running-config startup-config",
-                "show ip interface brief",
-                "show ip rip database"
+            "The router interface IP and status",
+            "Only the DNS server",
+            "Only the NAT ACL",
+            "Only the Router ID"
             ],
             correct: 0,
-            explain: "The presentation uses this command to verify OSPF neighbors and their adjacency state."
+            explain: "The workflow recommends checking the router interface IP and status."
         },
 
         {
-            topic: "OSPF",
-            q: "In the OSPF routing table entry O 192.168.2.0/24 [110/65] via 10.10.10.2, what does O indicate?",
+            topic: "Troubleshooting",
+            q: "If a PC can ping its gateway but cannot reach the remote outside network, what should be checked?",
             options: [
-                "Original route",
-                "OSPF route",
-                "Offline route",
-                "Outgoing interface"
+            "Only DHCP",
+            "NAT configuration, ACL, overload, and OSPF advertisements",
+            "Only Router ID",
+            "Only DHCP exclusions"
             ],
             correct: 1,
-            explain: "The O routing-table code represents an OSPF-learned route."
+            explain: "The workflow directs troubleshooting toward NAT, the ACL, overload, and OSPF route advertisements."
         },
 
         {
-            topic: "OSPF",
-            q: "What is the correct wildcard mask for a /24 network?",
+            topic: "OSPF Engine",
+            q: "What information is exchanged after OSPF adjacency is established?",
             options: [
-                "0.0.0.255",
-                "255.255.255.0",
-                "0.255.255.255",
-                "255.255.0.0"
+            "Network states and link costs",
+            "DHCP passwords",
+            "Only public IP addresses",
+            "Only DNS names"
             ],
             correct: 0,
-            explain: "For a /24 network, the wildcard mask is 0.0.0.255, which is the inverse of 255.255.255.0."
+            explain: "Adjacency allows routers to exchange network states and link costs used to build the LSDB."
         },
 
         {
-            topic: "OSPF",
-            q: "Which statement best describes the OSPF lifecycle presented?",
+            topic: "OSPF Engine",
+            q: "What does Dijkstra's SPF algorithm use to calculate paths?",
             options: [
-                "DHCP → NAT → DNS → HTTP",
-                "Ping → Traceroute → Shutdown → Reboot",
-                "Initialization → Neighbor/adjacency formation → Link-state information exchange/mapping → SPF calculation",
-                "Initialization → Static route configuration → RIP update → Shutdown"
+            "The DHCP binding table",
+            "The complete topology stored in the LSDB",
+            "The NAT table",
+            "The DNS server"
             ],
-            correct: 2,
-            explain: "The OSPF lifecycle shown in the presentation progresses through initialization, neighbor formation, link-state mapping, and SPF calculation to determine the best paths."
+            correct: 1,
+            explain: "Dijkstra's SPF algorithm uses the complete topology stored in the LSDB."
+        },
+
+        {
+            topic: "Static Configuration",
+            q: "Why is static IP configuration considered unscalable for large environments?",
+            options: [
+            "It requires manual configuration",
+            "It automatically changes routes",
+            "It requires PAT",
+            "It disables DNS"
+            ],
+            correct: 0,
+            explain: "Static IP configuration requires administrators to manually enter settings."
+        },
+
+        {
+            topic: "Static NAT",
+            q: "What is a primary use case of Static NAT?",
+            options: [
+            "Exposing internal web or email servers to the Internet",
+            "Assigning DHCP leases",
+            "Discovering OSPF neighbors",
+            "Building the LSDB"
+            ],
+            correct: 0,
+            explain: "Static NAT can expose internal web or email servers using fixed mappings."
+        },
+
+        {
+            topic: "PAT",
+            q: "What is the primary use case of PAT listed in the reviewer?",
+            options: [
+            "Modern LAN outbound Internet access",
+            "Creating OSPF areas",
+            "Manually routing every destination",
+            "Assigning Router IDs"
+            ],
+            correct: 0,
+            explain: "PAT is described as the modern standard for LAN outbound Internet access."
+        },
+
+        {
+            topic: "Dynamic NAT",
+            q: "What happens when a Dynamic NAT public IP pool is exhausted?",
+            options: [
+            "Mappings can fail",
+            "OSPF creates another pool",
+            "DHCP stops providing DNS",
+            "PAT becomes Static NAT"
+            ],
+            correct: 0,
+            explain: "Dynamic NAT mappings can fail when the public IP pool is exhausted."
+        },
+
+        {
+            topic: "OSPF Troubleshooting",
+            q: "Which condition can prevent an OSPF neighbor relationship from forming?",
+            options: [
+            "Different Area IDs",
+            "A valid DHCP lease",
+            "A correct default gateway",
+            "An active NAT table"
+            ],
+            correct: 0,
+            explain: "Differing Area IDs are listed as a possible cause of failed OSPF adjacency."
+        },
+
+        {
+            topic: "OSPF Troubleshooting",
+            q: "What can cause Dijkstra's calculation to select an undesirable path?",
+            options: [
+            "Undesirable interface cost metrics",
+            "DHCP lease expiration",
+            "DNS selection",
+            "NAT port numbers"
+            ],
+            correct: 0,
+            explain: "Incorrect interface cost metrics can skew Dijkstra's calculation."
+        },
+
+        {
+            question: "Which information is included among the five key data inputs used by link-state protocols to build the LSDB?",
+            options: {
+                A: "Connected networks, router links, neighboring routers, network states, and link costs",
+                B: "MAC addresses, usernames, passwords, DNS records, and VLAN names",
+                C: "DHCP leases, NAT ports, subnet masks, DNS servers, and hostnames",
+                D: "Application data, transport ports, web requests, file names, and user accounts"
+            },
+            answer: "A"
+        },
+
+        {
+            question: "In an OSPF configuration, what is the purpose of the wildcard mask in a network statement?",
+            options: {
+                A: "It identifies the public IP address used by NAT",
+                B: "It specifies which IP addresses belong to the network being matched",
+                C: "It determines the DHCP lease duration",
+                D: "It identifies the DNS server for OSPF clients"
+            },
+            answer: "B"
+        },
+
+        {
+            question: "An OSPF neighbor does not become established even though both routers are connected. Which configuration issue is specifically listed in the reviewer as a possible cause?",
+            options: {
+                A: "The DHCP pool contains too many addresses",
+                B: "The NAT pool has been exhausted",
+                C: "The interface is configured as passive",
+                D: "The DNS server is unreachable"
+            },
+            answer: "C"
+        },
+
+        {
+            question: "Which DHCP setting determines how long a client may use its assigned IP configuration?",
+            options: {
+                A: "Network address",
+                B: "Lease duration",
+                C: "Default-router address",
+                D: "DNS server address"
+            },
+            answer: "B"
+        },
+
+        {
+            question: "A DHCP configuration includes a DNS server address. What information does this setting provide to DHCP clients?",
+            options: {
+                A: "The address of the DNS server they should use",
+                B: "The public address that NAT should translate",
+                C: "The OSPF router ID they should adopt",
+                D: "The address range that must be excluded from DHCP"
+            },
+            answer: "A"
+        },
+
+        {
+            question: "What happens with Dynamic NAT when all available public addresses in its pool are already being used?",
+            options: {
+                A: "The router automatically switches to Static NAT",
+                B: "The router assigns another private address",
+                C: "The mapping can fail because the pool is exhausted",
+                D: "The router converts the connection to an OSPF route"
+            },
+            answer: "C"
+        },
+
+        {
+            question: "Why can PAT support many private hosts while using only one public IP address?",
+            options: {
+                A: "It assigns a different subnet mask to every host",
+                B: "It uses unique source port numbers to distinguish sessions",
+                C: "It creates a separate public IP for every connection",
+                D: "It removes the private IP address from every packet"
+            },
+            answer: "B"
+        },
+
+        {
+            question: "Which interface designation should normally be applied to the router interface connected to the internal LAN when configuring NAT?",
+            options: {
+                A: "ip nat outside",
+                B: "ip nat inside",
+                C: "ip nat public",
+                D: "ip nat private"
+            },
+            answer: "B"
+        },
+
+        {
+            question: "Which command allows an administrator to verify the DHCP leases currently tracked by a Cisco router?",
+            options: {
+                A: "show ip dhcp binding",
+                B: "show ip ospf interface",
+                C: "show ip protocols",
+                D: "show ip route"
+            },
+            answer: "A"
+        },
+
+        {
+            question: "Which command displays the active NAT translation entries, including inside local and inside global addresses?",
+            options: {
+                A: "show ip dhcp binding",
+                B: "show ip ospf neighbor",
+                C: "show ip nat translations",
+                D: "show ip protocols"
+            },
+            answer: "C"
+        },
+
+        {
+            question: "A PC has a valid IP address and can ping its default gateway, but it cannot reach an outside network. According to the reviewer's troubleshooting workflow, what should be checked next?",
+            options: {
+                A: "Only the PC's hostname",
+                B: "NAT inside/outside designations, the NAT ACL, the overload keyword, and OSPF advertisements",
+                C: "Only the DHCP excluded-address range",
+                D: "Only the DNS server address"
+            },
+            answer: "B"
         }
-
     ];
 
 </script>

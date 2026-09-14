@@ -46,7 +46,7 @@
                 </h2>
 
                 <p>
-                    Test your knowledge of human information processing, vision, hearing, touch and movement, and memory.
+                    Test your knowledge of interaction design, HCI, usability, and user-centered design.
                 </p>
 
                 <button
@@ -329,972 +329,967 @@
     const SUBJECT = "HUMCOM+";
 
     const QUESTIONS = [
-
-        // =================================================
-        // PART I — THE HUMAN AND INFORMATION PROCESSING
-        // =================================================
-
         {
-            topic: "The Human and Information Processing",
-
-            q: "Which of the following best describes the human as presented in the lecture?",
-
+            topic: "Design",
+            q: "What is design?",
             options: [
-                "A system that only stores information",
-                "A system that receives, stores, processes, and applies information",
-                "A system that only responds to visual information",
-                "A system that operates independently of emotion"
+            "Making something look attractive",
+            "Achieving goals within constraints",
+            "Avoiding all user feedback",
+            "Creating code without requirements"
             ],
-
             correct: 1,
-
-            explain:
-                "The presentation describes the human as a system that receives information, stores it in memory, processes it, and applies it."
+            explain: "Design is achieving goals within constraints."
         },
 
-
         {
-            topic: "The Human and Information Processing",
-
-            q: "Which of the following is identified as a type of information input?",
-
+            topic: "Design",
+            q: "What do goals represent in design?",
             options: [
-                "Visual",
-                "Financial",
-                "Numerical",
-                "Linguistic only"
+            "The available programming language",
+            "The final color scheme",
+            "The purpose of the design",
+            "The number of users only"
             ],
-
-            correct: 0,
-
-            explain:
-                "Visual information is explicitly identified as one of the information input methods."
-        },
-
-
-        {
-            topic: "The Human and Information Processing",
-
-            q: "Which of the following is NOT one of the information input methods listed in the presentation?",
-
-            options: [
-                "Auditory",
-                "Haptic",
-                "Chemical",
-                "Visual"
-            ],
-
             correct: 2,
-
-            explain:
-                "The presentation lists visual, auditory, and haptic information among its input methods, but does not list chemical information."
+            explain: "Goals describe the purpose of the design."
         },
 
+        {
+            topic: "Design",
+            q: "Which is an example of a design constraint?",
+            options: [
+            "User satisfaction",
+            "User imagination",
+            "Time",
+            "A design goal"
+            ],
+            correct: 2,
+            explain: "Time is one of the constraints mentioned in the reviewer, along with materials, standards, expenses, health and safety, platforms, and copyright."
+        },
 
         {
-            topic: "The Human and Information Processing",
-
-            q: "Information received by humans can be stored in which three forms of memory?",
-
+            topic: "Design",
+            q: "What is a design trade-off?",
             options: [
-                "Visual, auditory, and tactile",
-                "Conscious, unconscious, and subconscious",
-                "Immediate, permanent, and emotional",
-                "Sensory, short-term, and long-term"
+            "Balancing competing goals and constraints",
+            "Ignoring constraints",
+            "Removing the users from the process",
+            "Avoiding prototypes"
             ],
+            correct: 0,
+            explain: "Design involves trade-offs because goals must be achieved within constraints."
+        },
 
+        {
+            topic: "Design",
+            q: "What is the golden rule of design?",
+            options: [
+            "Avoid user testing",
+            "Understand your materials",
+            "Design everything at once",
+            "Use the newest technology"
+            ],
+            correct: 1,
+            explain: "The reviewer identifies 'understand your materials' as the golden rule of design."
+        },
+
+        {
+            topic: "HCI",
+            q: "In HCI, what does 'understand your materials' include?",
+            options: [
+            "Understanding only computers",
+            "Understanding only programming languages",
+            "Understanding computers, people, and their interaction",
+            "Understanding only visual design"
+            ],
+            correct: 2,
+            explain: "HCI designers need to understand computers, people, and their interaction."
+        },
+
+        {
+            topic: "HCI",
+            q: "Which computer-related factors should an HCI designer understand?",
+            options: [
+            "Only screen size",
+            "Limitations, capacities, tools, and platforms",
+            "Only programming syntax",
+            "Only internet speed"
+            ],
+            correct: 1,
+            explain: "The reviewer specifically lists limitations, capacities, tools, and platforms."
+        },
+
+        {
+            topic: "HCI",
+            q: "Which human factors are important in HCI?",
+            options: [
+            "Only age",
+            "Only typing speed",
+            "Psychological and social aspects",
+            "Only technical skills"
+            ],
+            correct: 2,
+            explain: "Understanding people includes psychological and social aspects as well as human error."
+        },
+
+        {
+            topic: "Human Error",
+            q: "What does 'To err is human' emphasize?",
+            options: [
+            "Users should never make mistakes",
+            "Human error is normal and should be considered in design",
+            "Human error can always be eliminated",
+            "Only computers make errors"
+            ],
+            correct: 1,
+            explain: "The reviewer emphasizes that human error is normal and designers should design for it."
+        },
+
+        {
+            topic: "Human Error",
+            q: "What lesson is illustrated by the example of a concrete lintel breaking?",
+            options: [
+            "Users should always be blamed",
+            "Physical materials never fail",
+            "Design should account for known behavior and limits",
+            "Testing is unnecessary"
+            ],
+            correct: 2,
+            explain: "The example shows that failures should be considered as part of design rather than simply blamed on an 'error.'"
+        },
+
+        {
+            topic: "Human Error",
+            q: "How should designers respond to predictable human error?",
+            options: [
+            "Ignore it",
+            "Punish the user",
+            "Design for it",
+            "Remove all features"
+            ],
+            correct: 2,
+            explain: "The reviewer says designers should understand how users behave under stress and design for it."
+        },
+
+        {
+            topic: "HCI",
+            q: "What is the central message of the reviewer?",
+            options: [
+            "The database",
+            "The programmer",
+            "The interface",
+            "The user"
+            ],
             correct: 3,
-
-            explain:
-                "The three forms of memory identified in the presentation are sensory, short-term, and long-term memory."
+            explain: "The reviewer explicitly identifies 'the user' as the central message."
         },
 
-
         {
-            topic: "The Human and Information Processing",
-
-            q: "Which of the following is an example of information being processed and applied?",
-
+            topic: "Design Process",
+            q: "Which stage focuses on determining what is there and what is wanted?",
             options: [
-                "Reasoning",
-                "Sleeping",
-                "Hearing",
-                "Seeing"
+            "Requirements",
+            "Implementation",
+            "Deployment",
+            "Evaluation"
             ],
-
             correct: 0,
-
-            explain:
-                "Reasoning is explicitly listed as an example of information being processed and applied."
+            explain: "Requirements focus on understanding what is there and what is wanted."
         },
 
-
         {
-            topic: "The Human and Information Processing",
-
-            q: "Which factor is identified as influencing human capabilities?",
-
+            topic: "Design Process",
+            q: "What is the HCI focus during requirements?",
             options: [
-                "Clothing",
-                "Temperature only",
-                "Emotion",
-                "Height"
+            "Database design",
+            "User needs analysis",
+            "Network configuration",
+            "Server deployment"
             ],
-
-            correct: 2,
-
-            explain:
-                "The presentation specifically identifies emotion as a factor that influences human capabilities."
-        },
-
-
-        {
-            topic: "The Human and Information Processing",
-
-            q: "According to the presentation, why should designers consider individual users?",
-
-            options: [
-                "Everyone has identical abilities",
-                "Each person is different",
-                "All users process information at exactly the same speed",
-                "Humans have the same sensory capabilities"
-            ],
-
             correct: 1,
-
-            explain:
-                "The presentation emphasizes that each person is different, so designers should consider individual differences when designing interactions."
+            explain: "The HCI focus during requirements is user needs analysis."
         },
 
-
-        // =================================================
-        // PART II — VISION
-        // =================================================
-
         {
-            topic: "Vision",
-
-            q: "According to the presentation, vision involves how many main stages?",
-
+            topic: "Design Process",
+            q: "What is the HCI focus of analysis?",
             options: [
-                "Three",
-                "Four",
-                "One",
-                "Two"
+            "Task analysis, persona creation, and context of use",
+            "Writing source code",
+            "Choosing colors",
+            "Publishing documentation"
             ],
-
-            correct: 3,
-
-            explain:
-                "The presentation describes vision as involving two main stages: physical reception of the stimulus and processing or interpretation of the stimulus."
-        },
-
-
-        {
-            topic: "Vision",
-
-            q: "What is the first stage of vision?",
-
-            options: [
-                "Memory retrieval",
-                "Physical reception of the stimulus",
-                "Interpretation of the stimulus",
-                "Language processing"
-            ],
-
-            correct: 1,
-
-            explain:
-                "Physical reception of the stimulus is identified as the first stage of vision."
-        },
-
-
-        {
-            topic: "Vision",
-
-            q: "What happens during physical reception in the eye?",
-
-            options: [
-                "Memory is stored permanently",
-                "Language is decoded",
-                "Light is received and transformed into electrical energy",
-                "Sound is transformed into movement"
-            ],
-
-            correct: 2,
-
-            explain:
-                "During physical reception, the eye receives light and transforms it into electrical energy."
-        },
-
-
-        {
-            topic: "Vision",
-
-            q: "Where are images focused in the eye?",
-
-            options: [
-                "Retina",
-                "Cornea",
-                "Auditory nerve",
-                "Lens"
-            ],
-
             correct: 0,
-
-            explain:
-                "The presentation states that images are focused on the retina."
+            explain: "Analysis includes task analysis, persona creation, and understanding the context of use."
         },
 
-
         {
-            topic: "Vision",
-
-            q: "How are images focused on the retina?",
-
+            topic: "Design Process",
+            q: "What does analysis involve?",
             options: [
-                "Sideways",
-                "Horizontally only",
-                "Right-side up",
-                "Upside down"
+            "Only coding",
+            "Only testing",
+            "Ordering and understanding",
+            "Only deployment"
             ],
-
-            correct: 3,
-
-            explain:
-                "The presentation states that images focused on the retina are upside down."
-        },
-
-
-        {
-            topic: "Vision",
-
-            q: "Which cells in the retina are responsible for low-light vision?",
-
-            options: [
-                "Ganglion cells",
-                "Rods",
-                "Nociceptors",
-                "Cones"
-            ],
-
-            correct: 1,
-
-            explain:
-                "Rods are the retinal cells associated with vision in low-light conditions."
-        },
-
-
-        {
-            topic: "Vision",
-
-            q: "Which cells are associated with colour vision?",
-
-            options: [
-                "Cones",
-                "Rods",
-                "Mechanoreceptors",
-                "Thermoreceptors"
-            ],
-
-            correct: 0,
-
-            explain:
-                "Cones are the retinal cells associated with colour vision."
-        },
-
-
-        {
-            topic: "Vision",
-
-            q: "What do ganglion cells help detect?",
-
-            options: [
-                "Pain",
-                "Temperature and pressure",
-                "Sound frequency",
-                "Pattern and movement"
-            ],
-
-            correct: 3,
-
-            explain:
-                "The presentation identifies ganglion cells as helping detect pattern and movement."
-        },
-
-
-        {
-            topic: "Vision",
-
-            q: "What does visual acuity refer to?",
-
-            options: [
-                "Ability to identify sound quality",
-                "Ability to perceive detail",
-                "Ability to hear high frequencies",
-                "Ability to detect pain"
-            ],
-
-            correct: 1,
-
-            explain:
-                "Visual acuity refers to the ability to perceive visual detail."
-        },
-
-
-        {
-            topic: "Vision",
-
-            q: "What does saturation refer to in colour?",
-
-            options: [
-                "The size of an object",
-                "The brightness of light",
-                "The purity of colour",
-                "The distance of an object"
-            ],
-
             correct: 2,
-
-            explain:
-                "Saturation refers to the purity of a colour."
+            explain: "The reviewer describes analysis as ordering and understanding."
         },
 
-
         {
-            topic: "Vision",
-
-            q: "What does hue refer to?",
-
+            topic: "Design Process",
+            q: "What is the HCI focus during the design stage?",
             options: [
-                "What people generally think of when they say \"colour\"",
-                "The purity of a colour",
-                "The size of a visual object",
-                "The amount of light present"
+            "Usability principles",
+            "Server maintenance",
+            "Database backup",
+            "Network routing"
             ],
-
             correct: 0,
-
-            explain:
-                "The presentation describes hue as what people generally think of when they say colour."
+            explain: "The design stage focuses on usability principles."
         },
 
-
         {
-            topic: "Vision",
-
-            q: "What does value refer to in colour?",
-
+            topic: "Usability",
+            q: "Which is a usability principle mentioned in the reviewer?",
             options: [
-                "The physical size of an object",
-                "The distance between objects",
-                "Colour purity",
-                "The intensity, brightness, or lightness of a colour"
+            "Encryption",
+            "Consistency",
+            "Compression",
+            "Virtualization"
             ],
-
-            correct: 3,
-
-            explain:
-                "Value refers to the intensity, brightness, or lightness of a colour."
-        },
-
-
-        {
-            topic: "Vision",
-
-            q: "Which colour has the lowest acuity according to the presentation?",
-
-            options: [
-                "Yellow",
-                "Blue",
-                "Red",
-                "Green"
-            ],
-
             correct: 1,
-
-            explain:
-                "The presentation specifically identifies blue as having the lowest acuity."
+            explain: "Consistency is one of the usability principles listed."
         },
 
-
         {
-            topic: "Vision",
-
-            q: "Which of the following helps perception of size and depth?",
-
+            topic: "Usability",
+            q: "Which set contains usability principles from the reviewer?",
             options: [
-                "Timbre",
-                "Loudness",
-                "Overlapping",
-                "Pitch"
+            "Speed, storage, bandwidth, encryption",
+            "Routing, switching, addressing, NAT",
+            "Consistency, visibility, feedback, and affordance",
+            "HTML, CSS, SQL, and Python"
             ],
-
             correct: 2,
-
-            explain:
-                "Overlapping is identified as a visual cue that helps with the perception of size and depth."
+            explain: "The reviewer lists consistency, visibility, feedback, and affordance."
         },
 
-
         {
-            topic: "Vision",
-
-            q: "What does visual angle indicate?",
-
+            topic: "Design Process",
+            q: "What does the design stage determine?",
             options: [
-                "The frequency of light",
-                "How much of the field of view an object occupies",
-                "The purity of its colour",
-                "The brightness of an object"
+            "What to do and how to decide",
+            "Only how to deploy",
+            "Only how to code",
+            "Only how to advertise"
             ],
-
-            correct: 1,
-
-            explain:
-                "Visual angle indicates how much of the field of view an object occupies."
-        },
-
-
-        {
-            topic: "Vision",
-
-            q: "During reading, when does perception occur?",
-
-            options: [
-                "During fixations",
-                "During blinking only",
-                "During saccades",
-                "After reading is finished"
-            ],
-
             correct: 0,
-
-            explain:
-                "During reading, perception occurs during fixations, while the eyes move between them through saccades."
+            explain: "The design stage determines what to do and how to decide."
         },
 
-
         {
-            topic: "Vision",
-
-            q: "Which of the following is involved in interpreting written language?",
-
+            topic: "Iteration",
+            q: "What is the purpose of iteration and prototyping?",
             options: [
-                "Rods, cones, and ganglion cells",
-                "Heat, pressure, and pain",
-                "Pitch, loudness, and timbre",
-                "Syntax, semantics, and pragmatics"
+            "Avoiding evaluation",
+            "Finishing without feedback",
+            "Getting it right and finding what is really needed",
+            "Replacing users"
             ],
-
-            correct: 3,
-
-            explain:
-                "The presentation identifies syntax, semantics, and pragmatics as involved in interpreting written language."
-        },
-
-
-        {
-            topic: "Vision",
-
-            q: "According to the presentation, which improves reading from a computer screen?",
-
-            options: [
-                "No contrast",
-                "Pure blue background",
-                "Negative contrast",
-                "Positive contrast"
-            ],
-
             correct: 2,
-
-            explain:
-                "The presentation specifically states that negative contrast improves reading from a computer screen."
+            explain: "Iteration and prototyping help designers refine the design and discover what is really needed."
         },
 
-
-        // =================================================
-        // PART III — HEARING, TOUCH, AND MOVEMENT
-        // =================================================
-
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "What type of information can hearing provide about the environment?",
-
+            topic: "Iteration",
+            q: "What is the HCI focus of iteration and prototyping?",
             options: [
-                "Distances and directions",
-                "Colour and saturation",
-                "Visual angle",
-                "Body temperature only"
+            "Usability testing and iterative refinement",
+            "Writing requirements only",
+            "Server configuration",
+            "Copyright registration"
             ],
-
             correct: 0,
-
-            explain:
-                "Hearing can provide environmental information such as distances and directions."
+            explain: "The reviewer identifies usability testing and iterative refinement as the HCI focus."
         },
 
+        {
+            topic: "Implementation",
+            q: "What is the HCI focus of implementation and deployment?",
+            options: [
+            "Only drawing screens",
+            "Real-world evaluation and continuous improvement",
+            "Only writing personas",
+            "Only creating scenarios"
+            ],
+            correct: 1,
+            explain: "Implementation and deployment involve real-world evaluation and continuous improvement."
+        },
 
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "What is the main role of the outer ear?",
-
+            topic: "Implementation",
+            q: "What does implementation and deployment involve?",
             options: [
-                "Processes language",
-                "Stores sound permanently",
-                "Protects the inner ear and amplifies sound",
-                "Releases chemical transmitters"
+            "Only interviewing users",
+            "Only creating a prototype",
+            "Making it and getting it out there",
+            "Only writing documentation"
             ],
-
             correct: 2,
-
-            explain:
-                "The presentation identifies protecting the inner ear and amplifying sound as functions of the outer ear."
+            explain: "Implementation and deployment mean making the system and getting it out into the real world."
         },
 
-
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "What does the middle ear do?",
-
+            topic: "Trade-offs",
+            q: "Why are design trade-offs necessary?",
             options: [
-                "Controls movement",
-                "Transmits sound waves as vibrations to the inner ear",
-                "Detects pain",
-                "Detects colour"
+            "Designers have unlimited time",
+            "Time and other constraints limit design choices",
+            "Users do not matter",
+            "Prototypes cannot be evaluated"
             ],
-
             correct: 1,
-
-            explain:
-                "The middle ear transmits sound waves as vibrations to the inner ear."
+            explain: "Limited time and other constraints require designers to make trade-offs."
         },
 
-
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "What happens in the inner ear according to the presentation?",
-
+            topic: "Trade-offs",
+            q: "What does the reviewer mean by 'a perfect system is badly designed'?",
             options: [
-                "Light is converted to electrical energy",
-                "Chemical transmitters are released and cause impulses in the auditory nerve",
-                "Images are focused on the retina",
-                "Memory is stored"
+            "A perfect system is always good",
+            "A perfect system can be badly designed",
+            "A perfect system requires no users",
+            "A perfect system never needs testing"
             ],
-
             correct: 1,
-
-            explain:
-                "The presentation describes the inner ear as releasing chemical transmitters that cause impulses in the auditory nerve."
+            explain: "The reviewer explains that excessive effort toward perfection can itself indicate poor design decisions."
         },
 
+        {
+            topic: "Trade-offs",
+            q: "Why can a system that is 'too good' be badly designed?",
+            options: [
+            "It has no features",
+            "It cannot be implemented",
+            "Too much effort may have been spent in design",
+            "It has no documentation"
+            ],
+            correct: 2,
+            explain: "The reviewer notes that too much effort in design can make a system badly designed."
+        },
 
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "What does pitch refer to?",
-
+            topic: "User Focus",
+            q: "What is a key principle of user-focused design?",
             options: [
-                "Sound frequency",
-                "Sound duration",
-                "Sound quality",
-                "Sound amplitude"
+            "Avoid your user",
+            "Ignore your user",
+            "Know your user",
+            "Replace your user"
             ],
+            correct: 2,
+            explain: "The user-focus section begins with the principle 'know your user.'"
+        },
 
+        {
+            topic: "Users",
+            q: "Why should designers not assume users are like themselves?",
+            options: [
+            "All users have identical skills",
+            "Users may have different characteristics, needs, and abilities",
+            "Users cannot provide feedback",
+            "Designers always know best"
+            ],
+            correct: 1,
+            explain: "Designers need to understand real users rather than assuming users are like themselves."
+        },
+
+        {
+            topic: "Users",
+            q: "Which approaches are suggested for getting to know users?",
+            options: [
+            "Code, compile, and deploy",
+            "Test, encrypt, and publish",
+            "Talk to them, watch them, and use your imagination",
+            "Draw, color, and animate"
+            ],
+            correct: 2,
+            explain: "The reviewer recommends talking to users, watching them, and using imagination."
+        },
+
+        {
+            topic: "Persona",
+            q: "What is a persona?",
+            options: [
+            "A database record",
+            "A description of an example user",
+            "A programming language",
+            "A usability metric"
+            ],
+            correct: 1,
+            explain: "A persona is a description of an example user."
+        },
+
+        {
+            topic: "Persona",
+            q: "Is a persona necessarily a real person?",
+            options: [
+            "Yes, always",
+            "Only if they are interviewed",
+            "No",
+            "Only if they are a customer"
+            ],
+            correct: 2,
+            explain: "The reviewer states that a persona is not necessarily a real person."
+        },
+
+        {
+            topic: "Persona",
+            q: "How is a persona used in design?",
+            options: [
+            "As a server",
+            "As a database",
+            "As a surrogate or representative user",
+            "As a testing device"
+            ],
+            correct: 2,
+            explain: "A persona acts as a surrogate user and represents a particular user group."
+        },
+
+        {
+            topic: "Persona",
+            q: "Why do details matter in a persona?",
+            options: [
+            "They make the code shorter",
+            "They make the persona realistic",
+            "They eliminate all errors",
+            "They replace usability testing"
+            ],
+            correct: 1,
+            explain: "Relevant realistic details make the persona feel more real and useful for design decisions."
+        },
+
+        {
+            topic: "Persona",
+            q: "What does a persona represent?",
+            options: [
+            "Only the development team",
+            "Only a database table",
+            "A specific class or group of end-users",
+            "Only the project manager"
+            ],
+            correct: 2,
+            explain: "A persona represents a specific class or group of end-users."
+        },
+
+        {
+            topic: "Persona",
+            q: "What should a persona reflect?",
+            options: [
+            "Only the user's name",
+            "Only the user's income",
+            "Users' characteristics, needs, and behaviors",
+            "Only the user's device"
+            ],
+            correct: 2,
+            explain: "Personas should reflect the characteristics, needs, and behaviors of their target users."
+        },
+
+        {
+            topic: "Persona",
+            q: "Why does a persona give a human face to 'the user'?",
+            options: [
+            "It replaces the entire design process",
+            "It gives designers a specific person to think about",
+            "It makes the interface automatic",
+            "It eliminates constraints"
+            ],
+            correct: 1,
+            explain: "A persona makes the abstract idea of a user more concrete and easier to design for."
+        },
+
+        {
+            topic: "Persona",
+            q: "Which is relevant background information for a persona?",
+            options: [
+            "Router address",
+            "Source code",
+            "Age",
+            "Database password"
+            ],
+            correct: 2,
+            explain: "Age is one of the relevant background details listed for personas."
+        },
+
+        {
+            topic: "Persona",
+            q: "Which is another relevant persona detail?",
+            options: [
+            "Occupation",
+            "IP checksum",
+            "CPU temperature",
+            "File extension"
+            ],
             correct: 0,
-
-            explain:
-                "Pitch refers to the frequency of a sound."
+            explain: "Occupation is specifically listed as relevant persona information."
         },
 
-
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "What does loudness refer to?",
-
+            topic: "Persona",
+            q: "Which persona detail describes what the user wants to achieve?",
             options: [
-                "Timbre",
-                "Amplitude",
-                "Wavelength",
-                "Frequency"
+            "Ports",
+            "Protocols",
+            "Goals",
+            "Pixels"
             ],
-
-            correct: 1,
-
-            explain:
-                "Loudness is associated with the amplitude of a sound."
-        },
-
-
-        {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "What does timbre refer to?",
-
-            options: [
-                "Amplitude of sound",
-                "Direction of sound",
-                "Type or quality of sound",
-                "Frequency of sound"
-            ],
-
             correct: 2,
-
-            explain:
-                "Timbre refers to the type or quality of a sound."
+            explain: "Goals describe what the persona wants to achieve."
         },
 
-
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "According to the presentation, humans can hear frequencies approximately from:",
-
+            topic: "Persona",
+            q: "Which persona detail identifies difficulties the user experiences?",
             options: [
-                "100 Hz to 100 kHz",
-                "20 Hz to 15 kHz",
-                "1 kHz to 20 kHz",
-                "2 Hz to 2 kHz"
+            "Operating system version",
+            "Frustrations or problems",
+            "Screen resolution",
+            "Color preference"
             ],
-
             correct: 1,
-
-            explain:
-                "The presentation gives the approximate human hearing range as 20 Hz to 15 kHz."
+            explain: "Frustrations or problems are included in the relevant persona background information."
         },
 
-
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "Which sense provides important feedback about the environment and may be especially important for someone who is visually impaired?",
-
+            topic: "Persona",
+            q: "Which persona detail concerns what the user knows and can do technically?",
             options: [
-                "Vision",
-                "Smell",
-                "Hearing",
-                "Touch"
+            "Internet provider",
+            "Skills and technical knowledge",
+            "File size",
+            "Browser history"
             ],
-
-            correct: 3,
-
-            explain:
-                "The presentation identifies touch as providing important environmental feedback and notes its importance for someone who is visually impaired."
+            correct: 1,
+            explain: "Skills and technical knowledge help designers understand what the target user can realistically do."
         },
 
+        {
+            topic: "Persona",
+            q: "Which persona detail describes where and how the system will be used?",
+            options: [
+            "Database schema",
+            "Source code",
+            "Environment or context of use",
+            "Logo design"
+            ],
+            correct: 2,
+            explain: "Environment or context of use describes the circumstances in which the user interacts with the system."
+        },
 
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "Which receptors detect heat and cold?",
-
+            topic: "Cultural Probes",
+            q: "Why can direct observation sometimes be difficult?",
             options: [
-                "Thermoreceptors",
-                "Mechanoreceptors",
-                "Nociceptors",
-                "Ganglion cells"
+            "Observation is always automated",
+            "Some environments, such as homes, can be difficult to observe directly",
+            "Users never cooperate",
+            "Designers cannot watch users"
             ],
+            correct: 1,
+            explain: "The reviewer notes that direct observation can be difficult in environments such as the home."
+        },
 
+        {
+            topic: "Cultural Probes",
+            q: "What are probe packs?",
+            options: [
+            "Software packages",
+            "Database backups",
+            "Items given to people to prompt responses",
+            "Programming libraries"
+            ],
+            correct: 2,
+            explain: "Probe packs contain items intended to prompt people to respond and record meaningful experiences."
+        },
+
+        {
+            topic: "Cultural Probes",
+            q: "Which could be an item in a cultural probe pack?",
+            options: [
+            "A camera",
+            "A compiler",
+            "A router",
+            "A database server"
+            ],
             correct: 0,
-
-            explain:
-                "Thermoreceptors detect temperature sensations such as heat and cold."
+            explain: "The reviewer gives a camera as one example of an item in a probe pack."
         },
 
-
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "Which receptors detect pain?",
-
+            topic: "Cultural Probes",
+            q: "Where are probe packs intended to be used?",
             options: [
-                "Cones",
-                "Nociceptors",
-                "Mechanoreceptors",
-                "Thermoreceptors"
+            "Only in a laboratory",
+            "Only online",
+            "In people's own environments",
+            "Only at a developer's desk"
             ],
-
-            correct: 1,
-
-            explain:
-                "Nociceptors are the receptors identified with the detection of pain."
-        },
-
-
-        {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "Which receptors detect pressure?",
-
-            options: [
-                "Rods",
-                "Nociceptors",
-                "Thermoreceptors",
-                "Mechanoreceptors"
-            ],
-
-            correct: 3,
-
-            explain:
-                "Mechanoreceptors detect mechanical sensations such as pressure."
-        },
-
-
-        {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "What is kinethesis?",
-
-            options: [
-                "Ability to distinguish sound quality",
-                "Awareness of body position",
-                "Awareness of colour",
-                "Ability to recognize written words"
-            ],
-
-            correct: 1,
-
-            explain:
-                "The presentation defines kinethesis as awareness of body position."
-        },
-
-
-        {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "What is the approximate reaction time for a visual stimulus presented in the lecture?",
-
-            options: [
-                "700 ms",
-                "50 ms",
-                "200 ms",
-                "100 ms"
-            ],
-
             correct: 2,
-
-            explain:
-                "The presentation gives approximately 200 milliseconds as the reaction time for a visual stimulus."
+            explain: "Probe packs are given to people to use in their own environments."
         },
 
+        {
+            topic: "Cultural Probes",
+            q: "What do people record using cultural probes?",
+            options: [
+            "Only technical errors",
+            "What is meaningful to them",
+            "Only screen resolution",
+            "Only system performance"
+            ],
+            correct: 1,
+            explain: "Cultural probes allow people to record what is meaningful to them."
+        },
 
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "Which stimulus has the fastest reaction time among the three listed?",
-
+            topic: "Cultural Probes",
+            q: "How can cultural probes support the design process?",
             options: [
-                "Auditory",
-                "Pain",
-                "Visual",
-                "All are identical"
+            "They automatically write code",
+            "They eliminate users",
+            "They inform interviews, prompt ideas, and enculture designers",
+            "They replace all design work"
             ],
+            correct: 2,
+            explain: "The reviewer lists informing interviews, prompting ideas, and enculturing designers as uses."
+        },
 
+        {
+            topic: "Scenarios",
+            q: "What are scenarios in interaction design?",
+            options: [
+            "Database tables",
+            "Stories for design",
+            "Programming scripts",
+            "Network diagrams"
+            ],
+            correct: 1,
+            explain: "Scenarios are stories used for design."
+        },
+
+        {
+            topic: "Scenarios",
+            q: "What can scenarios help designers do?",
+            options: [
+            "Assign IP addresses",
+            "Encrypt data",
+            "Communicate with others",
+            "Compile programs"
+            ],
+            correct: 2,
+            explain: "Scenarios help communicate design ideas with others."
+        },
+
+        {
+            topic: "Scenarios",
+            q: "How can scenarios help validate other models?",
+            options: [
+            "By deleting the models",
+            "By avoiding users",
+            "A scenario can be played against other models",
+            "By changing the programming language"
+            ],
+            correct: 2,
+            explain: "Scenarios can be used to play through and validate other models."
+        },
+
+        {
+            topic: "Scenarios",
+            q: "What do scenarios help designers understand?",
+            options: [
+            "Only colors",
+            "Only source code",
+            "Dynamics",
+            "Only storage"
+            ],
+            correct: 2,
+            explain: "Scenarios help designers understand dynamics and how interactions unfold."
+        },
+
+        {
+            topic: "Scenarios",
+            q: "What does a step-by-step scenario walkthrough examine?",
+            options: [
+            "Only what the developer codes",
+            "Only the database",
+            "What users see, do, and think",
+            "Only network traffic"
+            ],
+            correct: 2,
+            explain: "A walkthrough considers what users can see, what they do, and what they are thinking."
+        },
+
+        {
+            topic: "Scenarios",
+            q: "Which user action can be included in a scenario?",
+            options: [
+            "Changing server hardware",
+            "Compiling the operating system",
+            "Using a keyboard or mouse",
+            "Changing a database engine"
+            ],
+            correct: 2,
+            explain: "Scenarios can describe user actions such as using a keyboard or mouse."
+        },
+
+        {
+            topic: "Scenarios",
+            q: "Why are scenarios reused throughout design?",
+            options: [
+            "They are only documentation",
+            "They help explore and validate the evolving design",
+            "They eliminate iteration",
+            "They replace requirements"
+            ],
+            correct: 1,
+            explain: "Scenarios are used and reused throughout the design process."
+        },
+
+        {
+            topic: "Play Acting",
+            q: "What is one way to play-act a scenario?",
+            options: [
+            "Delete the prototype",
+            "Mock up the device and pretend to perform the task",
+            "Deploy the final system",
+            "Write a database"
+            ],
+            correct: 1,
+            explain: "Designers can mock up a device and pretend to perform the interaction."
+        },
+
+        {
+            topic: "Interaction",
+            q: "What does exploring interaction ask?",
+            options: [
+            "What happens when?",
+            "What is the IP address?",
+            "How large is the database?",
+            "Who owns the server?"
+            ],
             correct: 0,
-
-            explain:
-                "The presentation gives approximately 150 ms for auditory stimuli, compared with approximately 200 ms for visual stimuli and 700 ms for pain."
+            explain: "Exploring interaction focuses on what happens when users interact with the system."
         },
 
-
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "According to the presentation, response time consists of:",
-
+            topic: "Cognition",
+            q: "What does exploring cognition focus on?",
             options: [
-                "Visual time + auditory time",
-                "Reaction time + movement time",
-                "Movement time + memory time",
-                "Reaction time − movement time"
+            "What the server costs",
+            "What users are thinking",
+            "What the database stores",
+            "What the network speed is"
             ],
-
             correct: 1,
-
-            explain:
-                "The presentation defines response time as reaction time plus movement time."
+            explain: "Cognition exploration focuses on what users are thinking."
         },
 
-
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "What does Fitts' Law describe?",
-
+            topic: "Architecture",
+            q: "What does exploring architecture focus on?",
             options: [
-                "The duration of sensory memory",
-                "The speed of hearing a sound",
-                "The time taken to hit a screen target",
-                "The time needed to memorize a word"
+            "Only what users see",
+            "Only the documentation",
+            "What is happening inside the system",
+            "Only interface colors"
             ],
-
             correct: 2,
-
-            explain:
-                "Fitts' Law describes the time taken to hit a screen target."
+            explain: "Architecture exploration examines what is happening inside the system."
         },
 
+        {
+            topic: "Scenarios",
+            q: "Who can scenarios help communicate with?",
+            options: [
+            "Only programmers",
+            "Only managers",
+            "Designers, clients, and users",
+            "Only testers"
+            ],
+            correct: 2,
+            explain: "The reviewer specifically identifies designers, clients, and users."
+        },
 
         {
-            topic: "Hearing, Touch, and Movement",
-
-            q: "According to Fitts' Law, which design makes a target easier to hit?",
-
+            topic: "Scenarios",
+            q: "What can screenshots primarily express in a scenario?",
             options: [
-                "Larger target and smaller distance",
-                "Smaller target and smaller distance",
-                "Larger target and greater distance",
-                "Smaller target and greater distance"
+            "Database normalization",
+            "Appearance",
+            "Network routing",
+            "Source code"
             ],
+            correct: 1,
+            explain: "Screenshots express appearance."
+        },
 
+        {
+            topic: "Scenarios",
+            q: "What can scenarios primarily express compared with screenshots?",
+            options: [
+            "File size",
+            "CPU speed",
+            "Behaviour",
+            "Database storage"
+            ],
+            correct: 2,
+            explain: "The reviewer contrasts screenshots as appearance with scenarios as behavior."
+        },
+
+        {
+            topic: "Linearity",
+            q: "What is one advantage of linear scenarios?",
+            options: [
+            "They include every possible branch",
+            "They are easy to understand",
+            "They eliminate all errors",
+            "They automatically generate alternatives"
+            ],
+            correct: 1,
+            explain: "Linear scenarios are easy to understand because stories and narratives are natural."
+        },
+
+        {
+            topic: "Linearity",
+            q: "Why are linear scenarios natural to understand?",
+            options: [
+            "They contain every possible branch",
+            "They use no users",
+            "Life and time are linear, and stories are natural",
+            "They are automatically generated"
+            ],
+            correct: 2,
+            explain: "The reviewer notes that life and time are linear, making stories and narratives natural."
+        },
+
+        {
+            topic: "Linearity",
+            q: "What is a major limitation of a single linear scenario?",
+            options: [
+            "It cannot describe users",
+            "It cannot be read",
+            "It does not show choices, branches, or special conditions",
+            "It always contains too many alternatives"
+            ],
+            correct: 2,
+            explain: "A single linear path cannot show choices, branches, or special conditions."
+        },
+
+        {
+            topic: "Linearity",
+            q: "What unintended aspect can a single linear scenario miss?",
+            options: [
+            "Only colors",
+            "Only passwords",
+            "Unintended situations or behavior",
+            "Only hardware"
+            ],
+            correct: 2,
+            explain: "The reviewer notes that linear scenarios can miss unintended aspects of interaction."
+        },
+
+        {
+            topic: "Linearity",
+            q: "What does the reviewer recommend because of scenario linearity limitations?",
+            options: [
+            "Use one scenario only",
+            "Avoid user involvement",
+            "Use several scenarios and several methods",
+            "Skip evaluation"
+            ],
+            correct: 2,
+            explain: "Because one scenario cannot show every possibility, the reviewer recommends several scenarios and methods."
+        },
+
+        {
+            topic: "Interaction Design",
+            q: "What should designers design rather than focusing only on interfaces?",
+            options: [
+            "Only databases",
+            "Interactions",
+            "Only source code",
+            "Only hardware"
+            ],
+            correct: 1,
+            explain: "The reviewer emphasizes designing interactions, not just interfaces."
+        },
+
+        {
+            topic: "Interaction Design",
+            q: "Why should designers consider more than the immediate interaction?",
+            options: [
+            "Technology can change the overall interaction style",
+            "Only the screen matters",
+            "Users never adapt",
+            "Documentation is irrelevant"
+            ],
             correct: 0,
-
-            explain:
-                "The presentation concludes that targets are easier to hit when they are larger and closer to the user."
+            explain: "The stapler example demonstrates how technology can change the style and sequence of interaction."
         },
 
-
-        // =================================================
-        // PART IV — MEMORY
-        // =================================================
-
         {
-            topic: "Memory",
-
-            q: "What are the three basic processes of memory?",
-
+            topic: "Interaction Design",
+            q: "Which example demonstrates how technology can change interaction style?",
             options: [
-                "Recognition, reaction, and movement",
-                "Thinking, reasoning, and solving",
-                "Seeing, hearing, and touching",
-                "Encoding, storage, and retrieval"
+            "A database versus spreadsheet",
+            "A router versus switch",
+            "A manual versus electric stapler",
+            "A keyboard versus monitor"
             ],
-
-            correct: 3,
-
-            explain:
-                "The three basic memory processes identified in the presentation are encoding, storage, and retrieval."
+            correct: 2,
+            explain: "The reviewer uses manual and electric staplers to illustrate changing interaction styles."
         },
 
+        {
+            topic: "Interventions",
+            q: "What should be designed besides the system itself?",
+            options: [
+            "Only the logo",
+            "Documentation, manuals, tutorials, and what people say and do",
+            "Only the source code",
+            "Only the database"
+            ],
+            correct: 1,
+            explain: "Design interventions include documentation, manuals, tutorials, and what people say and do."
+        },
 
         {
-            topic: "Memory",
-
-            q: "Which process involves getting information into memory?",
-
+            topic: "User Focus",
+            q: "Which statement best summarizes user-focused design?",
             options: [
-                "Encoding",
-                "Recognition",
-                "Retrieval",
-                "Storage"
+            "Design for the developer only",
+            "Ignore human error",
+            "Understand users and design around their needs, behavior, and context",
+            "Avoid observation"
             ],
+            correct: 2,
+            explain: "The reviewer repeatedly emphasizes understanding users and their characteristics, needs, behaviors, and context."
+        },
 
+        {
+            topic: "Iteration",
+            q: "What does the phrase 'never get it right first time!' emphasize?",
+            options: [
+            "The importance of iteration and refinement",
+            "The need to avoid prototypes",
+            "The need to skip testing",
+            "The need to finish immediately"
+            ],
             correct: 0,
-
-            explain:
-                "Encoding is the process of getting information into memory."
-        },
-
-
-        {
-            topic: "Memory",
-
-            q: "Which of the following is one of the three main types of retention presented?",
-
-            options: [
-                "Processing",
-                "Recall",
-                "Interpretation",
-                "Reasoning"
-            ],
-
-            correct: 1,
-
-            explain:
-                "Recall is one of the three main types of retention presented, along with recognition and relearning."
-        },
-
-
-        {
-            topic: "Memory",
-
-            q: "Which type of retention involves identifying information when it is presented?",
-
-            options: [
-                "Encoding",
-                "Relearning",
-                "Recognition",
-                "Recall"
-            ],
-
-            correct: 2,
-
-            explain:
-                "Recognition involves identifying information when it is presented."
-        },
-
-
-        {
-            topic: "Memory",
-
-            q: "Which type of long-term memory contains facts and general knowledge?",
-
-            options: [
-                "Procedural memory",
-                "Priming",
-                "Episodic memory",
-                "Semantic memory"
-            ],
-
-            correct: 3,
-
-            explain:
-                "Semantic memory is the type of long-term memory associated with facts and general knowledge."
-        },
-
-
-        {
-            topic: "Memory",
-
-            q: "Which type of reasoning derives a logically necessary conclusion from given premises?",
-
-            options: [
-                "Abductive reasoning",
-                "Deductive reasoning",
-                "Inductive reasoning",
-                "Associative reasoning"
-            ],
-
-            correct: 1,
-
-            explain:
-                "Deductive reasoning derives a logically necessary conclusion from given premises."
-        },
-
-
-        {
-            topic: "Memory",
-
-            q: "Which type of reasoning involves reasoning from an event to a possible cause?",
-
-            options: [
-                "Procedural reasoning",
-                "Inductive reasoning",
-                "Abductive reasoning",
-                "Deductive reasoning"
-            ],
-
-            correct: 2,
-
-            explain:
-                "Abductive reasoning involves reasoning from an event to a possible cause and can be used to generate hypotheses."
+            explain: "The phrase emphasizes that design should be iterative and refined through prototyping and evaluation."
         }
-
     ];
 
 </script>
